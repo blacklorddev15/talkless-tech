@@ -747,6 +747,56 @@ body.auth-locked .motion-backdrop{opacity:.55}
 .account-section{display:block!important}
 .order-panel-wrap{display:block!important;margin-top:24px}
 #account{display:block!important}
+
+/* Hero Auth Landing Card Styles */
+.hero-auth-card{position:relative;padding:24px 22px;border-radius:24px;background:linear-gradient(150deg,rgba(16,32,58,0.95),rgba(9,19,36,0.98))!important;border:1px solid rgba(66,227,245,0.45)!important;box-shadow:0 20px 60px rgba(0,0,0,0.65),0 0 35px rgba(22,141,255,0.25),inset 0 1px 1px rgba(255,255,255,0.15)!important;backdrop-filter:blur(20px);min-height:430px;display:flex;flex-direction:column;justify-content:center}
+.hero-auth-tabs{display:flex;gap:8px;padding:4px;background:rgba(4,12,24,0.6);border:1px solid rgba(255,255,255,0.1);border-radius:14px;margin-bottom:16px}
+.hero-tab{flex:1;padding:10px 14px;border:0;border-radius:11px;background:transparent;color:#9fc4e8;font:900 11px Orbitron,sans-serif;letter-spacing:1px;cursor:pointer;transition:all .2s ease;display:flex;align-items:center;justify-content:center;gap:6px}
+.hero-tab:hover{color:#fff;background:rgba(255,255,255,0.06)}
+.hero-tab.active{background:linear-gradient(100deg,#126bff,#20baff);color:#fff;box-shadow:0 4px 18px rgba(18,107,255,0.4)}
+.hero-auth-header{margin-bottom:14px}
+.hero-auth-header strong{display:block;font:900 17px Orbitron,sans-serif;color:#f5fbff;letter-spacing:-0.3px}
+.hero-auth-header small{color:#8ebfe8;font-size:11px}
+.hero-auth-form .field{margin:10px 0;display:flex;flex-direction:column;gap:5px}
+.hero-auth-form label{font-size:10px;font-weight:800;color:#85bde8;letter-spacing:0.5px;text-transform:uppercase}
+.hero-auth-form input{width:100%;padding:11px 13px;background:#051122!important;border:1px solid #20456d!important;border-radius:11px;color:#fff!important;font-size:13px;outline:none;transition:border-color .2s,box-shadow .2s}
+.hero-auth-form input:focus{border-color:#42e3f5!important;box-shadow:0 0 0 3px rgba(66,227,245,0.2)!important}
+.password-wrapper{position:relative;display:flex;align-items:center}
+.password-wrapper input{padding-right:40px}
+.toggle-pass-btn{position:absolute;right:10px;background:none;border:0;color:#70bbf4;cursor:pointer;font-size:14px;padding:4px}
+.auth-submit-btn{width:100%;margin-top:14px;padding:12px;border-radius:12px;font:900 12px Orbitron,sans-serif;letter-spacing:0.8px;background:linear-gradient(100deg,#126bff,#20baff);color:#fff;border:1px solid #75e6ff;box-shadow:0 8px 24px rgba(18,107,255,0.35);cursor:pointer;transition:transform .2s,filter .2s}
+.auth-submit-btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
+.register-gradient-btn{background:linear-gradient(100deg,#20baff,#126bff 50%,#8b5cf6);border-color:#b998ff}
+.hero-auth-divider{display:flex;align-items:center;gap:10px;margin:14px 0 10px;color:#6c8ea8;font:800 8px Orbitron,sans-serif;letter-spacing:1.5px}
+.hero-auth-divider:before,.hero-auth-divider:after{content:"";height:1px;flex:1;background:rgba(255,255,255,0.12)}
+.hero-auth-quick{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.google-mini-btn,.demo-mini-btn{padding:9px 10px;border-radius:10px;font-size:11px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:.2s}
+.google-mini-btn{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);color:#e8f4ff}
+.google-mini-btn:hover{background:rgba(255,255,255,0.15);border-color:#fff}
+.demo-mini-btn{background:linear-gradient(100deg,#09375e,#0c497a);border:1px solid #36a4f5;color:#7ae2ff}
+.demo-mini-btn:hover{filter:brightness(1.2);transform:translateY(-1px)}
+.hero-auth-switch{margin-top:13px;text-align:center;font-size:11px;color:#82a3c2}
+.hero-auth-switch a{color:#42e3f5;font-weight:800;text-decoration:underline;margin-left:4px}
+.hero-auth-active{padding:6px 0}
+.active-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;background:rgba(53,211,154,0.15);border:1px solid rgba(53,211,154,0.35);color:#35d39a;font:900 9px Orbitron,sans-serif;letter-spacing:1.2px;margin-bottom:14px}
+.active-dot{width:6px;height:6px;border-radius:50%;background:#35d39a;box-shadow:0 0 8px #35d39a}
+.active-user-card{display:flex;align-items:center;gap:12px;padding:14px;border-radius:14px;background:rgba(255,255,255,0.04);border:1px solid rgba(66,227,245,0.25);margin-bottom:14px}
+.active-avatar{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;font:900 18px Orbitron,sans-serif;background:linear-gradient(135deg,#167cff,#42e3f5);color:#06152a;box-shadow:0 0 16px rgba(66,227,245,0.4)}
+.active-user-info{min-width:0;flex:1}
+.active-user-info strong{display:block;font-size:14px;color:#f4fbff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.active-user-info span{display:block;font-size:11px;color:#82a9cb;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.active-stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.active-stat{padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);text-align:center}
+.active-stat small{display:block;font:800 8px Orbitron,sans-serif;letter-spacing:1px;color:#85bde8;margin-bottom:4px}
+.active-stat strong{font-size:20px;color:#42e3f5;font-weight:900}
+.active-actions{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.active-action-btn{padding:10px 14px;border-radius:11px;font:900 11px Orbitron,sans-serif;letter-spacing:0.6px;text-decoration:none;text-align:center;display:block}
+.active-action-btn.primary{background:linear-gradient(100deg,#126bff,#20baff);color:#fff;border:1px solid #75e6ff}
+.active-action-btn.secondary{background:rgba(255,255,255,0.06);border:1px solid rgba(66,227,245,0.3);color:#cbe8ff}
+.active-action-btn.tertiary{background:transparent;border:1px solid rgba(255,255,255,0.12);color:#8ebfe8}
+.active-logout-btn{width:100%;background:none;border:0;color:#ff7b91;font-size:11px;font-weight:800;cursor:pointer;padding:6px;text-align:center;transition:color .2s}
+.active-logout-btn:hover{color:#ff9fb1;text-decoration:underline}
+
 </style>
 </head>
 <body>
@@ -815,11 +865,12 @@ body.auth-locked .motion-backdrop{opacity:.55}
   </div>
 </div>
 <div class="preview-banner" id="previewBanner" hidden>PREVIEW MODE — You can explore the website. Payments, saved accounts and server creation are disabled until setup is complete.</div>
-<header><div class="wrap"><nav><a class="brand" href="#"><span class="brand-symbol" aria-label="TALKLESS TECH emblem"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 10h32v7H27v22h-7V17H8z" fill="currentColor"/><path d="M29 25h11v14H29z" fill="#5eeaff"/><path d="M33 29h4M33 33h4M33 37h4" stroke="#071326" stroke-width="1.8" stroke-linecap="round"/><circle cx="39" cy="8" r="3" fill="#ff718c"/></svg></span><span>TALKLESS <b>TECH</b></span></a><div class="navlinks"><a href="#wallet">01 Wallet</a><a href="#panels">02 Server plans</a><a href="#how">How it works</a><a href="#bot-links">Our bots</a></div><div class="nav-actions"><div class="nav-menu-wrap"><button class="menu-toggle" id="siteMenuToggle" type="button" aria-label="Open website menu" aria-expanded="false" aria-controls="siteMenu"><span></span><span></span><span></span></button><div class="site-menu" id="siteMenu" hidden><div class="site-menu-title">QUICK NAVIGATION</div><a href="#planDashboard"><span>01</span><div><b>New Server Plans</b><small>View all plans and prices</small></div><i>↗</i></a><a href="#panels"><span>02</span><div><b>Order a Server</b><small>Choose and order your package</small></div><i>↗</i></a><a href="#wallet"><span>03</span><div><b>Wallet & Top Up</b><small>Add coins to your account</small></div><i>↗</i></a><a href="#how"><span>04</span><div><b>How It Works</b><small>See the ordering steps</small></div><i>↗</i></a><a href="#bot-links"><span>05</span><div><b>Our Bots</b><small>TALKLESS XMD & TALK-SPAR</small></div><i>↗</i></a></div></div><a class="btn small" href="#panels">Explore servers ↗</a></div></nav></div></header>
+<header><div class="wrap"><nav><a class="brand" href="#"><span class="brand-symbol" aria-label="TALKLESS TECH emblem"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 10h32v7H27v22h-7V17H8z" fill="currentColor"/><path d="M29 25h11v14H29z" fill="#5eeaff"/><path d="M33 29h4M33 33h4M33 37h4" stroke="#071326" stroke-width="1.8" stroke-linecap="round"/><circle cx="39" cy="8" r="3" fill="#ff718c"/></svg></span><span>TALKLESS <b>TECH</b></span></a><div class="navlinks"><a href="login.html">Sign In / Register</a><a href="#wallet">01 Wallet</a><a href="#panels">02 Server plans</a><a href="#how">How it works</a><a href="#bot-links">Our bots</a></div><div class="nav-actions"><div class="nav-menu-wrap"><button class="menu-toggle" id="siteMenuToggle" type="button" aria-label="Open website menu" aria-expanded="false" aria-controls="siteMenu"><span></span><span></span><span></span></button><div class="site-menu" id="siteMenu" hidden><div class="site-menu-title">QUICK NAVIGATION</div><a href="login.html"><span>00</span><div><b>Customer Portal</b><small>Sign In or Register Account</small></div><i>↗</i></a><a href="#planDashboard"><span>01</span><div><b>New Server Plans</b><small>View all plans and prices</small></div><i>↗</i></a><a href="#panels"><span>02</span><div><b>Order a Server</b><small>Choose and order your package</small></div><i>↗</i></a><a href="#wallet"><span>03</span><div><b>Wallet & Top Up</b><small>Add coins to your account</small></div><i>↗</i></a><a href="#how"><span>04</span><div><b>How It Works</b><small>See the ordering steps</small></div><i>↗</i></a><a href="#bot-links"><span>05</span><div><b>Our Bots</b><small>TALKLESS XMD & TALK-SPAR</small></div><i>↗</i></a></div></div><a class="btn small" href="#panels">Explore servers ↗</a></div></nav></div></header>
 <div class="top-coin-bar" id="topCoinBar">
   <div class="top-coin-inner wrap">
     <div class="top-coin-brand"><span class="top-coin-icon">◉</span><div><b>COIN BALANCE</b><small>Your TALKLESS TECH wallet</small></div></div>
     <div class="top-coin-value"><strong id="topCoinBalance">0</strong><span>COINS</span></div>
+    <a class="top-coin-action top-coin-auth" href="login.html" id="topAuthLink">👤 SIGN IN / REGISTER</a>
     <a class="top-coin-action" href="#wallet">＋ TOP UP</a>
     <a class="top-coin-action top-coin-wallet" href="#wallet">◈ MY WALLET</a>
     <a class="top-coin-action top-coin-admin" href="#adminDashboard">⚙ ADMIN</a>
@@ -847,7 +898,138 @@ body.auth-locked .motion-backdrop{opacity:.55}
 <section class="hero">
 <div><div class="eyebrow">Reliable hosting • Simple ordering</div><h1>Your servers.<br><span>Your control.</span></h1><p>Sign in once, keep your coins and server history tied to your account, then tap a plan. When your wallet has enough coins, your server order is submitted automatically.</p>
 <div class="countrywide-note"><span class="countrywide-icon">◎</span><span><strong>REACHING YOU COUNTRYWIDE</strong><small>Digital hosting access across Kenya and beyond</small></span><i>✦</i></div><a class="btn" href="#panels">Explore server plans →</a></div>
-<div class="hero-card"><div class="eyebrow">TALKLESS TECH / STORE</div><div class="big">SERVER SHOP</div><p class="muted">Straightforward server plans with a clean ordering experience.</p><div class="stat"><span>Packages</span><strong>6 options</strong></div><div class="stat"><span>Starting from</span><strong>KSh 65</strong></div><div class="stat"><span>Payment options</span><strong>M-Pesa • PayPal</strong></div></div>
+<div class="hero-card hero-auth-card" id="heroAuthCard">
+  <div id="heroAuthForms">
+    <div class="hero-auth-tabs" role="tablist">
+      <button type="button" class="hero-tab active" id="tabLoginBtn" onclick="switchHeroAuthTab('login')" role="tab" aria-selected="true">
+        <span>🔑</span> SIGN IN
+      </button>
+      <button type="button" class="hero-tab" id="tabRegisterBtn" onclick="switchHeroAuthTab('register')" role="tab" aria-selected="false">
+        <span>✨</span> REGISTER
+      </button>
+    </div>
+
+    <!-- Login Form -->
+    <form id="heroLoginForm" class="hero-auth-form" onsubmit="submitHeroLogin(event)">
+      <div class="hero-auth-header">
+        <strong>Customer Sign In</strong>
+        <small>Access your wallet, server panels & orders</small>
+      </div>
+      
+      <div class="field">
+        <label for="heroLoginEmail">Email Address / Phone</label>
+        <input id="heroLoginEmail" type="text" placeholder="you@example.com or 07XX..." required autocomplete="username">
+      </div>
+      
+      <div class="field">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <label for="heroLoginPassword" style="margin:0;">Password</label>
+          <a href="javascript:void(0)" onclick="resetEmailPassword()" style="font-size:10px;color:#78dfff;">Forgot?</a>
+        </div>
+        <div class="password-wrapper">
+          <input id="heroLoginPassword" type="password" placeholder="Enter password" required autocomplete="current-password">
+          <button type="button" class="toggle-pass-btn" onclick="togglePasswordVisibility('heroLoginPassword', this)">👁</button>
+        </div>
+      </div>
+      
+      <button class="btn auth-submit-btn" type="submit" id="heroLoginSubmit">Sign In to Dashboard →</button>
+      
+      <div class="hero-auth-divider"><span>OR CONTINUE WITH</span></div>
+      
+      <div class="hero-auth-quick">
+        <button type="button" class="google-mini-btn" onclick="signInWithGoogle()">
+          <span class="google-g">G</span> Google
+        </button>
+        <button type="button" class="demo-mini-btn" onclick="autoLoginGuest()">
+          ⚡ Demo (150 Coins)
+        </button>
+      </div>
+      
+      <div class="hero-auth-switch">
+        New to TALKLESS TECH? <a href="javascript:void(0)" onclick="switchHeroAuthTab('register')">Create an account</a>
+      </div>
+    </form>
+
+    <!-- Register Form -->
+    <form id="heroRegisterForm" class="hero-auth-form" onsubmit="submitHeroRegister(event)" hidden>
+      <div class="hero-auth-header">
+        <strong>Create Customer Account</strong>
+        <small>Claim 150 starter coins upon registration</small>
+      </div>
+      
+      <div class="field">
+        <label for="heroRegName">Full Name / Username</label>
+        <input id="heroRegName" type="text" placeholder="e.g. Alex Mwangi" required autocomplete="name">
+      </div>
+      
+      <div class="field">
+        <label for="heroRegEmail">Email Address</label>
+        <input id="heroRegEmail" type="email" placeholder="you@example.com" required autocomplete="email">
+      </div>
+      
+      <div class="field">
+        <label for="heroRegPhone">Phone Number (M-Pesa notifications)</label>
+        <input id="heroRegPhone" type="tel" placeholder="e.g. 0712 345 678" autocomplete="tel">
+      </div>
+      
+      <div class="field">
+        <label for="heroRegPassword">Password (6+ chars)</label>
+        <div class="password-wrapper">
+          <input id="heroRegPassword" type="password" minlength="6" placeholder="Create strong password" required autocomplete="new-password">
+          <button type="button" class="toggle-pass-btn" onclick="togglePasswordVisibility('heroRegPassword', this)">👁</button>
+        </div>
+      </div>
+      
+      <button class="btn auth-submit-btn register-gradient-btn" type="submit" id="heroRegSubmit">Create Account & Claim Coins →</button>
+      
+      <div class="hero-auth-divider"><span>OR</span></div>
+      
+      <div class="hero-auth-quick">
+        <button type="button" class="google-mini-btn" onclick="signInWithGoogle()">
+          <span class="google-g">G</span> Google
+        </button>
+        <button type="button" class="demo-mini-btn" onclick="autoLoginGuest()">
+          ⚡ Demo (150 Coins)
+        </button>
+      </div>
+      
+      <div class="hero-auth-switch">
+        Already have an account? <a href="javascript:void(0)" onclick="switchHeroAuthTab('login')">Sign In</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Logged-in Dashboard Card -->
+  <div id="heroAuthActive" class="hero-auth-active" hidden>
+    <div class="active-badge"><span class="active-dot"></span> LOGGED IN</div>
+    <div class="active-user-card">
+      <div class="active-avatar" id="heroActiveAvatar">T</div>
+      <div class="active-user-info">
+        <strong id="heroActiveName">TALKLESS User</strong>
+        <span id="heroActiveEmail">user@talkless.co.ke</span>
+      </div>
+    </div>
+    
+    <div class="active-stats-grid">
+      <div class="active-stat">
+        <small>WALLET COINS</small>
+        <strong id="heroActiveBalance">0</strong>
+      </div>
+      <div class="active-stat">
+        <small>ACTIVE SERVERS</small>
+        <strong id="heroActiveServers">0</strong>
+      </div>
+    </div>
+    
+    <div class="active-actions">
+      <a class="btn active-action-btn primary" href="#panels">🚀 Order a Server Plan</a>
+      <a class="btn active-action-btn secondary" href="#wallet">💳 Top Up Coins (M-Pesa)</a>
+      <a class="btn active-action-btn tertiary" href="#account">▣ View Server Credentials</a>
+    </div>
+    
+    <button type="button" class="active-logout-btn" onclick="logoutCustomer()">Sign Out / Switch Account ↗</button>
+  </div>
+</div>
 </section>
 <section class="flow-overview" aria-label="Three step order process"><div class="flow-step active"><span>01</span><div><b>CREATE ACCOUNT</b><small>Open your customer profile</small></div></div><div class="flow-connector"></div><div class="flow-step"><span>02</span><div><b>ADD COINS</b><small>Top up your wallet</small></div></div><div class="flow-connector"></div><div class="flow-step"><span>03</span><div><b>GET YOUR SERVER</b><small>Choose a plan to provision</small></div></div></section>
 <section id="account" class="account-section" aria-hidden="true">
@@ -1187,6 +1369,7 @@ async function resetEmailPassword(){
 }
 
 async function logoutCustomer(){
+  updateHeroAuthState();
   customer = null;
   authUser = null;
   balance = 0;
@@ -1228,6 +1411,12 @@ async function loadCustomerFromBackend(user){
 }
 
 function renderCustomer(){
+  updateHeroAuthState();
+  const topAuth = document.getElementById("topAuthLink");
+  if(topAuth){
+    topAuth.textContent = customer ? "👤 " + (customer.name.split(" ")[0] || "ACCOUNT") : "👤 SIGN IN / REGISTER";
+    topAuth.href = customer ? "#account" : "login.html";
+  }
   const active=!!customer;
   const hasRecords=!!customer;
   const noteEl = document.getElementById("accountAuthNote");
@@ -1690,6 +1879,145 @@ window.addEventListener("load", ()=>{ setTimeout(dismissIntro, 1200); });
 
 refreshWallet();
 initializeAuthentication();
+
+
+/* Hero Landing Auth Tabs & Forms */
+function switchHeroAuthTab(tab){
+  const loginBtn = document.getElementById("tabLoginBtn");
+  const regBtn = document.getElementById("tabRegisterBtn");
+  const loginForm = document.getElementById("heroLoginForm");
+  const regForm = document.getElementById("heroRegisterForm");
+  
+  if(tab === "login"){
+    if(loginBtn) { loginBtn.classList.add("active"); loginBtn.setAttribute("aria-selected", "true"); }
+    if(regBtn) { regBtn.classList.remove("active"); regBtn.setAttribute("aria-selected", "false"); }
+    if(loginForm) loginForm.hidden = false;
+    if(regForm) regForm.hidden = true;
+  } else {
+    if(regBtn) { regBtn.classList.add("active"); regBtn.setAttribute("aria-selected", "true"); }
+    if(loginBtn) { loginBtn.classList.remove("active"); loginBtn.setAttribute("aria-selected", "false"); }
+    if(regForm) regForm.hidden = false;
+    if(loginForm) loginForm.hidden = true;
+  }
+}
+
+function togglePasswordVisibility(inputId, btn){
+  const input = document.getElementById(inputId);
+  if(!input) return;
+  if(input.type === "password"){
+    input.type = "text";
+    btn.textContent = "🔒";
+  } else {
+    input.type = "password";
+    btn.textContent = "👁";
+  }
+}
+
+function submitHeroLogin(event){
+  event.preventDefault();
+  const email = document.getElementById("heroLoginEmail").value.trim();
+  const password = document.getElementById("heroLoginPassword").value;
+  
+  if(!email || !password){
+    toast("Please enter both email/phone and password.");
+    return;
+  }
+  
+  const stored = (() => {
+    try { const s = localStorage.getItem(CUSTOMER_STORAGE_KEY); return s ? JSON.parse(s) : null; } catch(e){ return null; }
+  })();
+  
+  if(stored && (stored.email === email || stored.name === email)){
+    customer = stored;
+  } else {
+    customer = {
+      uid: "user_" + Date.now().toString(36),
+      name: email.includes("@") ? email.split("@")[0] : "Customer " + email.slice(-4),
+      email: email.includes("@") ? email : email + "@talkless.co.ke",
+      balance: stored && stored.balance !== undefined ? stored.balance : 150,
+      servers: stored && Array.isArray(stored.servers) ? stored.servers : [],
+      activity: stored && Array.isArray(stored.activity) ? stored.activity : []
+    };
+  }
+  
+  customer.activity = Array.isArray(customer.activity) ? customer.activity : [];
+  customer.activity.unshift({
+    type: "login",
+    title: "Signed in from Landing Page",
+    date: new Date().toLocaleString()
+  });
+  
+  balance = Number(customer.balance) || 0;
+  saveCustomerToStorage();
+  renderCustomer();
+  refreshWallet();
+  updateHeroAuthState();
+  toast("✓ Welcome back, " + customer.name + "!");
+}
+
+function submitHeroRegister(event){
+  event.preventDefault();
+  const name = document.getElementById("heroRegName").value.trim();
+  const email = document.getElementById("heroRegEmail").value.trim();
+  const phone = document.getElementById("heroRegPhone").value.trim();
+  const password = document.getElementById("heroRegPassword").value;
+  
+  if(!name || !email || !password){
+    toast("Please fill in all required fields.");
+    return;
+  }
+  
+  if(password.length < 6){
+    toast("Password must be at least 6 characters.");
+    return;
+  }
+  
+  customer = {
+    uid: "reg_" + Date.now().toString(36),
+    name: name,
+    email: email,
+    phone: phone,
+    balance: 150, // 150 starter coins bonus
+    servers: [],
+    activity: [{
+      type: "register",
+      title: "Account registered! +150 bonus coins awarded",
+      date: new Date().toLocaleString()
+    }]
+  };
+  
+  balance = 150;
+  saveCustomerToStorage();
+  renderCustomer();
+  refreshWallet();
+  updateHeroAuthState();
+  toast("🎉 Account created! Welcome, " + name + "! 150 coins added to your wallet.");
+}
+
+function updateHeroAuthState(){
+  const formsWrap = document.getElementById("heroAuthForms");
+  const activeWrap = document.getElementById("heroAuthActive");
+  
+  if(customer){
+    if(formsWrap) formsWrap.hidden = true;
+    if(activeWrap) activeWrap.hidden = false;
+    
+    const nameEl = document.getElementById("heroActiveName");
+    const emailEl = document.getElementById("heroActiveEmail");
+    const avatarEl = document.getElementById("heroActiveAvatar");
+    const balanceEl = document.getElementById("heroActiveBalance");
+    const serversEl = document.getElementById("heroActiveServers");
+    
+    if(nameEl) nameEl.textContent = customer.name;
+    if(emailEl) emailEl.textContent = customer.email;
+    if(avatarEl) avatarEl.textContent = customer.name.charAt(0).toUpperCase();
+    if(balanceEl) balanceEl.textContent = (Number(customer.balance) || 0).toLocaleString();
+    if(serversEl) serversEl.textContent = Array.isArray(customer.servers) ? customer.servers.length : 0;
+  } else {
+    if(formsWrap) formsWrap.hidden = false;
+    if(activeWrap) activeWrap.hidden = true;
+  }
+}
 
 </script>
 

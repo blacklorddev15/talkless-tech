@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sign In or Register | TALKLESS TECH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070b16;
+  --panel:rgba(16, 26, 48, 0.92);
+  --line:#263b60;
+  --blue:#287cff;
+  --cyan:#42e3f5;
+  --red:#ff536f;
+  --muted:#a4b4ce;
+  --white:#f5f8ff;
+  --green:#35d39a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  min-height:100vh;
+  background:radial-gradient(ellipse at 85% -10%,#173e7b 0,transparent 40%),radial-gradient(ellipse at 0 35%,#381c38 0,transparent 30%),linear-gradient(145deg,#070b16,#0a1223 55%,#090d19);
+  color:var(--white);
+  font-family:'Space Grotesk',Inter,system-ui,sans-serif;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  opacity:.28;
+  background-image:linear-gradient(#6bbdff0b 1px,transparent 1px),linear-gradient(90deg,#6bbdff0b 1px,transparent 1px);
+  background-size:42px 42px;
+}
+header{
+  height:74px;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+  background:rgba(8,13,25,0.85);
+  backdrop-filter:blur(16px);
+  display:flex;
+  align-items:center;
+  padding:0 24px;
+}
+.header-inner{
+  max-width:1160px;
+  width:100%;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  text-decoration:none;
+  color:#fff;
+  font-family:'Orbitron',sans-serif;
+  font-weight:900;
+  font-size:16px;
+  letter-spacing:1px;
+}
+.brand-symbol{
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  background:linear-gradient(145deg,#287cff,#142b50);
+  border:1px solid #54cfff66;
+  box-shadow:0 0 20px rgba(40,124,255,0.35);
+  display:grid;
+  place-items:center;
+  color:#fff;
+}
+.brand-symbol svg{
+  width:75%;
+  height:75%;
+}
+.brand b{
+  color:var(--cyan);
+}
+.back-link{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  color:#9fc4e8;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:700;
+  padding:8px 14px;
+  border-radius:10px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.12);
+  transition:all .2s;
+}
+.back-link:hover{
+  color:#fff;
+  border-color:var(--cyan);
+  background:rgba(66,227,245,0.1);
+}
+main{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px 20px;
+  position:relative;
+  z-index:2;
+}
+.auth-box{
+  width:100%;
+  max-width:480px;
+  border-radius:24px;
+  background:linear-gradient(150deg,rgba(16,28,49,0.96),rgba(8,16,30,0.98));
+  border:1px solid rgba(66,227,245,0.45);
+  box-shadow:0 24px 70px rgba(0,0,0,0.7), 0 0 35px rgba(22,141,255,0.25);
+  backdrop-filter:blur(24px);
+  padding:32px 28px;
+  position:relative;
+  overflow:hidden;
+}
+.auth-box:before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto;
+  height:3px;
+  background:linear-gradient(90deg,#287cff,#42e3f5,#ff536f);
+}
+.auth-nav-tabs{
+  display:flex;
+  gap:8px;
+  padding:4px;
+  background:rgba(4,10,20,0.6);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:14px;
+  margin-bottom:24px;
+}
+.auth-tab-btn{
+  flex:1;
+  padding:12px;
+  border:0;
+  border-radius:11px;
+  background:transparent;
+  color:#9fc4e8;
+  font:900 12px 'Orbitron',sans-serif;
+  letter-spacing:1px;
+  cursor:pointer;
+  transition:all .2s ease;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+}
+.auth-tab-btn.active{
+  background:linear-gradient(100deg,#126bff,#20baff);
+  color:#fff;
+  box-shadow:0 4px 18px rgba(18,107,255,0.4);
+}
+.form-title{
+  margin-bottom:18px;
+}
+.form-title h1{
+  font:900 22px 'Orbitron',sans-serif;
+  color:#f4fbff;
+  letter-spacing:-0.5px;
+  margin-bottom:4px;
+}
+.form-title p{
+  color:#8ebfe8;
+  font-size:12px;
+  line-height:1.5;
+}
+.field{
+  margin-bottom:14px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.field label{
+  font-size:11px;
+  font-weight:800;
+  color:#85bde8;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+}
+.field input{
+  width:100%;
+  padding:12px 14px;
+  background:#051122;
+  border:1px solid #20456d;
+  border-radius:11px;
+  color:#fff;
+  font-size:14px;
+  outline:none;
+  transition:all .2s;
+}
+.field input:focus{
+  border-color:#42e3f5;
+  box-shadow:0 0 0 3px rgba(66,227,245,0.2);
+}
+.pass-wrap{
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+.pass-wrap input{
+  padding-right:42px;
+}
+.pass-toggle{
+  position:absolute;
+  right:12px;
+  background:none;
+  border:0;
+  color:#70bbf4;
+  cursor:pointer;
+  font-size:15px;
+}
+.submit-btn{
+  width:100%;
+  margin-top:16px;
+  padding:14px;
+  border-radius:12px;
+  font:900 13px 'Orbitron',sans-serif;
+  letter-spacing:0.8px;
+  background:linear-gradient(100deg,#126bff,#20baff);
+  color:#fff;
+  border:1px solid #75e6ff;
+  box-shadow:0 8px 24px rgba(18,107,255,0.35);
+  cursor:pointer;
+  transition:all .2s;
+}
+.submit-btn:hover{
+  transform:translateY(-2px);
+  filter:brightness(1.12);
+}
+.reg-btn{
+  background:linear-gradient(100deg,#20baff,#126bff 50%,#8b5cf6);
+  border-color:#b998ff;
+}
+.divider{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:20px 0 16px;
+  color:#6c8ea8;
+  font:800 9px 'Orbitron',sans-serif;
+  letter-spacing:1.5px;
+}
+.divider:before,.divider:after{
+  content:"";
+  height:1px;
+  flex:1;
+  background:rgba(255,255,255,0.12);
+}
+.quick-auth-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.quick-btn{
+  padding:11px;
+  border-radius:11px;
+  font-size:12px;
+  font-weight:800;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  transition:.2s;
+}
+.google-btn{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.2);
+  color:#e8f4ff;
+}
+.google-btn:hover{
+  background:rgba(255,255,255,0.15);
+  border-color:#fff;
+}
+.demo-btn{
+  background:linear-gradient(100deg,#09375e,#0c497a);
+  border:1px solid #36a4f5;
+  color:#7ae2ff;
+}
+.demo-btn:hover{
+  filter:brightness(1.2);
+  transform:translateY(-1px);
+}
+.switch-text{
+  margin-top:20px;
+  text-align:center;
+  font-size:12px;
+  color:#82a3c2;
+}
+.switch-text a{
+  color:#42e3f5;
+  font-weight:800;
+  text-decoration:none;
+  margin-left:4px;
+}
+.switch-text a:hover{
+  text-decoration:underline;
+}
+/* Logged-in Card */
+.active-session{
+  text-align:center;
+}
+.active-avatar{
+  width:64px;
+  height:64px;
+  border-radius:18px;
+  margin:0 auto 16px;
+  background:linear-gradient(135deg,#126bff,#42e3f5);
+  color:#071424;
+  font:900 26px 'Orbitron',sans-serif;
+  display:grid;
+  place-items:center;
+  box-shadow:0 0 25px rgba(66,227,245,0.4);
+}
+.session-stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin:20px 0;
+}
+.session-stat{
+  padding:14px;
+  border-radius:13px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.1);
+}
+.session-stat small{
+  display:block;
+  font:800 9px 'Orbitron',sans-serif;
+  letter-spacing:1px;
+  color:#85bde8;
+  margin-bottom:6px;
+}
+.session-stat strong{
+  font-size:22px;
+  color:#42e3f5;
+  font-weight:900;
+}
+.toast{
+  position:fixed;
+  bottom:24px;
+  left:50%;
+  transform:translate(-50%,120px);
+  opacity:0;
+  transition:.3s;
+  background:#143452;
+  border:1px solid #42e3f5;
+  box-shadow:0 12px 35px rgba(0,0,0,0.5);
+  color:#fff;
+  padding:14px 22px;
+  border-radius:14px;
+  font-size:13px;
+  font-weight:700;
+  z-index:9999;
+}
+.toast.show{
+  transform:translate(-50%,0);
+  opacity:1;
+}
+footer{
+  padding:20px;
+  text-align:center;
+  font-size:12px;
+  color:#6c8ea8;
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="brand" href="/">
+      <div class="brand-symbol">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 10h32v7H27v22h-7V17H8z" fill="currentColor"/><path d="M29 25h11v14H29z" fill="#5eeaff"/><path d="M33 29h4M33 33h4M33 37h4" stroke="#071326" stroke-width="1.8" stroke-linecap="round"/><circle cx="39" cy="8" r="3" fill="#ff718c"/></svg>
+      </div>
+      <span>TALKLESS <b>TECH</b></span>
+    </a>
+    <a class="back-link" href="/">← Back to Store</a>
+  </div>
+</header>
+
+<main>
+  <div class="auth-box">
+    <!-- Logged Out View: Tabs & Forms -->
+    <div id="authFormsSection">
+      <div class="auth-nav-tabs">
+        <button type="button" class="auth-tab-btn active" id="tabLogin" onclick="setTab('login')">
+          <span>🔑</span> SIGN IN
+        </button>
+        <button type="button" class="auth-tab-btn" id="tabRegister" onclick="setTab('register')">
+          <span>✨</span> REGISTER
+        </button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <div class="form-title">
+          <h1>Sign in to your portal</h1>
+          <p>Access your servers, wallet coins, and active orders</p>
+        </div>
+
+        <div class="field">
+          <label for="loginEmail">Email Address or Username</label>
+          <input id="loginEmail" type="text" placeholder="you@example.com" required autocomplete="username">
+        </div>
+
+        <div class="field">
+          <label for="loginPass">Password</label>
+          <div class="pass-wrap">
+            <input id="loginPass" type="password" placeholder="Enter your password" required autocomplete="current-password">
+            <button type="button" class="pass-toggle" onclick="togglePass('loginPass', this)">👁</button>
+          </div>
+        </div>
+
+        <button class="submit-btn" type="submit">Sign In to Dashboard →</button>
+
+        <div class="divider"><span>OR CONTINUE WITH</span></div>
+
+        <div class="quick-auth-grid">
+          <button type="button" class="quick-btn google-btn" onclick="handleGoogle()">
+            <span style="font-weight:900;color:#ea4335">G</span> Google
+          </button>
+          <button type="button" class="quick-btn demo-btn" onclick="handleDemo()">
+            ⚡ Demo (150 Coins)
+          </button>
+        </div>
+
+        <div class="switch-text">
+          Don't have an account yet? <a href="javascript:void(0)" onclick="setTab('register')">Register now</a>
+        </div>
+      </form>
+
+      <!-- Register Form -->
+      <form id="registerForm" onsubmit="handleRegister(event)" hidden>
+        <div class="form-title">
+          <h1>Create your account</h1>
+          <p>Sign up now and claim 150 bonus coins instantly</p>
+        </div>
+
+        <div class="field">
+          <label for="regName">Full Name / Username</label>
+          <input id="regName" type="text" placeholder="e.g. Alex Mwangi" required autocomplete="name">
+        </div>
+
+        <div class="field">
+          <label for="regEmail">Email Address</label>
+          <input id="regEmail" type="email" placeholder="you@example.com" required autocomplete="email">
+        </div>
+
+        <div class="field">
+          <label for="regPhone">Phone Number (M-Pesa notifications)</label>
+          <input id="regPhone" type="tel" placeholder="e.g. 0712 345 678" autocomplete="tel">
+        </div>
+
+        <div class="field">
+          <label for="regPass">Password (minimum 6 characters)</label>
+          <div class="pass-wrap">
+            <input id="regPass" type="password" minlength="6" placeholder="Create strong password" required autocomplete="new-password">
+            <button type="button" class="pass-toggle" onclick="togglePass('regPass', this)">👁</button>
+          </div>
+        </div>
+
+        <button class="submit-btn reg-btn" type="submit">Create Account & Claim Coins →</button>
+
+        <div class="divider"><span>OR</span></div>
+
+        <div class="quick-auth-grid">
+          <button type="button" class="quick-btn google-btn" onclick="handleGoogle()">
+            <span style="font-weight:900;color:#ea4335">G</span> Google
+          </button>
+          <button type="button" class="quick-btn demo-btn" onclick="handleDemo()">
+            ⚡ Demo (150 Coins)
+          </button>
+        </div>
+
+        <div class="switch-text">
+          Already registered? <a href="javascript:void(0)" onclick="setTab('login')">Sign in here</a>
+        </div>
+      </form>
+    </div>
+
+    <!-- Logged In View -->
+    <div id="activeSessionSection" class="active-session" hidden>
+      <div class="active-avatar" id="avatarLetter">T</div>
+      <h2 id="activeUserName" style="font:900 20px 'Orbitron',sans-serif;margin-bottom:4px;color:#fff">TALKLESS User</h2>
+      <p id="activeUserEmail" style="color:#8ebfe8;font-size:12px;margin-bottom:18px">user@talkless.co.ke</p>
+      
+      <div class="session-stats">
+        <div class="session-stat">
+          <small>COIN BALANCE</small>
+          <strong id="activeUserCoins">0</strong>
+        </div>
+        <div class="session-stat">
+          <small>SERVERS</small>
+          <strong id="activeUserServers">0</strong>
+        </div>
+      </div>
+
+      <a class="submit-btn" href="/" style="display:block;text-decoration:none;margin-bottom:12px">
+        Go to Store & My Servers →
+      </a>
+      <button type="button" class="back-link" style="width:100%;justify-content:center" onclick="handleLogout()">
+        Sign Out / Switch Account
+      </button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © 2026 TALKLESS TECH. All rights reserved. Countrywide digital hosting solutions.
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const CUSTOMER_STORAGE_KEY = "talkless_customer_v1";
+
+function getStoredCustomer(){
+  try {
+    const s = localStorage.getItem(CUSTOMER_STORAGE_KEY);
+    return s ? JSON.parse(s) : null;
+  } catch(e){ return null; }
+}
+
+function saveCustomer(cust){
+  try {
+    localStorage.setItem(CUSTOMER_STORAGE_KEY, JSON.stringify(cust));
+  } catch(e){}
+}
+
+function toast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 3500);
+}
+
+function setTab(tab){
+  const btnLogin = document.getElementById("tabLogin");
+  const btnReg = document.getElementById("tabRegister");
+  const formLogin = document.getElementById("loginForm");
+  const formReg = document.getElementById("registerForm");
+
+  if(tab === "login"){
+    btnLogin.classList.add("active");
+    btnReg.classList.remove("active");
+    formLogin.hidden = false;
+    formReg.hidden = true;
+  } else {
+    btnReg.classList.add("active");
+    btnLogin.classList.remove("active");
+    formReg.hidden = false;
+    formLogin.hidden = true;
+  }
+}
+
+function togglePass(id, btn){
+  const el = document.getElementById(id);
+  if(!el) return;
+  if(el.type === "password"){
+    el.type = "text";
+    btn.textContent = "🔒";
+  } else {
+    el.type = "password";
+    btn.textContent = "👁";
+  }
+}
+
+function updateSessionUI(){
+  const cust = getStoredCustomer();
+  const forms = document.getElementById("authFormsSection");
+  const session = document.getElementById("activeSessionSection");
+
+  if(cust){
+    forms.hidden = true;
+    session.hidden = false;
+    document.getElementById("activeUserName").textContent = cust.name || "Customer";
+    document.getElementById("activeUserEmail").textContent = cust.email || "";
+    document.getElementById("avatarLetter").textContent = (cust.name || "T").charAt(0).toUpperCase();
+    document.getElementById("activeUserCoins").textContent = (Number(cust.balance) || 0).toLocaleString();
+    document.getElementById("activeUserServers").textContent = Array.isArray(cust.servers) ? cust.servers.length : 0;
+  } else {
+    forms.hidden = false;
+    session.hidden = true;
+  }
+}
+
+function handleLogin(event){
+  event.preventDefault();
+  const email = document.getElementById("loginEmail").value.trim();
+  const pass = document.getElementById("loginPass").value;
+
+  const stored = getStoredCustomer();
+  let cust = null;
+  if(stored && (stored.email === email || stored.name === email)){
+    cust = stored;
+  } else {
+    cust = {
+      uid: "user_" + Date.now().toString(36),
+      name: email.includes("@") ? email.split("@")[0] : "Customer " + email.slice(-4),
+      email: email.includes("@") ? email : email + "@talkless.co.ke",
+      balance: stored && stored.balance !== undefined ? stored.balance : 150,
+      servers: stored && Array.isArray(stored.servers) ? stored.servers : [],
+      activity: stored && Array.isArray(stored.activity) ? stored.activity : []
+    };
+  }
+
+  cust.activity = Array.isArray(cust.activity) ? cust.activity : [];
+  cust.activity.unshift({
+    type: "login",
+    title: "Signed in via Login Portal",
+    date: new Date().toLocaleString()
+  });
+
+  saveCustomer(cust);
+  updateSessionUI();
+  toast("✓ Signed in successfully as " + cust.name + "! Redirecting to store…");
+  setTimeout(() => { window.location.href = "/"; }, 1000);
+}
+
+function handleRegister(event){
+  event.preventDefault();
+  const name = document.getElementById("regName").value.trim();
+  const email = document.getElementById("regEmail").value.trim();
+  const phone = document.getElementById("regPhone").value.trim();
+  const pass = document.getElementById("regPass").value;
+
+  if(pass.length < 6){
+    toast("Password must be at least 6 characters.");
+    return;
+  }
+
+  const cust = {
+    uid: "reg_" + Date.now().toString(36),
+    name: name,
+    email: email,
+    phone: phone,
+    balance: 150, // 150 bonus coins
+    servers: [],
+    activity: [{
+      type: "register",
+      title: "Account created! 150 bonus coins awarded",
+      date: new Date().toLocaleString()
+    }]
+  };
+
+  saveCustomer(cust);
+  updateSessionUI();
+  toast("🎉 Account registered! 150 bonus coins added. Taking you to store…");
+  setTimeout(() => { window.location.href = "/"; }, 1200);
+}
+
+function handleDemo(){
+  const cust = {
+    uid: "demo_" + Date.now().toString(36),
+    name: "TALKLESS Guest",
+    email: "guest@talkless.co.ke",
+    balance: 150,
+    servers: [],
+    activity: [{
+      type: "demo",
+      title: "Demo guest session started (150 coins)",
+      date: new Date().toLocaleString()
+    }]
+  };
+  saveCustomer(cust);
+  updateSessionUI();
+  toast("✓ Demo session active! 150 coins available. Redirecting…");
+  setTimeout(() => { window.location.href = "/"; }, 900);
+}
+
+function handleGoogle(){
+  handleDemo();
+}
+
+function handleLogout(){
+  localStorage.removeItem(CUSTOMER_STORAGE_KEY);
+  updateSessionUI();
+  toast("Logged out.");
+}
+
+// Initial session check
+updateSessionUI();
+
+// Check if URL specifies register tab (e.g. login.html#register)
+if(window.location.hash === "#register"){
+  setTab("register");
+}
+</script>
+
+</body>
+</html>
