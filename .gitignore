@@ -1,3 +1,6 @@
 .vercel
 .env*
 node_modules
+*.py
+*.js
+.buyer-execution-hooks
