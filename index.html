@@ -1,0 +1,1962 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TALKLESS TECH | Panels Shop</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{--bg:#070b16;--panel:#101a30;--panel2:#172642;--line:#263b60;--blue:#287cff;--cyan:#42e3f5;--red:#ff536f;--muted:#a4b4ce;--white:#f5f8ff;--green:#35d39a}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 85% -10%,#173e7b 0,transparent 40%),radial-gradient(ellipse at 0 35%,#381c38 0,transparent 30%),linear-gradient(145deg,#070b16,#0a1223 55%,#090d19);color:var(--white);font:15px/1.5 Inter,system-ui,Arial,sans-serif;position:relative;isolation:isolate}
+body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.22;background-image:linear-gradient(#6bbdff0b 1px,transparent 1px),linear-gradient(90deg,#6bbdff0b 1px,transparent 1px);background-size:38px 38px;mask-image:linear-gradient(to bottom,black,transparent 88%);animation:gridDrift 24s linear infinite}
+body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.14;background:repeating-linear-gradient(0deg,transparent 0 3px,#77dfff12 4px,transparent 5px 8px);mix-blend-mode:screen;animation:scanFlicker 8s steps(2,end) infinite}
+@keyframes gridDrift{to{background-position:38px 38px}}@keyframes scanFlicker{0%,94%,100%{opacity:.08}95%{opacity:.2}97%{opacity:.11}}
+.intro-screen{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 45%,#183d72 0,#0b1730 38%,#060a14 78%);animation:introOut .65s ease 2.35s forwards}
+.intro-content{position:relative;z-index:2;text-align:center;animation:introIn .8s cubic-bezier(.2,.8,.2,1) both}
+.intro-mark{width:82px;height:82px;margin:0 auto 18px;border:1px solid #6cecff88;border-radius:25px;display:grid;place-items:center;font-size:35px;font-weight:950;letter-spacing:-4px;background:linear-gradient(145deg,#287cff,#152b55);box-shadow:0 0 55px #238dff66, inset 0 1px 15px #ffffff30}
+.intro-mark span{color:var(--cyan)}.intro-name{font-size:clamp(25px,6vw,38px);font-weight:950;letter-spacing:2px}.intro-name b{color:var(--cyan)}.intro-line{margin-top:8px;color:#a9c6ed;font-size:10px;letter-spacing:4px;font-weight:800}
+.intro-progress{height:3px;width:170px;margin:27px auto 0;background:#ffffff20;border-radius:8px;overflow:hidden}.intro-progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan),var(--red));animation:loadLine 2.2s ease .15s forwards}
+.intro-orbit{position:absolute;width:min(75vw,520px);aspect-ratio:1;border:1px solid #64cfff22;border-radius:50%;box-shadow:0 0 90px #147bff12;animation:orbitPulse 2s ease-in-out infinite}
+@keyframes introIn{from{opacity:0;transform:translateY(18px) scale(.94)}to{opacity:1;transform:none}}
+@keyframes introOut{to{opacity:0;visibility:hidden;pointer-events:none}}
+@keyframes loadLine{to{width:100%}}@keyframes orbitPulse{50%{transform:scale(1.08);opacity:.45}}
+body.ready .intro-screen{display:none}
+html{scroll-behavior:smooth}
+a{color:inherit;text-decoration:none}.wrap{max-width:1120px;margin:auto;padding:0 20px}
+header{position:sticky;top:0;z-index:5;background:#080d19dd;backdrop-filter:blur(16px);border-bottom:1px solid #ffffff12}
+nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{font-weight:900;letter-spacing:.7px;font-size:19px}.brand>span:last-child{white-space:nowrap}.brand b{color:var(--cyan)}.navlinks{display:flex;gap:22px;color:var(--muted);font-size:13px}.navlinks a:hover{color:white}
+.btn{border:0;border-radius:12px;padding:12px 17px;background:linear-gradient(100deg,var(--blue),#635cff);color:white;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn:hover{filter:brightness(1.1);transform:translateY(-1px)}.btn.secondary{background:#1b2b46;border:1px solid var(--line)}.btn.small{padding:9px 12px;font-size:13px}
+.hero{padding:76px 0 48px;display:grid;grid-template-columns:1.15fr .85fr;gap:35px;align-items:center}.eyebrow{color:var(--cyan);font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:11px}.hero h1{font-size:clamp(38px,6vw,66px);line-height:1.02;letter-spacing:-2px;margin:15px 0}.hero h1 span{background:linear-gradient(90deg,#58cfff,#6685ff,#ff7081);background-clip:text;color:transparent;text-shadow:0 0 28px #398cff30;position:relative}.hero p{color:var(--muted);max-width:590px;font-size:16px}.hero-card{padding:25px;border-radius:24px;background:linear-gradient(145deg,#172a49,#10182a);border:1px solid #35517a;box-shadow:0 24px 70px #0008}.hero-card .big{font-size:38px;font-weight:900}.hero-card .stat{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding:13px 0;color:var(--muted)}.hero-card .stat strong{color:white}
+section{padding:35px 0 50px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:22px}.section-head h2{font-size:29px;margin:5px 0}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:linear-gradient(155deg,#14223a,#0e1728);border:1px solid var(--line);border-radius:19px;padding:21px;position:relative;overflow:hidden}.card:hover{border-color:#438cff;transform:translateY(-3px);transition:.2s}.card.selected{border-color:var(--cyan);box-shadow:0 0 0 1px #36d5ef55,0 15px 40px #0005}.tag{font-size:10px;color:var(--cyan);font-weight:900;letter-spacing:1.3px}.ram{font-size:25px;font-weight:900;margin:8px 0}.price{font-size:31px;font-weight:900}.price small{font-size:13px;color:var(--muted);font-weight:500}.card p{color:var(--muted);font-size:13px;min-height:38px}.card .btn{width:100%;margin-top:10px}.popular{position:absolute;right:14px;top:14px;background:#243e66;color:#a9d5ff;border-radius:20px;padding:5px 9px;font-size:10px;font-weight:800}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}.box{background:#101a2d;border:1px solid var(--line);border-radius:20px;padding:23px}.box h3{margin:0 0 7px}.wallet{display:flex;align-items:center;justify-content:space-between;gap:15px}.balance{font-size:35px;font-weight:900;color:var(--cyan)}.field{display:flex;flex-direction:column;gap:7px;margin:13px 0}.field label{font-size:12px;color:var(--muted);font-weight:700}.field input,.field select{width:100%;padding:13px 14px;background:#091222;border:1px solid #2b4163;border-radius:11px;color:white;outline:none}.field input:focus,.field select:focus{border-color:var(--blue)}.paygrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.payoption{padding:13px;border:1px solid var(--line);background:#0b1526;color:white;border-radius:12px;text-align:left;cursor:pointer}.payoption.active{border-color:var(--cyan);background:#12304a}.payoption strong{display:block}.payoption span{font-size:11px;color:var(--muted)}.notice{padding:13px 15px;background:#182b42;border:1px solid #315276;color:#bdd8f5;border-radius:12px;font-size:12px;margin-top:14px}.order-summary{background:#0a1424;border:1px solid var(--line);padding:15px;border-radius:13px;margin:14px 0}.summaryrow{display:flex;justify-content:space-between;padding:5px 0;color:var(--muted)}.summaryrow strong{color:white}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.step{padding:17px;border:1px solid var(--line);border-radius:15px;background:#101a2d}.step b{display:block;color:var(--cyan);font-size:12px;margin-bottom:7px}.step p{margin:0;color:var(--muted);font-size:13px}footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:12px}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,130px);opacity:0;transition:.3s;background:#17324a;border:1px solid #3a7193;color:white;padding:13px 18px;border-radius:12px;z-index:10;max-width:90%;text-align:center}.toast.show{transform:translate(-50%,0);opacity:1}
+.box,.hero-card,.card,.step{box-shadow:0 16px 42px #0003}.eyebrow{ text-shadow:0 0 18px #42e3f555 }.btn{box-shadow:0 8px 22px #176dff33;transition:transform .2s,filter .2s}.field input,.field select{transition:border-color .2s,box-shadow .2s}.field input:focus,.field select:focus{box-shadow:0 0 0 3px #287cff22}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:48px}.grid{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}.navlinks{display:none}.steps{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}}
+@media(max-width:480px){.grid{grid-template-columns:1fr}.hero h1{font-size:43px}.wallet{align-items:flex-start;flex-direction:column}}
+
+/* Refined TALKLESS TECH identity and opening screen */
+.intro-screen{
+  background:
+    radial-gradient(ellipse at 50% 42%,#1a4b87 0%,#10294d 25%,transparent 58%),
+    radial-gradient(ellipse at 12% 90%,#451d43 0%,transparent 34%),
+    linear-gradient(145deg,#050914 0%,#091326 52%,#050914 100%);
+}
+.intro-screen:before,.intro-screen:after{
+  content:"";position:absolute;width:75vw;height:75vw;max-width:650px;max-height:650px;
+  border:1px solid #69dfff18;border-radius:50%;animation:slowOrbit 12s linear infinite;
+}
+.intro-screen:after{width:92vw;height:92vw;max-width:790px;max-height:790px;border-style:dashed;animation-direction:reverse;animation-duration:25s}
+.intro-content{width:min(90%,430px);padding:34px 22px;border:1px solid #91dfff24;border-radius:30px;
+  background:linear-gradient(145deg,#142b4dcc,#0a1428dd);backdrop-filter:blur(18px);
+  box-shadow:0 28px 100px #0009,inset 0 1px #ffffff18}
+.intro-emblem{position:relative;width:116px;height:116px;margin:0 auto 22px;display:grid;place-items:center;
+  border-radius:34px;background:linear-gradient(145deg,#1c4f89,#0c1c37);border:1px solid #79eaff77;
+  box-shadow:0 0 0 8px #3b9fff0d,0 0 55px #278cff55,inset 0 1px 18px #ffffff22;animation:emblemFloat 2.6s ease-in-out infinite}
+.emblem-svg{width:78px;height:78px;filter:drop-shadow(0 5px 12px #0007)}
+.emblem-ring{position:absolute;inset:-9px;border:1px solid #5ce4ff55;border-radius:39px;transform:rotate(18deg)}
+.emblem-spark{position:absolute;width:7px;height:7px;border-radius:50%;background:#62eaff;box-shadow:0 0 15px #62eaff}
+.spark-one{right:7px;top:12px}.spark-two{left:8px;bottom:15px;background:#ff6c85;box-shadow:0 0 15px #ff6c85}
+.intro-kicker{font-size:9px;font-weight:900;letter-spacing:5px;color:#8eacd0;margin-bottom:7px}
+.intro-name{font-size:clamp(27px,7vw,39px);letter-spacing:2.5px;line-height:1.1}
+.intro-name b{background:linear-gradient(90deg,#50e5f5,#7b9dff);background-clip:text;color:transparent}
+.intro-line{font-size:9px;letter-spacing:2.2px;color:#b1c7e6;margin-top:12px}
+.intro-progress{width:min(220px,75%);height:4px;margin:25px auto 10px;background:#ffffff16}
+.intro-progress i{background:linear-gradient(90deg,#287cff,#42e3f5,#ff647d)}
+.intro-loading{font-size:8px;letter-spacing:1.7px;color:#7894b9}
+.intro-loading span{color:#42e3f5;letter-spacing:2px;animation:blinkDots .8s steps(2,end) infinite}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-symbol{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;
+  background:linear-gradient(145deg,#287cff,#142b50);border:1px solid #54cfff66;
+  box-shadow:0 5px 18px #176dff33;font-size:15px;letter-spacing:-2px;color:white}
+.brand-symbol span{color:#42e3f5}
+@keyframes emblemFloat{50%{transform:translateY(-5px);box-shadow:0 0 0 12px #3b9fff0d,0 0 68px #278cff66,inset 0 1px 18px #ffffff22}}
+@keyframes slowOrbit{to{transform:rotate(360deg)}}
+@keyframes blinkDots{50%{opacity:.3}}
+@media(prefers-reduced-motion:reduce){.intro-screen:before,.intro-screen:after,.intro-emblem,.intro-loading span{animation:none}}
+
+
+/* Clean server-plan catalogue */
+#panels .section-head{padding:0 2px}
+#products{align-items:stretch}
+#products .card{display:flex;flex-direction:column;min-height:270px;padding:23px;background:linear-gradient(155deg,#172947 0%,#101a2d 62%,#111629 100%)}
+#products .ram{font-size:27px;letter-spacing:-.6px;margin:13px 0 5px}
+#products .price{font-size:29px;white-space:nowrap}
+#products .price small{display:block;font-size:11px;margin-top:1px}
+#products .plan-coin{display:inline-flex;align-items:center;gap:7px;align-self:flex-start;margin-top:11px;padding:6px 10px;border:1px solid #42e3f544;border-radius:9px;background:#123149;color:#62eaff;font-size:14px;font-weight:900}
+#products .plan-coin span{font-size:9px;letter-spacing:1px;color:#b2c8e5}
+#products .card p{flex:1;margin:12px 0 2px}
+#products .card .btn{margin-top:14px}
+@media(max-width:480px){#products .card{min-height:0}#products .price{font-size:30px}}
+
+
+/* Public always-visible silver server price dashboard */
+.public-plan-dashboard{
+  position:relative;z-index:4;padding:24px 0 21px;
+  background:linear-gradient(135deg,#f5f7fb 0%,#dce3ec 48%,#eef1f6 100%);
+  color:#172235;border-bottom:1px solid #aeb9c9;
+  box-shadow:0 12px 35px #0003;
+}
+.dashboard-top{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:17px}
+.dashboard-kicker{font-size:10px;font-weight:950;letter-spacing:2px;color:#526781}
+.dashboard-top h2{font-size:clamp(20px,3vw,27px);letter-spacing:-.6px;margin:4px 0;color:#111d30}
+.dashboard-top p{margin:0;color:#607087;font-size:12px}
+.dashboard-live{display:flex;align-items:center;gap:8px;padding:8px 11px;border-radius:30px;background:#fff;border:1px solid #c8d1dd;color:#41536b;font-size:9px;font-weight:900;letter-spacing:1px;white-space:nowrap}
+.dashboard-live span{width:7px;height:7px;border-radius:50%;background:#20b982;box-shadow:0 0 0 4px #20b98220}
+.dashboard-plan-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.dashboard-plan{min-width:0;display:flex;flex-direction:column;gap:5px;padding:13px 12px;border-radius:13px;
+  background:linear-gradient(145deg,#fff,#e9edf3);border:1px solid #c4cedb;
+  box-shadow:0 5px 14px #24334a12;transition:transform .18s,border-color .18s,box-shadow .18s}
+.dashboard-plan:hover{transform:translateY(-3px);border-color:#6489b8;box-shadow:0 10px 22px #24334a20}
+.dashboard-plan span{font-size:9px;letter-spacing:.7px;font-weight:950;color:#52637b;white-space:nowrap}
+.dashboard-plan strong{font-size:clamp(17px,2vw,23px);line-height:1.1;color:#14243c;white-space:nowrap}
+.dashboard-plan small{font-size:10px;color:#287b72;font-weight:800}
+.dashboard-plan-featured{background:linear-gradient(145deg,#243b5b,#15243a);border-color:#607d9f}
+.dashboard-plan-featured span{color:#c5d5e9}.dashboard-plan-featured strong{color:#fff}.dashboard-plan-featured small{color:#73e7d1}
+.dashboard-foot{display:flex;justify-content:space-between;gap:12px;margin-top:13px;color:#66758a;font-size:10px;font-weight:700}
+#panels{scroll-margin-top:85px}
+@media(max-width:850px){.dashboard-plan-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:520px){
+  .public-plan-dashboard{padding:18px 0}
+  .dashboard-top{align-items:flex-start;flex-direction:column}
+  .dashboard-live{align-self:flex-start}
+  .dashboard-plan-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .dashboard-plan{padding:12px 10px}
+  .dashboard-plan strong{font-size:21px}
+  .dashboard-foot{flex-direction:column;gap:4px}
+}
+
+
+/* Refined payment selector and dashboard surfaces */
+.box{background:linear-gradient(145deg,#14223aee,#0d1729f5);border:1px solid #344a6b;box-shadow:0 18px 50px #0004,inset 0 1px #ffffff0b}
+.paygrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.payoption{position:relative;min-height:76px;padding:14px 14px 13px 48px;border:1px solid #304665;
+  background:linear-gradient(145deg,#14233b,#0c1729);border-radius:14px;transition:.2s;text-align:left}
+.payoption:before{position:absolute;left:14px;top:17px;width:23px;height:23px;display:grid;place-items:center;
+  border-radius:8px;background:#233d60;color:#8feaff;font-size:13px;font-weight:900}
+.payoption[data-method="M-Pesa STK Push"]:before{content:"M"}
+.payoption[data-method="PayPal"]:before{content:"P"}
+.payoption[data-method="Card"]:before{content:"C"}
+.payoption[data-method="Other global gateway"]:before{content:"G"}
+.payoption strong{font-size:13px;color:#f4f8ff}.payoption span{display:block;margin-top:4px;font-size:10px;line-height:1.35}
+.payoption:hover{transform:translateY(-2px);border-color:#55a8ff;box-shadow:0 8px 22px #176dff20}
+.payoption.active{border-color:#42e3f5;background:linear-gradient(145deg,#173c59,#10243b);box-shadow:0 0 0 1px #42e3f533,0 9px 25px #0003}
+.payoption.active:after{content:"✓";position:absolute;right:11px;top:9px;color:#5ce8d2;font-size:13px;font-weight:900}
+.payment-heading{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.payment-heading .payment-icon{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:#1b3556;color:#5ce8f5}
+.btn{min-height:44px}.btn:focus-visible,.payoption:focus-visible{outline:2px solid #59dff4;outline-offset:3px}
+.notice{line-height:1.55}
+.order-summary{background:linear-gradient(145deg,#0b172a,#101e34);border-color:#304766}
+.card,.step{box-shadow:0 14px 38px #0003}
+@media(max-width:420px){.paygrid{grid-template-columns:1fr}.payoption{min-height:67px}}
+
+
+/* Animated premium atmosphere + Gold / Silver / Diamond plan tiers */
+body{background:#080d18;overflow-x:hidden}
+.motion-backdrop{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden;background:radial-gradient(ellipse at 15% 15%,#163c68 0%,transparent 42%),radial-gradient(ellipse at 85% 75%,#382044 0%,transparent 40%),linear-gradient(135deg,#070b15,#101a2b 48%,#080d18);background-size:160% 160%;animation:backdropFlow 18s ease-in-out infinite alternate}
+.motion-backdrop i{position:absolute;display:block;width:42vw;height:42vw;min-width:230px;min-height:230px;border-radius:50%;filter:blur(3px);opacity:.18;mix-blend-mode:screen;border:1px solid #76dfff55;box-shadow:inset 0 0 70px #3a9cff22,0 0 90px #278cff22;animation:orbDrift 22s ease-in-out infinite alternate}
+.motion-backdrop i:nth-child(1){top:-12%;left:-9%;background:radial-gradient(circle at 35% 35%,#39cfff33,transparent 68%)}
+.motion-backdrop i:nth-child(2){right:-12%;top:28%;width:55vw;height:55vw;border-color:#e4b85b55;animation-duration:29s;animation-delay:-8s;background:radial-gradient(circle at 45% 45%,#d5a33a22,transparent 70%)}
+.motion-backdrop i:nth-child(3){left:30%;bottom:-28%;width:48vw;height:48vw;border-color:#c5d9f455;animation-duration:25s;animation-delay:-13s;background:radial-gradient(circle at 50% 50%,#b8d5ff22,transparent 70%)}
+.motion-backdrop span{position:absolute;inset:-50%;opacity:.11;background:repeating-linear-gradient(115deg,transparent 0 85px,#8edbff22 86px 87px,transparent 88px 170px);animation:lightSweep 24s linear infinite}
+@keyframes backdropFlow{0%{background-position:0% 0%}100%{background-position:100% 100%}}
+@keyframes orbDrift{0%{transform:translate3d(-4vw,-2vh,0) rotate(0deg) scale(.88)}100%{transform:translate3d(8vw,7vh,0) rotate(28deg) scale(1.12)}}
+@keyframes lightSweep{to{transform:translate3d(12%,8%,0) rotate(12deg)}}
+#products .card:nth-child(1),#products .card:nth-child(2){border-color:#b88b3c99;background:linear-gradient(145deg,#3b2b13ee,#201b16f2 48%,#121827f5);box-shadow:inset 0 1px #ffe1a044,0 16px 42px #0005,0 0 24px #d9a44112}
+#products .card:nth-child(1) .tag,#products .card:nth-child(2) .tag{color:#f4c96c}#products .card:nth-child(1) .price,#products .card:nth-child(2) .price{color:#ffdc91}
+#products .card:nth-child(1) .btn,#products .card:nth-child(2) .btn{background:linear-gradient(100deg,#9a6a20,#e3b64f);color:#17120a;box-shadow:0 8px 22px #dca63c2b}
+#products .card:nth-child(3),#products .card:nth-child(4){border-color:#aebdce99;background:linear-gradient(145deg,#303b49ee,#1b2635f2 52%,#111827f5);box-shadow:inset 0 1px #ffffff38,0 16px 42px #0005,0 0 24px #c9d8e812}
+#products .card:nth-child(3) .tag,#products .card:nth-child(4) .tag{color:#d9e7f5}#products .card:nth-child(3) .price,#products .card:nth-child(4) .price{color:#eef5ff}
+#products .card:nth-child(3) .btn,#products .card:nth-child(4) .btn{background:linear-gradient(100deg,#78899d,#dce6ef);color:#111a27;box-shadow:0 8px 22px #cbd9e52b}
+#products .card:nth-child(5),#products .card:nth-child(6){border-color:#75dfffaa;background:linear-gradient(145deg,#123b50ee,#182a43f2 50%,#101827f5);box-shadow:inset 0 1px #d5fbff3b,0 16px 42px #0005,0 0 28px #54dfff18}
+#products .card:nth-child(5) .tag,#products .card:nth-child(6) .tag{color:#80edff}#products .card:nth-child(5) .price,#products .card:nth-child(6) .price{color:#a7f3ff}
+#products .card:nth-child(5) .btn,#products .card:nth-child(6) .btn{background:linear-gradient(100deg,#168eae,#75eaff);color:#071820;box-shadow:0 8px 22px #39dfff2b}
+#products .card{transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease}#products .card:hover{transform:translateY(-6px) scale(1.012)}
+.tier-key{display:flex;gap:18px;flex-wrap:wrap;margin:0 0 15px;font-size:11px;font-weight:900;letter-spacing:1.5px}.gold-key{color:#f4c96c}.silver-key{color:#d9e7f5}.diamond-key{color:#80edff}
+@media(prefers-reduced-motion:reduce){.motion-backdrop,.motion-backdrop i,.motion-backdrop span{animation:none!important}}
+
+
+/* TALKLESS TECH — final professional layout polish */
+:root{--surface:#111c2e;--surface-soft:#17253a;--text-soft:#aebdd0}
+body{font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:.05px}
+.wrap{width:min(1160px,100%);padding-left:clamp(16px,3vw,28px);padding-right:clamp(16px,3vw,28px)}
+header{background:rgba(7,13,25,.88);border-bottom:1px solid #8ab8e51c;box-shadow:0 8px 30px #0002}
+nav{height:74px}
+.brand{gap:11px;font-size:17px;letter-spacing:1px}
+.brand-symbol{width:39px;height:39px;border-radius:13px}
+.navlinks{gap:clamp(12px,2vw,25px);font-weight:700}
+.navlinks a{padding:9px 0;transition:color .2s}
+.hero{padding:clamp(48px,7vw,82px) 0 54px;gap:clamp(22px,4vw,48px)}
+.hero h1{max-width:700px;font-weight:950}
+.hero p{line-height:1.8;color:#b5c4d9}
+.hero-card{border-radius:25px;padding:clamp(21px,3vw,30px);background:linear-gradient(145deg,#1b3150ed,#101a2cf5);border-color:#6a9bc044}
+.hero-card .big{letter-spacing:-1.5px}
+.public-plan-dashboard{padding:clamp(22px,3vw,32px) 0;background:linear-gradient(125deg,#f7f9fc,#dfe6ee 52%,#f4f6fa)}
+.dashboard-top{align-items:center}
+.dashboard-plan-grid{gap:11px}
+.dashboard-plan{border-radius:15px;transition:transform .2s,box-shadow .2s}
+.dashboard-plan:hover{transform:translateY(-3px);box-shadow:0 10px 24px #24364c20}
+section{padding:clamp(28px,4vw,42px) 0 clamp(38px,5vw,56px)}
+.section-head{margin-bottom:24px}
+.section-head h2{font-size:clamp(24px,3vw,32px);letter-spacing:-.8px;font-weight:900}
+.section-head .muted{font-size:13px;line-height:1.6}
+#panels{scroll-margin-top:88px}
+.tier-key{align-items:center;gap:10px;margin:0 0 17px}
+.tier-key span{padding:7px 11px;border-radius:999px;background:#ffffff0a;border:1px solid #ffffff12}
+.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+#products .card{min-height:282px;padding:23px;border-radius:20px;backdrop-filter:blur(12px)}
+#products .card:before{content:"";position:absolute;inset:0 auto auto 0;width:100%;height:2px;background:linear-gradient(90deg,transparent,currentColor,transparent);opacity:.42}
+#products .card .btn{min-height:46px;border-radius:12px;font-size:13px;letter-spacing:.2px}
+#products .tag{font-size:10px;letter-spacing:1.7px}
+.cols{gap:20px;align-items:start}
+.box{padding:clamp(18px,2.5vw,26px);border-radius:21px;background:linear-gradient(150deg,#15243aee,#0d1728f5);box-shadow:0 18px 48px #0003}
+.box h3{font-size:19px;letter-spacing:-.3px}
+.field{gap:8px;margin:16px 0}
+.field label{font-size:11px;letter-spacing:.35px;text-transform:uppercase}
+.field input,.field select{min-height:47px;border-radius:12px;padding:13px 15px}
+.paygrid{gap:11px}
+.payoption{min-height:76px;border-radius:14px;padding:13px 14px;transition:transform .2s,border-color .2s,background .2s}
+.payoption:hover{transform:translateY(-2px);border-color:#6abce8}
+.payoption strong{font-size:13px;margin-bottom:4px}
+.payoption span{line-height:1.4}
+.box>.btn{min-height:48px;border-radius:13px;font-size:14px}
+.notice{line-height:1.65;border-radius:13px}
+.order-summary{padding:16px;border-radius:15px}
+.summaryrow{gap:12px;align-items:center;font-size:13px}
+.summaryrow strong{text-align:right}
+.steps{gap:16px}
+.step{padding:21px;border-radius:17px;min-height:145px;background:linear-gradient(145deg,#15243a,#101a2b)}
+.step strong{display:block;margin-bottom:7px}
+footer{margin-top:20px;background:#070c16;border-top-color:#ffffff14;line-height:1.8}
+.btn{min-height:44px;border-radius:12px;font-size:13px;letter-spacing:.15px}
+.btn:focus-visible,.payoption:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #7deaff;outline-offset:3px}
+@media(max-width:850px){
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .dashboard-plan-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .hero{grid-template-columns:1fr}
+ .hero-card{max-width:620px}
+}
+@media(max-width:600px){
+ nav{height:65px}.brand{font-size:14px}.brand-symbol{width:35px;height:35px}
+ .hero{padding-top:40px}.hero h1{font-size:clamp(37px,11vw,52px)}
+ .dashboard-top{align-items:flex-start;flex-direction:column}
+ .dashboard-plan-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .grid{grid-template-columns:1fr;gap:13px}
+ #products .card{min-height:0;padding:21px}
+ .cols{grid-template-columns:1fr}
+ .paygrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .steps{grid-template-columns:1fr}
+ footer .wrap{display:flex;flex-direction:column;gap:8px}
+ footer .wrap span{float:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+
+
+/* Whole-site premium metallic theme — colour is carried by the design, not labels */
+:root{
+ --blue:#c79a45;--cyan:#e7edf5;--red:#8edcf1;
+ --line:#8b9aaa55;--muted:#c0c6d0;--white:#f8f7f3;
+}
+body{
+ background:linear-gradient(120deg,#090d16,#17202d 42%,#17130e 72%,#090d16);
+ background-size:220% 220%;animation:metallicBackdrop 28s ease-in-out infinite alternate;
+}
+@keyframes metallicBackdrop{
+ 0%{background-position:0% 35%}
+ 50%{background-position:70% 60%}
+ 100%{background-position:100% 20%}
+}
+.motion-backdrop{
+ background:
+  radial-gradient(ellipse at 15% 20%,#c3943c38 0%,transparent 38%),
+  radial-gradient(ellipse at 82% 28%,#dce8f733 0%,transparent 36%),
+  radial-gradient(ellipse at 58% 88%,#4bc9e82b 0%,transparent 42%),
+  linear-gradient(135deg,#080c15,#17202b 48%,#0b1019);
+ background-size:180% 180%;animation:metallicBackdrop 24s ease-in-out infinite alternate;
+}
+.motion-backdrop i:nth-child(1){border-color:#d7a84e77;box-shadow:inset 0 0 80px #d7a84e20,0 0 100px #d7a84e22}
+.motion-backdrop i:nth-child(2){border-color:#e4edf777;box-shadow:inset 0 0 80px #e4edf720,0 0 100px #e4edf722}
+.motion-backdrop i:nth-child(3){border-color:#83e8ff77;box-shadow:inset 0 0 80px #83e8ff20,0 0 100px #83e8ff22}
+header{background:#090e18eF;border-bottom:1px solid #d7b66c44}
+.brand b,.eyebrow{color:#e2bd70}
+.hero h1 span{background:linear-gradient(95deg,#f2ca70 0%,#f3f5f7 48%,#8deaff 100%);background-clip:text;color:transparent}
+.hero-card{background:linear-gradient(145deg,#342a1bee 0%,#1c2734f2 53%,#122b39f2 100%);border-color:#c6a45b66}
+.hero-card .big{background:linear-gradient(90deg,#f0c76a,#f4f5f7,#8ce8ff);background-clip:text;color:transparent}
+.intro-screen{background:radial-gradient(ellipse at 30% 25%,#6b4c1c 0%,transparent 40%),radial-gradient(ellipse at 75% 70%,#285b70 0%,transparent 42%),linear-gradient(145deg,#080c14,#1b2028 55%,#080c14)}
+.intro-mark,.intro-emblem{background:linear-gradient(145deg,#9c762e,#dce2e9 55%,#227f9b);border-color:#f0d58b88}
+.intro-mark span,.intro-name b{color:#fff0bd}
+.intro-progress i{background:linear-gradient(90deg,#c18c32,#f1f3f5,#65d9ef)}
+.btn{background:linear-gradient(100deg,#a97928,#e4c16e 52%,#5dc9df);color:#10151c;box-shadow:0 8px 24px #c69a4433}
+.btn.secondary{background:linear-gradient(110deg,#293545,#46515e);color:#f3f5f7;border-color:#aebdce66}
+.box{background:linear-gradient(145deg,#17212eF2,#101824F5);border-color:#aab9c833}
+.field input,.field select{background:#0b121d;border-color:#68798b88}
+.payoption{background:linear-gradient(140deg,#1d2937,#101a26);border-color:#8b9aaa66}
+.payoption.active{border-color:#e3c16f;background:linear-gradient(140deg,#3a301d,#1a3542);box-shadow:0 0 0 1px #e3c16f44,0 9px 25px #0004}
+.notice{background:linear-gradient(110deg,#302718,#172b37);border-color:#b99b5a66;color:#e4e8ec}
+.order-summary{background:linear-gradient(135deg,#1d2733,#10232e);border-color:#aebdce55}
+.step{background:linear-gradient(145deg,#29251d,#18232f 55%,#102a35);border-color:#aebdce55}
+.step b{color:#e7c775}
+footer{background:#080d16;border-top-color:#c2a45d55}
+@media(prefers-reduced-motion:reduce){body,.motion-backdrop{animation:none!important}}
+
+
+/* Colourful, tappable server-plan price buttons */
+.dashboard-plan{
+  position:relative;isolation:isolate;cursor:pointer;text-decoration:none;
+  min-height:112px;justify-content:center;align-items:flex-start;
+  padding:15px 14px;border-radius:17px;
+  transition:transform .22s ease,filter .22s ease,box-shadow .22s ease;
+}
+.dashboard-plan:after{
+  content:"VIEW PLAN →";display:inline-flex;margin-top:5px;font-size:9px;
+  font-weight:950;letter-spacing:1px;opacity:.78
+}
+.dashboard-plan:hover,.dashboard-plan:focus-visible{
+  transform:translateY(-5px) scale(1.025);filter:brightness(1.08);
+  outline:2px solid #fff8;outline-offset:2px
+}
+.dashboard-plan:nth-child(1),.dashboard-plan:nth-child(2){
+  color:#fff3d1;border:1px solid #f1c66c;
+  background:linear-gradient(140deg,#76501b 0%,#c18b32 46%,#593b17 100%);
+  box-shadow:inset 0 1px #fff7,0 8px 20px #9a6a2630
+}
+.dashboard-plan:nth-child(1) span,.dashboard-plan:nth-child(2) span,
+.dashboard-plan:nth-child(1) strong,.dashboard-plan:nth-child(2) strong,
+.dashboard-plan:nth-child(1) small,.dashboard-plan:nth-child(2) small{color:#fff8e7}
+.dashboard-plan:nth-child(3),.dashboard-plan:nth-child(4){
+  color:#fff;border:1px solid #dce5ef;
+  background:linear-gradient(140deg,#647386 0%,#c6d0dc 48%,#596779 100%);
+  box-shadow:inset 0 1px #fff9,0 8px 20px #7b8da330
+}
+.dashboard-plan:nth-child(3) span,.dashboard-plan:nth-child(4) span,
+.dashboard-plan:nth-child(3) strong,.dashboard-plan:nth-child(4) strong,
+.dashboard-plan:nth-child(3) small,.dashboard-plan:nth-child(4) small{color:#172438}
+.dashboard-plan:nth-child(5),.dashboard-plan:nth-child(6){
+  color:#e8fbff;border:1px solid #8beaff;
+  background:linear-gradient(140deg,#07516b 0%,#138ca9 48%,#12304b 100%);
+  box-shadow:inset 0 1px #d9fbff88,0 8px 22px #25c5ed2b
+}
+.dashboard-plan:nth-child(5) span,.dashboard-plan:nth-child(6) span,
+.dashboard-plan:nth-child(5) strong,.dashboard-plan:nth-child(6) strong,
+.dashboard-plan:nth-child(5) small,.dashboard-plan:nth-child(6) small{color:#effcff}
+#products .card .btn{width:100%;min-height:49px;font-weight:900}
+#products .card:nth-child(1) .btn,#products .card:nth-child(2) .btn{
+ background:linear-gradient(110deg,#8d5d1d,#e7bd60);color:#211707;border:1px solid #f6d98c
+}
+#products .card:nth-child(3) .btn,#products .card:nth-child(4) .btn{
+ background:linear-gradient(110deg,#78889b,#e0e7ef);color:#172235;border:1px solid #f4f7fa
+}
+#products .card:nth-child(5) .btn,#products .card:nth-child(6) .btn{
+ background:linear-gradient(110deg,#08718e,#75e7f8);color:#061a22;border:1px solid #a9f5ff
+}
+#products .card.selected{outline:2px solid #83eaff;outline-offset:3px}
+@media(max-width:520px){.dashboard-plan{min-height:104px;padding:13px 11px}}
+
+
+/* Customer account portal + visible digital glitch atmosphere */
+.account-section{scroll-margin-top:90px}
+.account-layout{display:grid;grid-template-columns:minmax(260px,.78fr) minmax(0,1.5fr);gap:18px;align-items:stretch}
+.account-access,.account-dashboard{position:relative;overflow:hidden;min-width:0}
+.account-access:before,.account-dashboard:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#e4bd68,#f5f7fb,#59d8f0,#a78bfa);opacity:.95}
+.account-icon,.customer-avatar{display:grid;place-items:center;background:linear-gradient(135deg,#a97928,#e6c875 48%,#65d9ef);color:#101722;font-weight:950;box-shadow:0 8px 25px #d5ad5433}
+.account-icon{width:48px;height:48px;border-radius:15px;margin-bottom:15px;letter-spacing:-2px}
+.account-access h3,.customer-heading h3{margin:0 0 6px;font-size:19px}
+.account-access>p{font-size:12px;line-height:1.7}
+.account-actions{display:flex;gap:9px;flex-wrap:wrap}.account-actions .btn{flex:1}
+.account-status{font-size:10px;letter-spacing:1px;font-weight:900;color:#7ce9d0;background:#12352f;border:1px solid #53d9b455;padding:8px 11px;border-radius:30px;white-space:nowrap}
+.customer-heading{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.customer-heading p{margin:0;font-size:12px;overflow-wrap:anywhere}
+.customer-avatar{width:47px;height:47px;border-radius:15px;font-size:19px;flex:none}
+.account-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:20px 0}
+.account-stat{min-width:0;padding:13px;border:1px solid #aebdce35;border-radius:13px;background:linear-gradient(145deg,#293344aa,#111e2c)}
+.account-stat span{display:block;color:#aebdd0;font-size:9px;font-weight:900;letter-spacing:1px}
+.account-stat strong{display:block;margin-top:7px;color:#f4d58b;font-size:clamp(14px,2vw,20px);overflow-wrap:anywhere}
+.account-columns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.account-mini{min-width:0;padding:14px;border-radius:14px;background:#080f1b99;border:1px solid #9fb8d32c}
+.mini-title{font-size:10px;letter-spacing:1.2px;font-weight:950;color:#8deaff;margin-bottom:10px}
+.empty-state{font-size:11px;color:#aebdd0;line-height:1.7;min-height:48px}
+.account-foot{font-size:10px;color:#aebdd0;line-height:1.65;margin-top:14px;padding-top:12px;border-top:1px solid #ffffff16}
+.activity-row,.server-row{padding:9px 0;border-bottom:1px solid #ffffff12;font-size:11px;color:#dbe7f5;overflow-wrap:anywhere}
+.activity-row:last-child,.server-row:last-child{border-bottom:0}
+.account-layout .field input{background:#080f1b}
+/* Silver-gold glitch finish for text surfaces */
+.card,.box,.hero-card,.step,.dashboard-plan,.account-mini{position:relative;isolation:isolate}
+.card:after,.box:after,.hero-card:after,.step:after,.dashboard-plan:after,.account-mini:after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.2;background:linear-gradient(105deg,transparent 0 36%,#e8f4ff22 43%,#f2c96a20 49%,#72eaff22 55%,transparent 63%);background-size:240% 100%;animation:metalGlitch 8s linear infinite}
+@keyframes metalGlitch{0%{background-position:130% 0}100%{background-position:-110% 0}}
+.card .tag,.box h3,.section-head h2,.customer-heading h3,.mini-title{ text-shadow:0 0 12px #9cecff22; animation:textGlitch 7s steps(1,end) infinite}
+@keyframes textGlitch{0%,94%,100%{transform:translateX(0);text-shadow:0 0 12px #9cecff22}95%{transform:translateX(1px);text-shadow:2px 0 #55eaff,-2px 0 #d8b45e}97%{transform:translateX(-1px);text-shadow:-1px 0 #55eaff,1px 0 #d8b45e}}
+.credential-panel{margin-top:12px;padding:13px;border:1px solid #58d8ef66;border-radius:13px;background:linear-gradient(135deg,#132a40,#25251d);font-size:12px;overflow-wrap:anywhere}
+.credential-panel strong{color:#f2d17b}.credential-panel code{color:#b9f4ff;white-space:pre-wrap;overflow-wrap:anywhere}
+@media(prefers-reduced-motion:reduce){.card:after,.box:after,.hero-card:after,.step:after,.dashboard-plan:after,.account-mini:after,.card .tag,.box h3,.section-head h2,.customer-heading h3,.mini-title{animation:none!important}}
+/* Animated glitch layers are deliberately visible but remain behind content. */
+body:before{opacity:.32;background-image:linear-gradient(#78dfff16 1px,transparent 1px),linear-gradient(90deg,#78dfff16 1px,transparent 1px);background-size:31px 31px;animation:gridDrift 10s linear infinite}
+body:after{opacity:.22;background:repeating-linear-gradient(0deg,transparent 0 2px,#79e9ff25 3px,transparent 4px 7px);animation:scanFlicker 3.8s steps(2,end) infinite}
+.motion-backdrop:before{content:"";position:absolute;inset:-30%;opacity:.22;background:repeating-linear-gradient(112deg,transparent 0 48px,#63e8ff20 49px 50px,transparent 51px 96px);animation:glitchSweep 9s linear infinite}
+.motion-backdrop:after{content:"";position:absolute;inset:0;opacity:.13;background:linear-gradient(90deg,transparent 0 47%,#75eaff55 49%,transparent 51% 100%);background-size:180px 100%;animation:glitchBars 6s steps(6,end) infinite}
+@keyframes glitchSweep{0%{transform:translate(-4%,0)}100%{transform:translate(4%,3%)}}
+@keyframes glitchBars{0%,85%,100%{opacity:.05;transform:translateX(0)}87%{opacity:.3;transform:translateX(13px)}89%{opacity:.12;transform:translateX(-9px)}92%{opacity:.22;transform:translateX(4px)}}
+@media(max-width:850px){.account-layout{grid-template-columns:1fr}.account-stats{gap:7px}}
+@media(max-width:520px){.account-columns{grid-template-columns:1fr}.account-stat{padding:10px 8px}.account-stat span{font-size:8px}.account-status{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.motion-backdrop:before,.motion-backdrop:after{animation:none!important}}
+
+
+
+/* Premium TALKLESS TECH wordmark, typography and icon polish */
+:root{--brand-cyan:#72efff;--brand-blue:#6d9cff;--brand-gold:#f3ca75}
+body{font-family:"Segoe UI Variable Display","Segoe UI",Inter,system-ui,sans-serif;font-feature-settings:"ss01" on;letter-spacing:.12px}
+.brand{display:inline-flex;align-items:center;gap:11px;font-weight:950;letter-spacing:1.15px;text-transform:uppercase}
+.brand>span:last-child{font-size:clamp(13px,1.6vw,17px);font-weight:950;letter-spacing:1.45px;background:linear-gradient(100deg,#f8fbff 0%,#b9d9ff 43%,#72efff 78%,#f2d28c 100%);background-clip:text;-webkit-background-clip:text;color:transparent;text-shadow:0 0 22px #62dfff20}
+.brand>span:last-child b{font-weight:1000;color:#75eaff;background:linear-gradient(90deg,#7cecff,#8ba8ff,#f3d18b);background-clip:text;-webkit-background-clip:text}
+.brand-symbol{position:relative;isolation:isolate;flex:0 0 auto;width:42px;height:42px!important;border:1px solid #8cecff99;border-radius:14px!important;display:grid;place-items:center;background:linear-gradient(145deg,#225b91,#10213d 65%,#17213d);box-shadow:0 0 0 4px #54cfff0d,0 0 25px #278cff45,inset 0 1px 9px #ffffff35;color:#f4fbff;font-size:15px;font-weight:1000;letter-spacing:-2px;text-shadow:0 0 12px #6ceaff}
+.brand-symbol:before{content:"";position:absolute;inset:4px;border:1px solid #9ceeff35;border-radius:10px;z-index:-1}
+.brand-symbol span{color:#7af0ff!important;margin-left:-1px;text-shadow:0 0 12px #4deaff}
+.intro-name{font-weight:1000;letter-spacing:clamp(2px,.7vw,4px);text-transform:uppercase;text-shadow:0 5px 28px #4daeff35}
+.intro-name b{font-weight:1000;background:linear-gradient(90deg,#76edff,#a6baff 55%,#f1d28e);background-clip:text;-webkit-background-clip:text;color:transparent}
+.intro-kicker,.intro-line,.intro-loading,.eyebrow,.dashboard-kicker,.dashboard-live,.tag,.tier-key,.account-status{font-weight:900;letter-spacing:2px}
+.hero h1,.section-head h2,.dashboard-top h2{font-weight:1000;letter-spacing:-1.25px;text-wrap:balance}
+.hero h1 span{background:linear-gradient(100deg,#6eeaff 0%,#91aaff 42%,#f2cb79 76%,#ff8b9c 100%);background-clip:text;-webkit-background-clip:text;color:transparent}
+.section-head h2{background:linear-gradient(100deg,#f7fbff,#b8d9f7 55%,#7feaff);background-clip:text;-webkit-background-clip:text;color:transparent;filter:drop-shadow(0 4px 14px #58cfff18)}
+.card .ram,.card .price,.hero-card .big,.balance{font-weight:1000;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.btn{text-transform:uppercase;font-weight:950;letter-spacing:.75px}
+.btn:not(.secondary){background-image:linear-gradient(105deg,#287cff,#5c66ff 55%,#178ea9);background-size:180% 100%;animation:brandButtonFlow 7s ease-in-out infinite}
+@keyframes brandButtonFlow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.card .tag,.box h3,.section-head h2,.customer-heading h3,.mini-title{font-weight:950;letter-spacing:.55px}
+footer{letter-spacing:.35px}
+@media(max-width:600px){.brand{gap:8px}.brand-symbol{width:36px;height:36px!important;border-radius:12px!important}.brand>span:last-child{font-size:13px;letter-spacing:1px}}
+@media(prefers-reduced-motion:reduce){.btn:not(.secondary){animation:none}}
+
+
+/* PROFESSIONAL CUSTOMER JOURNEY + HIGH-VISIBILITY ROTATING SILVER GRID */
+:root{--silver:#e6edf5;--silver-dim:#9eacbd;--gold:#e4bd68;--ice:#83eaff}
+body:before{z-index:-1;opacity:.34;background-image:linear-gradient(#dce8f52b 1px,transparent 1px),linear-gradient(90deg,#dce8f52b 1px,transparent 1px),linear-gradient(#83eaff12 1px,transparent 1px),linear-gradient(90deg,#83eaff12 1px,transparent 1px);background-size:42px 42px,42px 42px,9px 9px,9px 9px;mask-image:radial-gradient(ellipse at center,black 0%,#000b 66%,transparent 100%);animation:gridDrift 13s linear infinite,gridPulse 5s ease-in-out infinite alternate}
+body:after{opacity:.23;background:repeating-linear-gradient(0deg,transparent 0 3px,#dce8f51c 4px,transparent 5px 8px);animation:scanFlicker 4.5s steps(2,end) infinite}
+.motion-backdrop:before{content:"";position:absolute;inset:-45%;background:repeating-linear-gradient(0deg,transparent 0 41px,#dbe7f52c 42px,transparent 43px 84px),repeating-linear-gradient(90deg,transparent 0 41px,#dbe7f52c 42px,transparent 43px 84px);opacity:.34;transform-origin:center;animation:gridRotate 48s linear infinite;mask-image:radial-gradient(ellipse at center,black 0%,transparent 72%)}
+.motion-backdrop:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,#f1f5fa10 49%,#83eaff18 50%,transparent 64%);background-size:220% 100%;animation:glitchSweep 8s steps(8,end) infinite;mix-blend-mode:screen}
+@keyframes gridRotate{to{transform:rotate(360deg)}}
+@keyframes gridPulse{from{opacity:.2}to{opacity:.42}}
+@keyframes glitchSweep{0%,75%,100%{background-position:150% 0}78%{background-position:0 0}80%{background-position:115% 0}82%{background-position:20% 0}}
+.flow-overview{display:flex;align-items:center;gap:12px;margin:22px 0 4px;padding:16px 18px;border:1px solid #dce8f544;border-radius:18px;background:linear-gradient(110deg,#111c2beF,#1b2633eF,#182a33ef);box-shadow:0 14px 38px #0005}
+.flow-step{display:flex;align-items:center;gap:10px;min-width:0;flex:1;padding:7px 9px;border-radius:12px}
+.flow-step>span{width:34px;height:34px;flex:0 0 34px;display:grid;place-items:center;border-radius:11px;background:linear-gradient(145deg,#aebdcb,#f1f4f7);color:#121a25;font-weight:950;box-shadow:0 0 20px #dbe8f522}
+.flow-step b{display:block;color:#f0d28d;font-size:10px;letter-spacing:1.1px}
+.flow-step small{display:block;color:#c2ccd8;font-size:10px;margin-top:3px}
+.flow-step.active{background:#dce8f510;border:1px solid #e5edf52c}
+.flow-connector{height:1px;flex:0 0 25px;background:linear-gradient(90deg,#c6a45b,#e8f0f8,#70dff4);box-shadow:0 0 10px #cbd8e655}
+#account,#wallet,#panels{scroll-margin-top:92px}
+.account-section{padding-top:24px}
+.wallet-layout{grid-template-columns:minmax(0,1fr)}
+.wallet-layout>.box{max-width:100%;background:linear-gradient(145deg,#1d2938f2,#101a27f7);border-color:#c5d1df55}
+.order-panel-wrap{margin-top:22px;max-width:760px}
+.order-panel-wrap>.box{border:1px solid #d4e1ee77;background:linear-gradient(145deg,#27313eF5,#121e2cF8);box-shadow:0 20px 55px #0007,inset 0 1px #fff2}
+.order-panel-wrap .btn{background:linear-gradient(100deg,#bd913c,#e8edf3 52%,#70d7e8);color:#111923}
+.order-panel-wrap .order-summary{border-color:#c2d0df66}
+#products .card{backdrop-filter:blur(14px)}
+#products .card .btn{letter-spacing:.45px}
+#products .card.selected{box-shadow:0 0 0 2px #e8f0f8aa,0 0 28px #78eaff35,0 18px 45px #0008}
+@media(max-width:650px){.flow-overview{align-items:stretch;flex-direction:column;gap:5px}.flow-step{flex:unset}.flow-connector{width:1px;height:13px;flex:0 0 13px;margin-left:25px}.order-panel-wrap{max-width:100%}}
+@media(prefers-reduced-motion:reduce){body:before,.motion-backdrop:before,.motion-backdrop:after{animation:none!important}}
+
+
+/* FINAL AUTH-FIRST EXPERIENCE + DISPLAY TYPOGRAPHY */
+body{font-family:'Space Grotesk',Inter,system-ui,sans-serif}
+.hero h1,.section-head h2,.dashboard-top h2,.hero-card .big,.flow-step b,.ram,.price,.box h3,.intro-name,.brand>span:last-child{font-family:'Orbitron','Space Grotesk',sans-serif}
+.hero h1{font-size:clamp(36px,5.8vw,64px);line-height:1.13;letter-spacing:-1.8px}
+.section-head h2,.dashboard-top h2{font-size:clamp(23px,3.3vw,34px);line-height:1.25;letter-spacing:-.6px}
+.hero-card .big{font-size:clamp(26px,3.5vw,39px);letter-spacing:-1.3px}
+.brand{gap:12px}.brand-symbol{width:46px!important;height:46px!important;border-radius:15px!important;font-size:17px}
+.brand>span:last-child{font-size:clamp(12px,1.7vw,17px);letter-spacing:1.1px}
+/* larger silver grid that rotates visibly behind the whole page */
+.motion-backdrop:before{inset:-70%;opacity:.42;background:repeating-linear-gradient(0deg,transparent 0 57px,#e5edf65c 58px,transparent 59px 116px),repeating-linear-gradient(90deg,transparent 0 57px,#e5edf65c 58px,transparent 59px 116px);animation:gridRotate 34s linear infinite;mask-image:radial-gradient(ellipse at center,#000 0%,#000d 55%,transparent 82%)}
+.motion-backdrop:after{opacity:.2}
+body:before{opacity:.17;background-size:58px 58px;mask-image:radial-gradient(ellipse at center,#000 0%,transparent 78%)}
+.auth-gate{position:fixed;inset:0;z-index:900;display:grid;place-items:center;padding:22px;background:radial-gradient(ellipse at 50% 35%,#243b55ee,#080e19f7 68%);backdrop-filter:blur(18px)}
+.auth-gate[hidden]{display:none}
+.auth-card{width:min(100%,470px);position:relative;overflow:hidden;padding:clamp(25px,5vw,42px);border:1px solid #d9e5f277;border-radius:28px;background:linear-gradient(145deg,#253243f5,#111c2af7 62%,#172433f5);box-shadow:0 30px 100px #000b,inset 0 1px #ffffff2b;text-align:center}
+.auth-card:before{content:'';position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#b88b3c,#f1f5f9,#6eeaff,#a78bfa)}
+.auth-logo{width:86px;height:86px;margin:0 auto 20px;display:grid;place-items:center;border-radius:25px;border:1px solid #cbd9e9;background:linear-gradient(145deg,#aebdcb,#edf2f7 48%,#70dff0);color:#101b29;font:900 27px Orbitron,sans-serif;letter-spacing:-3px;box-shadow:0 0 0 7px #e9f1fa0d,0 0 40px #d7e4f344,inset 0 2px 12px #fff}
+.auth-card h1{font:800 clamp(22px,5vw,31px)/1.25 Orbitron,sans-serif;letter-spacing:-.6px;margin:0 0 12px;background:linear-gradient(100deg,#fff,#c8d8e9 55%,#8deaff);background-clip:text;-webkit-background-clip:text;color:transparent}
+.auth-card p{color:#b9c8d8;font-size:13px;line-height:1.8;margin:0 0 22px}
+.google-btn{width:100%;min-height:53px;border:1px solid #d8e2ed;border-radius:14px;background:linear-gradient(100deg,#f9fbff,#dce6ef);color:#152131;font-weight:900;font-size:13px;letter-spacing:.35px;display:flex;align-items:center;justify-content:center;gap:12px;cursor:pointer;box-shadow:0 12px 28px #0003;transition:.2s}
+.google-btn:hover{transform:translateY(-2px);box-shadow:0 16px 35px #0005}
+.google-g{font:bold 22px Arial;background:conic-gradient(from -45deg,#4285f4 0 25%,#34a853 25% 48%,#fbbc05 48% 72%,#ea4335 72%);background-clip:text;-webkit-background-clip:text;color:transparent}
+.preview-entry{width:100%;margin-top:12px;min-height:48px;border:1px solid #9fb4ca88;border-radius:12px;background:linear-gradient(100deg,#26384c,#3c536a);color:#f5f8ff;font:800 11px Orbitron,sans-serif;letter-spacing:.4px;cursor:pointer}.preview-entry:hover{filter:brightness(1.15)}
+.preview-banner{position:relative;z-index:8;padding:11px 18px;text-align:center;background:linear-gradient(90deg,#4a3615,#263c50,#153b49);border-bottom:1px solid #c6d9e477;color:#f5e7bd;font-size:12px;font-weight:700;letter-spacing:.2px}.preview-banner[hidden]{display:none}
+.auth-foot{margin-top:17px!important;font-size:10px!important;color:#8fa3ba!important}
+.auth-error{min-height:20px;margin-top:12px;color:#ffb5b5;font-size:11px}
+body.auth-locked{overflow:hidden}
+body.auth-locked>header,body.auth-locked>main,body.auth-locked>footer{visibility:hidden}
+body.auth-locked .motion-backdrop{opacity:.55}
+.account-access .auth-inline{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.account-access .auth-inline .google-btn{max-width:300px;min-height:46px}
+.account-access .notice{margin-top:15px}
+@media(max-width:600px){.auth-card{border-radius:22px}.auth-logo{width:75px;height:75px}.brand-symbol{width:39px!important;height:39px!important}}
+@media(prefers-reduced-motion:reduce){.motion-backdrop:before{animation:none!important}}
+
+
+/* Secure email/password entry + premium plan card details */
+.auth-divider{display:flex;align-items:center;gap:12px;margin:19px 0 14px;color:#91a4ba;font:800 9px Orbitron,sans-serif;letter-spacing:1.5px}
+.auth-divider:before,.auth-divider:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,#91a4ba66)}
+.auth-label{display:block;text-align:left;margin:11px 0 6px;color:#c5d3e2;font:800 9px Orbitron,sans-serif;letter-spacing:1.2px}
+.email-auth-form input{width:100%;height:48px;padding:0 14px;border:1px solid #8298b455;border-radius:12px;background:#081322;color:#f5f8ff;font:500 13px "Space Grotesk",sans-serif;outline:none}
+.email-auth-form input:focus{border-color:#73eaff;box-shadow:0 0 0 3px #54cfff20}
+.auth-submit{width:100%;margin-top:15px;min-height:49px;font-family:Orbitron,sans-serif;font-size:11px;letter-spacing:.5px}
+.auth-switch{margin-top:15px;color:#aabbd0;font-size:11px}.auth-switch button,.forgot-link{border:0;background:none;color:#77eaff;font-weight:900;cursor:pointer;padding:5px}
+.forgot-link{font-size:10px;margin-top:5px}.auth-error{overflow-wrap:anywhere}
+#products .plan-topline{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:15px}
+#products .plan-emblem{width:45px;height:45px;border-radius:14px;display:grid;place-items:center;font:900 15px Orbitron,sans-serif;letter-spacing:-1px;background:linear-gradient(145deg,#ffffff2b,#ffffff08);border:1px solid currentColor;box-shadow:inset 0 1px #ffffff38,0 8px 24px #0003}
+#products .plan-tier{font:900 9px Orbitron,sans-serif;letter-spacing:1.5px;padding:7px 9px;border:1px solid currentColor;border-radius:999px;background:#ffffff0b}
+#products .ram{font:900 clamp(24px,3vw,29px) Orbitron,sans-serif;letter-spacing:-1px}
+#products .price{font:900 31px Orbitron,sans-serif;letter-spacing:-1.4px}
+#products .plan-specs{display:flex;gap:7px;flex-wrap:wrap;margin:13px 0 4px}
+#products .plan-specs span{padding:5px 8px;border-radius:8px;background:#ffffff0b;border:1px solid #ffffff17;color:#d5e1ef;font-size:9px;font-weight:800;letter-spacing:.4px}
+#products .card p{min-height:42px;line-height:1.6}
+@media(max-width:480px){.auth-card{max-height:94vh;overflow:auto}#products .plan-emblem{width:39px;height:39px}}
+
+
+/* FINAL PASS — clean storefront, distinctive emblem and bold rotating glitch grid */
+.brand-symbol{display:grid;place-items:center;overflow:visible;color:#eafaff;background:linear-gradient(145deg,#163e70,#08172d 68%,#1b1740);border:1px solid #70dfff;box-shadow:0 0 0 3px #258cff20,0 0 24px #168dff88,inset 0 0 15px #65dfff2b}
+.brand-symbol svg{width:82%;height:82%;filter:drop-shadow(0 0 7px #55cfff99)}
+.auth-logo{display:grid!important;place-items:center;color:#effbff!important;font-size:0!important;background:linear-gradient(145deg,#1b5791,#101c3d)!important;border:1px solid #6feaff!important;box-shadow:0 0 35px #248cff77,inset 0 0 18px #64eaff33}
+.auth-logo svg{width:78%;height:78%;filter:drop-shadow(0 0 8px #5deaff99)}
+/* Account details are intentionally kept out of the storefront; sign-in remains at entry. */
+.account-section,.order-panel-wrap{display:none!important}
+#account{display:none!important}
+.flow-overview{margin-top:5px}
+.hero .btn{margin-top:12px}
+.motion-backdrop{opacity:1!important;isolation:isolate}
+.motion-backdrop:before{content:"";position:absolute;inset:-85%;z-index:0;pointer-events:none;opacity:.7;transform-origin:center;background-image:linear-gradient(90deg,transparent 0 48%,#48aaff9c 49%,#e6f4ff8a 50%,#42e8ff9c 51%,transparent 52%),linear-gradient(0deg,transparent 0 48%,#7a9dff70 49%,#e6f4ff75 50%,#44dfff80 51%,transparent 52%);background-size:112px 112px;mask-image:radial-gradient(ellipse at center,#000 0%,#000b 48%,transparent 78%);animation:talklessGridSpin 34s linear infinite}
+.motion-backdrop:after{content:"";position:absolute;inset:-15%;z-index:0;pointer-events:none;opacity:.34;background:repeating-linear-gradient(0deg,transparent 0 5px,#4ddfff35 6px,#ffffff20 7px,transparent 8px 13px),linear-gradient(115deg,transparent 20%,#287cff33 48%,#67eaff50 51%,transparent 72%);mix-blend-mode:screen;animation:talklessGlitch 5.5s steps(7,end) infinite}
+.motion-backdrop i{z-index:1;opacity:.42!important;filter:blur(1px)!important;border-width:2px!important;box-shadow:0 0 55px #168dff66,inset 0 0 55px #258cff35!important}
+.motion-backdrop i:nth-child(1){width:58vw;height:58vw;min-width:300px;min-height:300px;left:-18%;top:5%;border-color:#2f8dff!important;animation:blueOrbit 13s linear infinite!important}
+.motion-backdrop i:nth-child(2){width:65vw;height:65vw;right:-22%;top:18%;border-color:#35dcff!important;animation:blueOrbit 18s linear infinite reverse!important}
+.motion-backdrop i:nth-child(3){width:48vw;height:48vw;left:26%;bottom:-28%;border-color:#a88bff!important;animation:blueOrbit 21s linear infinite!important}
+@keyframes talklessGridSpin{0%{transform:rotate(0deg) scale(1)}50%{transform:rotate(180deg) scale(1.08)}100%{transform:rotate(360deg) scale(1)}}
+@keyframes talklessGlitch{0%,88%,100%{transform:translateX(0);opacity:.2}90%{transform:translateX(9px);opacity:.55}92%{transform:translateX(-7px);opacity:.3}95%{transform:translateX(4px);opacity:.48}}
+@keyframes blueOrbit{0%{transform:rotate(0deg) scale(.88)}50%{transform:rotate(180deg) scale(1.13)}100%{transform:rotate(360deg) scale(.88)}}
+#products .card{cursor:pointer}
+#products .card .btn{pointer-events:none}
+#products .card:hover{box-shadow:0 0 0 1px #65dfff66,0 18px 55px #087bff35,0 0 34px #188cff22}
+#wallet .section-head .muted{max-width:650px}
+@media(max-width:600px){.motion-backdrop:before{background-size:76px 76px;opacity:.58}.motion-backdrop i{opacity:.3!important}.brand-symbol{width:39px!important;height:39px!important}}
+@media(prefers-reduced-motion:reduce){.motion-backdrop:before,.motion-backdrop:after,.motion-backdrop i{animation:none!important}}
+
+
+
+/* TALKLESS TECH — discreet luxury storefront finish (no public tier/color names) */
+#products .plan-tier,.tier-key,.gold-key,.silver-key,.diamond-key{display:none!important}
+#products .plan-topline{justify-content:space-between;align-items:center}
+#products .plan-index{font:800 9px/1 Orbitron, sans-serif;letter-spacing:1.8px;color:#d8c18a;border:1px solid #d6b76a55;border-radius:999px;padding:8px 11px;background:#ffffff08}
+#products .plan-emblem{font-size:22px!important;color:#f5e6bd;border:1px solid #e2c77b88!important;background:linear-gradient(145deg,#d7b66b44,#dce9f51b 55%,#55d7ef22)!important;box-shadow:0 0 24px #d6b76a22, inset 0 1px #fff5!important}
+#products .card{background:linear-gradient(145deg,#192638f5 0%,#111b2bf7 52%,#152333f5)!important;border:1px solid #c9b47766!important;box-shadow:0 18px 44px #0007,inset 0 1px #ffffff16,0 0 22px #4ac8e90b!important}
+#products .card:nth-child(n) .tag{color:#b8d9e8!important}
+#products .card:nth-child(n) .price{color:#f4e6c2!important}
+#products .card:nth-child(n) .btn{background:linear-gradient(105deg,#92713a 0%,#d7bd7a 42%,#dce8f2 72%,#55bfd6 100%)!important;color:#101a25!important;border:1px solid #f1dfa7!important;box-shadow:0 9px 24px #c6a75a25!important}
+#products .card:nth-child(n):before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,transparent,#e6c875,#edf5fb,#61d8ed,transparent);opacity:.9}
+#products .plan-specs span{border-color:#a9c2d333;background:linear-gradient(120deg,#ffffff0b,#63d7ef0b);color:#d8e5ef}
+.dashboard-plan,.dashboard-plan:nth-child(n){color:#f7f4ec!important;border:1px solid #d7bd7b99!important;background:linear-gradient(135deg,#1b2a3d 0%,#263448 38%,#283044 62%,#163b4b 100%)!important;box-shadow:inset 0 1px #fff3,0 10px 26px #0003!important}
+.dashboard-plan span,.dashboard-plan strong,.dashboard-plan small,.dashboard-plan:nth-child(n) span,.dashboard-plan:nth-child(n) strong,.dashboard-plan:nth-child(n) small{color:#f4f0e5!important}
+.dashboard-plan:after{content:"VIEW PLAN  →";color:#d8c18a}
+.dashboard-plan:nth-child(n):hover{border-color:#75e6f5!important;box-shadow:0 0 25px #4acff433,0 12px 30px #0005!important}
+.public-plan-dashboard{background:linear-gradient(120deg,#121b29,#1d2b3c 48%,#172d3a)!important;color:#f4f2ec!important;border-top:1px solid #d4b96e55;border-bottom:1px solid #d4b96e55}
+.dashboard-kicker,.dashboard-top h2,.dashboard-top p,.dashboard-foot{color:#e2e8ee!important}
+.dashboard-live{background:#142436!important;border-color:#d3b66a66!important;color:#f0e6cc!important}
+.motion-backdrop{background:radial-gradient(ellipse at 12% 18%,#315b9b55,transparent 42%),radial-gradient(ellipse at 84% 22%,#a27b3d38,transparent 40%),radial-gradient(ellipse at 55% 88%,#4c3b8b45,transparent 45%),linear-gradient(135deg,#070d18,#172334 48%,#0a121e)!important}
+.motion-backdrop:before{inset:-95%!important;opacity:.72!important;background-image:repeating-linear-gradient(0deg,transparent 0 61px,#e7d39b88 62px,transparent 63px 122px),repeating-linear-gradient(90deg,transparent 0 61px,#9fc6e866 62px,transparent 63px 122px)!important;background-size:122px 122px!important;mask-image:radial-gradient(ellipse at center,#000 0%,#000e 48%,transparent 80%)!important;animation:talklessGridSpin 42s linear infinite!important}
+.motion-backdrop:after{inset:-25%!important;opacity:.48!important;background:repeating-linear-gradient(125deg,transparent 0 44px,#d8b86d55 45px,#f0dfb533 46px,transparent 47px 92px),repeating-linear-gradient(55deg,transparent 0 86px,#70dff533 87px,#8b9cff2b 88px,transparent 89px 174px),linear-gradient(110deg,transparent 20%,#3b9eff22 48%,#e5c8752b 52%,transparent 76%)!important;mix-blend-mode:screen;animation:talklessGlitch 7s steps(8,end) infinite!important}
+.motion-backdrop i{filter:blur(1px)!important;opacity:.5!important;border-width:2px!important}
+.motion-backdrop i:nth-child(1){border-color:#e4c475!important;box-shadow:0 0 65px #d8aa4d55,inset 0 0 55px #d8aa4d22!important}
+.motion-backdrop i:nth-child(2){border-color:#66dff3!important;box-shadow:0 0 65px #29bfe955,inset 0 0 55px #29bfe922!important}
+.motion-backdrop i:nth-child(3){border-color:#9b8cff!important;box-shadow:0 0 65px #8c72ff55,inset 0 0 55px #8c72ff22!important}
+.hero-card,.box,.step{border-color:#c7ad7055}
+@media(max-width:600px){.dashboard-plan-grid{gap:9px}.dashboard-plan{min-height:105px}.motion-backdrop:before{background-size:88px 88px!important;opacity:.62!important}}
+@media(prefers-reduced-motion:reduce){.motion-backdrop:before,.motion-backdrop:after,.motion-backdrop i{animation:none!important}}
+
+
+/* PREMIUM BRAND ECOSYSTEM + LARGE CORNER-TO-CORNER ORBITING RINGS */
+.trusted-strip{position:relative;z-index:2;padding:23px 0 25px;background:linear-gradient(90deg,#0a1422ef,#18283aef 50%,#0b1727ef);border-top:1px solid #d8bb7140;border-bottom:1px solid #7bdcf044;backdrop-filter:blur(14px)}
+.trusted-heading{text-align:center;color:#d9c58e;font:800 9px/1.5 Inter,Arial,sans-serif;letter-spacing:3px;margin-bottom:17px}
+.trusted-logos{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;align-items:center}
+.trusted-brand{min-height:54px;display:flex;align-items:center;justify-content:center;gap:9px;padding:10px 8px;border:1px solid #b7cbe52b;border-radius:13px;background:linear-gradient(145deg,#ffffff0c,#6acfff08);color:#e7edf6;font-size:clamp(11px,1.15vw,14px);font-weight:800;letter-spacing:.15px;box-shadow:inset 0 1px #ffffff12;transition:.25s}
+.trusted-brand:hover{transform:translateY(-3px);border-color:#e4c77b99;box-shadow:0 8px 24px #0005,0 0 20px #4bcfff18}
+.brand-mark{width:25px;height:25px;display:grid;place-items:center;border-radius:8px;background:#ffffff12;color:#8eeaff;font-size:18px;font-weight:950}
+.ptero .brand-mark{color:#f2c66e}.cloud .brand-mark{color:#f5a84b}.node .brand-mark{color:#8edb83}.linux .brand-mark{color:#f1d36d}.docker .brand-mark{color:#72c9ff}.google .brand-mark{color:#8fc7ff;font-size:17px}
+.corner-orbit{position:absolute;z-index:1;width:min(54vw,660px);height:min(54vw,660px);min-width:310px;min-height:310px;border:2px solid #6bcfff55;border-radius:50%;pointer-events:none;transform-origin:center;box-shadow:0 0 25px #228dff30,inset 0 0 30px #228dff18;opacity:.72}
+.corner-orbit:before,.corner-orbit:after,.corner-orbit b{content:"";position:absolute;inset:7%;border:1px solid #e5c87966;border-radius:50%;box-shadow:0 0 24px #dcb85a25}
+.corner-orbit:after{inset:16%;border-color:#7ceaff66;transform:rotate(48deg) scaleX(1.18)}.corner-orbit b{inset:25%;border-color:#a995ff66;transform:rotate(-38deg) scaleX(1.2)}
+.orbit-a{left:-31%;top:-29%;animation:cornerSpinA 27s linear infinite}.orbit-b{right:-32%;bottom:-38%;border-color:#e4c57566;animation:cornerSpinB 34s linear infinite reverse}.orbit-c{left:34%;top:38%;width:min(35vw,430px);height:min(35vw,430px);opacity:.38;border-color:#a18cff55;animation:cornerSpinA 42s linear infinite reverse}
+@keyframes cornerSpinA{to{transform:rotate(360deg)}}@keyframes cornerSpinB{to{transform:rotate(-360deg)}}
+@media(max-width:700px){.trusted-logos{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.trusted-brand{min-height:48px;font-size:11px}.trusted-heading{font-size:8px;letter-spacing:2px}.corner-orbit{min-width:250px;min-height:250px;opacity:.45}.orbit-c{display:none}}
+@media(prefers-reduced-motion:reduce){.corner-orbit{animation:none!important}}
+
+
+/* ===== BLUE WAVE SERVER PLAN BOXES — PREMIUM SHOP UPGRADE ===== */
+:root{
+  --wave-blue:#287cff;
+  --wave-cyan:#42e3f5;
+  --wave-ice:#9cefff;
+}
+#planDashboard .dashboard-plan-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+}
+#planDashboard .dashboard-plan{
+  min-height:132px;
+  padding:18px 17px;
+  border-radius:18px;
+  overflow:hidden;
+  background:linear-gradient(145deg,#101d35 0%,#122b4b 52%,#0b1425 100%);
+  border:1px solid #42baff55;
+  box-shadow:0 10px 30px #001b4b55,inset 0 1px #ffffff12;
+  color:#eaf8ff;
+}
+#planDashboard .dashboard-plan span,
+#planDashboard .dashboard-plan strong,
+#planDashboard .dashboard-plan small{color:#eaf8ff!important}
+#planDashboard .dashboard-plan strong{
+  font-size:clamp(22px,2.5vw,30px);
+  text-shadow:0 0 18px #42baff35;
+}
+#planDashboard .dashboard-plan small{color:#7feaff!important}
+#planDashboard .dashboard-plan:before,
+#products .card:before{
+  content:"";
+  position:absolute;
+  inset:-45%;
+  z-index:-1;
+  pointer-events:none;
+  background:conic-gradient(from 0deg,transparent 0 65%,#287cff 73%,#42e3f5 80%,#9cefff 84%,transparent 92% 100%);
+  opacity:.72;
+  animation:serverBlueWave 5.5s linear infinite;
+}
+#planDashboard .dashboard-plan:after{
+  content:"";
+  position:absolute;
+  inset:1.5px;
+  z-index:-1;
+  border-radius:16px;
+  background:linear-gradient(145deg,#101d35,#122b4b 52%,#0b1425);
+  pointer-events:none;
+}
+#planDashboard .dashboard-plan:hover{
+  transform:translateY(-5px);
+  border-color:#7feaff;
+  box-shadow:0 14px 36px #087dff35,0 0 20px #42e3f522;
+}
+#products .card{
+  border:1px solid #42baff66!important;
+  background:linear-gradient(145deg,#101d35f5,#122b4bf2 52%,#0b1425f5)!important;
+  box-shadow:0 14px 38px #001b4b55,inset 0 1px #ffffff12!important;
+  overflow:hidden;
+}
+#products .card:before{
+  inset:-55%;
+  opacity:.65;
+}
+#products .card:after{
+  content:"";
+  position:absolute;
+  inset:1.5px;
+  z-index:-1;
+  border-radius:18px;
+  pointer-events:none;
+  background:linear-gradient(145deg,#101d35,#122b4b 52%,#0b1425);
+  opacity:1;
+}
+#products .card .tag,
+#products .card .ram,
+#products .card .price,
+#products .card p,
+#products .card .plan-coin,
+#products .card .btn,
+#products .card .popular{position:relative;z-index:1}
+#products .card .tag{color:#78eaff!important}
+#products .card .ram{color:#f3f8ff!important}
+#products .card .price{color:#9cefff!important}
+#products .card .plan-coin{background:#102f4a;border-color:#42e3f555;color:#9cefff}
+#products .card .btn{
+  background:linear-gradient(105deg,#126bdf,#287cff 48%,#42cde8)!important;
+  color:#fff!important;
+  border:1px solid #8beaff66!important;
+  box-shadow:0 8px 22px #087dff35!important;
+}
+@keyframes serverBlueWave{to{transform:rotate(360deg)}}
+@media(max-width:850px){
+  #planDashboard .dashboard-plan-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:520px){
+  #planDashboard .dashboard-plan-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  #planDashboard .dashboard-plan{min-height:116px;padding:14px 12px}
+  #planDashboard .dashboard-plan strong{font-size:21px}
+}
+@media(prefers-reduced-motion:reduce){
+  #planDashboard .dashboard-plan:before,#products .card:before{animation:none!important}
+}
+
+</style>
+
+<style id="talkless-motion-and-button-polish">
+/* Floating angular energy shapes: smooth travel, deliberate rotation and brief glitch accents */
+.motion-backdrop .energy-shape{position:absolute;display:block;pointer-events:none;z-index:2;width:clamp(150px,24vw,360px);height:clamp(100px,17vw,250px);opacity:.22;mix-blend-mode:screen;filter:drop-shadow(0 0 18px #168dff88);will-change:transform,opacity;}
+.motion-backdrop .energy-shape:before,.motion-backdrop .energy-shape:after{content:"";position:absolute;inset:0;border:1px solid #55bfffaa;clip-path:polygon(12% 0,100% 0,84% 100%,0 82%);background:repeating-linear-gradient(135deg,transparent 0 15px,#2d9fff55 16px 17px,transparent 18px 31px);}
+.motion-backdrop .energy-shape:after{inset:12%;border-color:#e5c87999;clip-path:polygon(0 15%,88% 0,100% 78%,18% 100%);background:repeating-linear-gradient(45deg,transparent 0 21px,#e5c87955 22px 23px,transparent 24px 42px);}
+.energy-one{top:9%;left:-28%;animation:shapeDriftOne 24s ease-in-out infinite,shapeGlitch 8s steps(6,end) infinite;}
+.energy-two{top:37%;right:-30%;width:clamp(190px,29vw,420px)!important;animation:shapeDriftTwo 29s ease-in-out infinite,shapeGlitch 10s steps(7,end) infinite -3s;}
+.energy-three{bottom:8%;left:-25%;width:clamp(170px,25vw,370px)!important;animation:shapeDriftThree 32s ease-in-out infinite,shapeGlitch 9s steps(5,end) infinite -5s;}
+.energy-four{top:62%;right:-27%;width:clamp(130px,19vw,290px)!important;opacity:.15!important;animation:shapeDriftFour 26s ease-in-out infinite,shapeGlitch 11s steps(6,end) infinite -2s;}
+@keyframes shapeDriftOne{0%,100%{transform:translate3d(0,0,0) rotate(-18deg) skewX(-8deg)}50%{transform:translate3d(74vw,15vh,0) rotate(22deg) skewX(8deg)}}
+@keyframes shapeDriftTwo{0%,100%{transform:translate3d(0,0,0) rotate(20deg) scale(.9)}50%{transform:translate3d(-72vw,-12vh,0) rotate(-24deg) scale(1.08)}}
+@keyframes shapeDriftThree{0%,100%{transform:translate3d(0,0,0) rotate(12deg)}50%{transform:translate3d(66vw,-20vh,0) rotate(198deg)}}
+@keyframes shapeDriftFour{0%,100%{transform:translate3d(0,0,0) rotate(-30deg)}50%{transform:translate3d(-65vw,8vh,0) rotate(145deg)}}
+@keyframes shapeGlitch{0%,88%,100%{filter:drop-shadow(0 0 15px #168dff66);opacity:.18}90%{filter:drop-shadow(7px 0 18px #47dfff);opacity:.42}92%{filter:drop-shadow(-5px 0 18px #d6b75e);opacity:.25}94%{opacity:.38}}
+/* Side-to-side blue light rails, with independent timing and soft glow */
+.motion-backdrop .side-blue-layer{position:absolute;left:-65%;width:230%;height:2px;display:block;z-index:3;opacity:.62;pointer-events:none;mix-blend-mode:screen;background:linear-gradient(90deg,transparent 0%,#168dff08 12%,#168dff66 28%,#63c9ff 50%,#168dff66 72%,#168dff08 88%,transparent 100%);box-shadow:0 0 10px #168dff88,0 0 28px #168dff55,0 0 54px #087bff33;animation:blueSideTravel 15s cubic-bezier(.45,0,.55,1) infinite alternate;}
+.motion-backdrop .side-blue-layer:before,.motion-backdrop .side-blue-layer:after{content:"";position:absolute;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,#75d7ffbb 22%,#168dff 50%,#75d7ffbb 78%,transparent);box-shadow:0 0 12px #238fff;}
+.motion-backdrop .side-blue-layer:before{top:-7px;opacity:.7}.motion-backdrop .side-blue-layer:after{top:8px;opacity:.42}
+.motion-backdrop .layer-one{top:22%;animation-duration:17s;animation-delay:-5s}.motion-backdrop .layer-two{top:51%;height:3px;opacity:.72;animation-duration:12s;animation-delay:-9s}.motion-backdrop .layer-three{top:78%;height:1px;opacity:.5;animation-duration:20s;animation-delay:-3s}
+@keyframes blueSideTravel{0%{transform:translateX(-17%) skewX(-8deg);filter:brightness(.8)}50%{filter:brightness(1.25)}100%{transform:translateX(17%) skewX(8deg);filter:brightness(1)}}
+/* More balanced plan cards and consistently aligned action buttons */
+#products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+#products .card{display:flex;flex-direction:column;align-items:stretch;min-width:0;min-height:310px;padding:clamp(17px,2vw,24px);}
+#products .card p{flex:1;line-height:1.65;margin:12px 0 15px}
+#products .card .plan-specs{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 17px}
+#products .card .plan-specs span{font-size:9px;letter-spacing:.35px}
+#products .card>.btn{width:100%;min-height:48px;margin-top:auto;white-space:normal}
+#products .card .plan-topline{display:flex;align-items:center;justify-content:space-between;gap:10px}
+#products .card .price{margin-top:8px}
+.btn,.payoption,.google-btn,.preview-entry{transition:transform .22s ease,filter .22s ease,box-shadow .22s ease,border-color .22s ease}
+.btn:hover,.payoption:hover,.google-btn:hover,.preview-entry:hover{transform:translateY(-2px);filter:brightness(1.12);box-shadow:0 9px 24px #168dff30}
+.paygrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:850px){#products{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}}
+@media(max-width:560px){#products{grid-template-columns:1fr;gap:13px}#products .card{min-height:0;padding:19px}#products .card>.btn{min-height:48px}.motion-backdrop .energy-shape{opacity:.13}.motion-backdrop .energy-two,.motion-backdrop .energy-four{display:none}.motion-backdrop .side-blue-layer{opacity:.42}}
+@media(prefers-reduced-motion:reduce){.motion-backdrop .energy-shape,.motion-backdrop .side-blue-layer{animation:none!important;transform:none!important}}
+</style>
+
+
+<style id="talkless-navigation-menu">
+.nav-actions{display:flex;align-items:center;gap:11px;margin-left:auto}.nav-menu-wrap{position:relative;z-index:30}.menu-toggle{width:44px;height:42px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;border:1px solid #55cfff66;border-radius:12px;background:linear-gradient(145deg,#142c4b,#0c1729);box-shadow:0 0 20px #168dff22,inset 0 1px #ffffff20;cursor:pointer;transition:.25s}.menu-toggle:hover,.menu-toggle[aria-expanded="true"]{border-color:#63eaff;box-shadow:0 0 24px #168dff66;transform:translateY(-1px)}.menu-toggle span{display:block;width:20px;height:2px;border-radius:3px;background:linear-gradient(90deg,#55aaff,#65efff);box-shadow:0 0 8px #36bfff88;transition:transform .25s,opacity .2s}.menu-toggle[aria-expanded="true"] span:first-child{transform:translateY(7px) rotate(45deg)}.menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}.menu-toggle[aria-expanded="true"] span:last-child{transform:translateY(-7px) rotate(-45deg)}.site-menu{position:absolute;top:calc(100% + 13px);right:0;width:min(330px,calc(100vw - 34px));padding:13px;border:1px solid #4a91cb88;border-radius:18px;background:linear-gradient(145deg,#101f36f5,#081321f7);backdrop-filter:blur(20px);box-shadow:0 24px 65px #000b,0 0 28px #168dff26;animation:menuDrop .2s ease-out;transform-origin:top right}.site-menu[hidden]{display:none}.site-menu-title{padding:7px 9px 11px;color:#6edfff;font:800 9px/1.2 Orbitron, sans-serif;letter-spacing:2px}.site-menu>a{display:flex;align-items:center;gap:11px;padding:12px 10px;border:1px solid transparent;border-radius:12px;color:#eaf4ff;transition:.2s}.site-menu>a+a{margin-top:4px}.site-menu>a:hover{background:linear-gradient(100deg,#1b4d7a88,#142b48aa);border-color:#4bcaff55;transform:translateX(3px)}.site-menu>a>span{width:29px;height:29px;display:grid;place-items:center;flex:none;border-radius:9px;background:#1b4a70;color:#7deaff;font:800 10px Orbitron,sans-serif}.site-menu>a div{display:flex;flex-direction:column;gap:3px;min-width:0}.site-menu>a b{font-size:12px}.site-menu>a small{font-size:10px;color:#9fb5d0}.site-menu>a i{margin-left:auto;color:#62dfff;font-style:normal}@keyframes menuDrop{from{opacity:0;transform:translateY(-7px) scale(.98)}to{opacity:1;transform:none}}
+@media(max-width:760px){nav{gap:10px}.nav-actions{gap:8px}.menu-toggle{width:42px;height:40px}.nav-actions>.btn{padding:9px 10px;font-size:11px}}
+@media(max-width:380px){.brand{font-size:16px}.nav-actions>.btn{font-size:10px;padding:8px}}
+</style>
+</head>
+<body class="auth-locked">
+<div class="motion-backdrop" aria-hidden="true"><div class="world-globe" aria-hidden="true">
+  <div class="globe-aura"></div>
+  <div class="globe-sphere">
+    <div class="globe-land"></div>
+    <div class="globe-latitudes"></div>
+    <div class="globe-longitudes"></div>
+    <div class="globe-highlight"></div>
+  </div>
+  <div class="globe-orbit globe-orbit-one"></div>
+  <div class="globe-orbit globe-orbit-two"></div>
+</div><i></i><i></i><i></i><span></span><div class="color-flow flow-blue"></div><div class="color-flow flow-gold"></div><div class="color-flow flow-violet"></div><div class="gold-halo halo-one"></div><div class="gold-halo halo-two"></div><div class="gold-halo halo-three"></div><div class="gold-streak streak-one"></div><div class="gold-streak streak-two"></div><div class="side-blue-layer layer-one"></div><div class="side-blue-layer layer-two"></div><div class="side-blue-layer layer-three"></div><div class="corner-orbit orbit-a"><b></b></div><div class="corner-orbit orbit-b"><b></b></div><div class="corner-orbit orbit-c"><b></b></div><div class="energy-shape energy-one"></div><div class="energy-shape energy-two"></div><div class="energy-shape energy-three"></div><div class="energy-shape energy-four"></div></div>
+<div class="intro-screen" id="introScreen" aria-label="TALKLESS TECH opening animation">
+  <div class="intro-orbit"></div>
+  <div class="intro-content">
+    <div class="intro-emblem">
+      <div class="emblem-ring"></div>
+      <svg class="emblem-svg" viewBox="0 0 100 100" role="img" aria-label="Talkless Tech logo">
+        <defs>
+          <linearGradient id="logoGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#72eaff"/>
+            <stop offset=".52" stop-color="#398cff"/>
+            <stop offset="1" stop-color="#a18aff"/>
+          </linearGradient>
+        </defs>
+        <path d="M18 25h64v12H57v43H43V37H18z" fill="url(#logoGradient)"/>
+        <path d="M62 52h20v28H62z" rx="4" fill="#42e3f5"/>
+        <path d="M68 59h8M68 66h8M68 73h8" stroke="#071326" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="76" cy="19" r="5" fill="#ff647d"/>
+        <path d="M76 24v8" stroke="#ff647d" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span class="emblem-spark spark-one"></span><span class="emblem-spark spark-two"></span>
+    </div>
+    <div class="intro-kicker">WELCOME TO</div>
+    <div class="intro-name">TALKLESS <b>TECH</b></div>
+    <div class="intro-line">HOSTING • PANELS • DIGITAL SOLUTIONS</div>
+    <div class="intro-progress"><i></i></div>
+    <div class="intro-loading">INITIALIZING YOUR EXPERIENCE <span>● ● ●</span></div><div class="intro-countdown" id="introCountdown" aria-live="polite">3</div>
+  </div>
+</div>
+<div class="auth-gate" id="authGate" role="dialog" aria-modal="true" aria-labelledby="authGateTitle">
+  <div class="auth-card">
+    <div class="auth-logo" aria-label="TALKLESS TECH emblem"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 10h32v7H27v22h-7V17H8z" fill="currentColor"/><path d="M29 25h11v14H29z" fill="#5eeaff"/><path d="M33 29h4M33 33h4M33 37h4" stroke="#071326" stroke-width="1.8" stroke-linecap="round"/><circle cx="39" cy="8" r="3" fill="#ff718c"/></svg></div>
+    <div class="eyebrow" style="margin-bottom:10px">WELCOME TO YOUR HOSTING PORTAL</div>
+    <h1 id="authGateTitle">SIGN IN TO CONTINUE</h1>
+    <p>Sign in with Google or use your email and password. Create your own account once, then return with the same details whenever you visit.</p>
+    <button class="google-btn" id="gateGoogleButton" type="button" onclick="signInWithGoogle()"><span class="google-g">G</span> Continue with Google</button>
+    <div class="auth-divider"><span>OR USE EMAIL</span></div>
+    <form id="emailAuthForm" class="email-auth-form" onsubmit="submitEmailAuth(event)">
+      <label class="auth-label" for="authEmail">EMAIL ADDRESS</label>
+      <input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com" required>
+      <label class="auth-label" for="authPassword">PASSWORD</label>
+      <input id="authPassword" type="password" autocomplete="current-password" minlength="6" placeholder="At least 6 characters" required>
+      <button class="btn auth-submit" id="emailAuthSubmit" type="submit">Sign in to my account →</button>
+    </form>
+    <div class="auth-switch"><span id="authModeHint">New to TALKLESS TECH?</span> <button type="button" id="authModeToggle" onclick="toggleEmailAuthMode()">Create account</button></div>
+    <button class="forgot-link" type="button" onclick="resetEmailPassword()">Forgot password?</button>
+    <div class="auth-error" id="authError" aria-live="polite"></div>
+    <button class="preview-entry" type="button" onclick="enterPreviewMode()">↗ PREVIEW WEBSITE WITHOUT SIGNING IN</button>
+    <p class="auth-foot">Preview mode lets you inspect the site. Purchases and server creation require a real account.</p>
+  </div>
+</div>
+<div class="preview-banner" id="previewBanner" hidden>PREVIEW MODE — You can explore the website. Payments, saved accounts and server creation are disabled until setup is complete.</div>
+<header><div class="wrap"><nav><a class="brand" href="#"><span class="brand-symbol" aria-label="TALKLESS TECH emblem"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 10h32v7H27v22h-7V17H8z" fill="currentColor"/><path d="M29 25h11v14H29z" fill="#5eeaff"/><path d="M33 29h4M33 33h4M33 37h4" stroke="#071326" stroke-width="1.8" stroke-linecap="round"/><circle cx="39" cy="8" r="3" fill="#ff718c"/></svg></span><span>TALKLESS <b>TECH</b></span></a><div class="navlinks"><a href="#wallet">01 Wallet</a><a href="#panels">02 Server plans</a><a href="#how">How it works</a><a href="#bot-links">Our bots</a></div><div class="nav-actions"><div class="nav-menu-wrap"><button class="menu-toggle" id="siteMenuToggle" type="button" aria-label="Open website menu" aria-expanded="false" aria-controls="siteMenu"><span></span><span></span><span></span></button><div class="site-menu" id="siteMenu" hidden><div class="site-menu-title">QUICK NAVIGATION</div><a href="#planDashboard"><span>01</span><div><b>New Server Plans</b><small>View all plans and prices</small></div><i>↗</i></a><a href="#panels"><span>02</span><div><b>Order a Server</b><small>Choose and order your package</small></div><i>↗</i></a><a href="#wallet"><span>03</span><div><b>Wallet & Top Up</b><small>Add coins to your account</small></div><i>↗</i></a><a href="#how"><span>04</span><div><b>How It Works</b><small>See the ordering steps</small></div><i>↗</i></a><a href="#bot-links"><span>05</span><div><b>Our Bots</b><small>TALKLESS XMD & TALK-SPAR</small></div><i>↗</i></a></div></div><a class="btn small" href="#panels">Explore servers ↗</a></div></nav></div></header>
+<div class="top-coin-bar" id="topCoinBar">
+  <div class="top-coin-inner wrap">
+    <div class="top-coin-brand"><span class="top-coin-icon">◉</span><div><b>COIN BALANCE</b><small>Your TALKLESS TECH wallet</small></div></div>
+    <div class="top-coin-value"><strong id="topCoinBalance">0</strong><span>COINS</span></div>
+    <a class="top-coin-action" href="#wallet">＋ TOP UP</a>
+    <a class="top-coin-action top-coin-wallet" href="#wallet">◈ MY WALLET</a>
+    <a class="top-coin-action top-coin-admin" href="#adminDashboard">⚙ ADMIN</a>
+    <a class="top-coin-action top-coin-server" href="#panels">GET SERVER ↗</a>
+  </div>
+</div>
+
+<div class="quick-action-bar" aria-label="Website quick actions">
+  <div class="wrap quick-action-inner">
+    <a class="quick-action primary" href="#planDashboard"><span class="qa-icon">▦</span><span><b>Explore Servers</b><small>Browse all packages</small></span><i>↗</i></a>
+    <a class="quick-action" href="#panels"><span class="qa-icon">◈</span><span><b>Order Hosting</b><small>Choose your server</small></span><i>↗</i></a>
+    <a class="quick-action" href="#wallet"><span class="qa-icon">◎</span><span><b>My Wallet</b><small>Coins & top-ups</small></span><i>↗</i></a>
+    <a class="quick-action" href="#planManager"><span class="qa-icon">✎</span><span><b>Manage Plans</b><small>Add / edit packages</small></span><i>↗</i></a>
+    <a class="quick-action quick-action-admin" href="#adminDashboard"><span class="qa-icon">⚙</span><span><b>Admin Dashboard</b><small>Manage your store</small></span><i>↗</i></a>
+    <a class="quick-action" href="#how"><span class="qa-icon">⌘</span><span><b>How It Works</b><small>Simple steps</small></span><i>↗</i></a>
+    <a class="quick-action" href="#bot-links"><span class="qa-icon">✧</span><span><b>Bot Projects</b><small>XMD & TALK-SPAR</small></span><i>↗</i></a>
+  </div>
+</div>
+
+
+
+<section class="trusted-strip" aria-label="Technology ecosystem"><div class="wrap"><div class="trusted-heading">POWERED BY A MODERN TECHNOLOGY ECOSYSTEM</div><div class="trusted-logos"><div class="trusted-brand ptero"><span class="brand-mark">✦</span><span>Pterodactyl</span></div><div class="trusted-brand cloud"><span class="brand-mark">◉</span><span>Cloudflare</span></div><div class="trusted-brand node"><span class="brand-mark">⬡</span><span>Node.js</span></div><div class="trusted-brand linux"><span class="brand-mark">◈</span><span>Linux</span></div><div class="trusted-brand docker"><span class="brand-mark">▤</span><span>Docker</span></div><div class="trusted-brand google"><span class="brand-mark">G</span><span>Google</span></div></div></div></section>
+
+<main class="wrap">
+<section class="hero">
+<div><div class="eyebrow">Reliable hosting • Simple ordering</div><h1>Your servers.<br><span>Your control.</span></h1><p>Sign in once, keep your coins and server history tied to your account, then tap a plan. When your wallet has enough coins, your server order is submitted automatically.</p>
+<div class="countrywide-note"><span class="countrywide-icon">◎</span><span><strong>REACHING YOU COUNTRYWIDE</strong><small>Digital hosting access across Kenya and beyond</small></span><i>✦</i></div><a class="btn" href="#panels">Explore server plans →</a></div>
+<div class="hero-card"><div class="eyebrow">TALKLESS TECH / STORE</div><div class="big">SERVER SHOP</div><p class="muted">Straightforward server plans with a clean ordering experience.</p><div class="stat"><span>Packages</span><strong>6 options</strong></div><div class="stat"><span>Starting from</span><strong>KSh 65</strong></div><div class="stat"><span>Payment options</span><strong>M-Pesa • PayPal</strong></div></div>
+</section>
+<section class="flow-overview" aria-label="Three step order process"><div class="flow-step active"><span>01</span><div><b>CREATE ACCOUNT</b><small>Open your customer profile</small></div></div><div class="flow-connector"></div><div class="flow-step"><span>02</span><div><b>ADD COINS</b><small>Top up your wallet</small></div></div><div class="flow-connector"></div><div class="flow-step"><span>03</span><div><b>GET YOUR SERVER</b><small>Choose a plan to provision</small></div></div></section>
+<section id="account" class="account-section" aria-hidden="true">
+  <div class="section-head"><div><div class="eyebrow">SECURE CUSTOMER PORTAL</div><h2>Your account. Your servers.</h2><div class="muted">Sign in once with Google. Your wallet, orders and server details stay linked to your account.</div></div><span class="account-status" id="accountStatus">● SIGN IN REQUIRED</span></div>
+  <div class="account-layout">
+    <div class="box account-access" id="accountAccess">
+      <div class="account-icon">TT</div><h3 id="accountFormTitle">Your secure TALKLESS ID</h3>
+      <p class="muted">Use Google or your email and password. Your saved account follows you when you sign in again.</p>
+      <div class="auth-inline"><button class="google-btn" id="accountGoogleButton" type="button" onclick="signInWithGoogle()"><span class="google-g">G</span> Continue with Google</button><button class="btn secondary" id="accountLogout" type="button" onclick="logoutCustomer()" hidden>Log out</button></div>
+      <div class="notice" id="accountAuthNote">Your personal information, coin balance and server history must be loaded from your secure account database after sign-in.</div>
+    </div>
+    <div class="box account-dashboard" id="customerDashboard">
+      <div class="customer-heading"><div><div class="tag">CUSTOMER OVERVIEW</div><h3 id="customerGreeting">Welcome to TALKLESS TECH</h3><p class="muted" id="customerEmail">Sign in with Google to view your account.</p></div><div class="customer-avatar" id="customerAvatar">?</div></div>
+      <div class="account-stats"><div class="account-stat"><span>WALLET BALANCE</span><strong id="accountBalance">0 coins</strong></div><div class="account-stat"><span>MY SERVERS</span><strong id="serverCount">0 servers</strong></div><div class="account-stat"><span>ORDERS</span><strong id="orderCount">0 orders</strong></div></div>
+      <div class="account-columns"><div class="account-mini"><div class="mini-title">▣ MY SERVERS</div><div id="myServers" class="empty-state">Your purchased servers and access details will appear here.</div></div><div class="account-mini"><div class="mini-title">↗ RECENT ACTIVITY</div><div id="myActivity" class="empty-state">Your verified deposits and orders will appear here.</div></div></div>
+      <div class="account-foot">Account records are retrieved from the server using your authenticated identity. Never share your password or private access credentials.</div>
+    </div>
+  </div>
+</section>
+<section id="wallet"><div class="section-head"><div><div class="eyebrow">Wallet & checkout</div><h2>Buy credits, then order</h2><div class="muted">Choose how you want to pay for wallet credits.</div></div></div>
+<div class="cols wallet-layout">
+<div class="box"><div class="wallet"><div><h3>Your wallet</h3><div class="muted">Your available store coins</div></div><div class="balance" id="balance">0 <small style="font-size:13px">credits</small></div></div>
+<div class="field"><label>Deposit amount (KSh)</label><input id="credits" type="number" min="1" step="1" placeholder="Enter any amount, e.g. 100" oninput="updateTopupPreview()"></div>
+<div class="notice" id="topupPreview">1 KSh = 1 TALKLESS coin. Enter an amount to preview the coins you will receive.</div>
+<div class="field"><div class="payment-heading"><span class="payment-icon">↗</span><div><label>Choose payment method</label><div class="muted" style="font-size:11px">Select how you want to top up your wallet</div></div></div><div class="paygrid"><button class="payoption active" data-method="M-Pesa STK Push"><strong>🇰🇪 M-Pesa</strong><span>STK Push / Daraja API</span></button><button class="payoption" data-method="PayPal"><strong>🅿 PayPal</strong><span>International payments</span></button><button class="payoption" data-method="Card"><strong>💳 Bank card</strong><span>Where supported</span></button><button class="payoption" data-method="Other global gateway"><strong>🌍 Global</strong><span>Other supported currencies</span></button></div></div>
+<div class="field"><label>Phone number or payment email</label><input id="payer" placeholder="e.g. 07XX XXX XXX / email@example.com"></div>
+<button class="btn" style="width:100%" onclick="demoPayment()">Continue to secure payment <span aria-hidden="true">→</span></button><div class="notice">Coins are added only after your payment provider confirms the deposit on the secure server. The payment button is an integration placeholder until your Daraja / payment gateway credentials and backend are connected.</div></div>
+</section>
+<section class="public-plan-dashboard" id="planDashboard" aria-label="Public server plan dashboard">
+  <div class="wrap">
+    <div class="dashboard-top">
+      <div>
+        <div class="dashboard-kicker">TALKLESS TECH • LIVE PRICE BOARD</div>
+        <h2>SERVER PLANS & PRICES</h2>
+        <p>All available plans at a glance. Prices are visible to everyone.</p>
+      </div>
+      <div class="dashboard-live"><span></span> PUBLIC PRICE LIST</div>
+    </div>
+    <div class="dashboard-plan-grid">
+      <a class="dashboard-plan" href="#panels"><span>8GB SERVER</span><strong>KSh 65</strong><small>65 coins</small></a>
+      <a class="dashboard-plan" href="#panels"><span>10GB SERVER</span><strong>KSh 75</strong><small>75 coins</small></a>
+      <a class="dashboard-plan" href="#panels"><span>16GB SERVER</span><strong>KSh 85</strong><small>85 coins</small></a>
+      <a class="dashboard-plan" href="#panels"><span>20GB SERVER</span><strong>KSh 95</strong><small>95 coins</small></a>
+      <a class="dashboard-plan" href="#panels"><span>30GB SERVER</span><strong>KSh 115</strong><small>115 coins</small></a>
+      <a class="dashboard-plan" href="#panels"><span>UNLIMITED SERVER</span><strong>KSh 150</strong><small>150 coins</small></a>
+    </div>
+    <div class="dashboard-foot"><span>1 KSh = 1 TALKLESS coin</span><span>Choose a plan below to order</span></div>
+  </div>
+</section>
+<section id="panels"><div class="section-head"><div><div class="eyebrow">TALKLESS TECH • SERVER STORE</div><h2>Choose your server plan</h2><div class="muted">Clear pricing. Choose the RAM plan that suits your project.</div></div><span class="muted">KSh • 1 KSh = 1 coin</span></div><div class="grid" id="products"></div><div class="order-panel-wrap" aria-hidden="true"><div class="box"><h3>Your order</h3><p class="muted">Tap a plan above. If your wallet has enough coins, your order will be sent for automatic server creation.</p><div class="order-summary"><div class="summaryrow"><span>Package</span><strong id="chosen">No server plan selected</strong></div><div class="summaryrow"><span>Price</span><strong id="cost">KSh 0</strong></div><div class="summaryrow"><span>Wallet balance</span><strong id="walletline">0 coins</strong></div><div class="summaryrow"><span>Coins needed</span><strong id="needed">0 coins</strong></div></div><div class="field"><label>Server name</label><input id="serverName" placeholder="e.g. my-game-server"></div><button class="btn" style="width:100%" onclick="placeOrder()">Create my server automatically <span aria-hidden="true">→</span></button><div class="notice">Your account name and email identify this order. The secure backend must verify your wallet, deduct coins once, create the server in Pterodactyl, and return its login details.</div></div>
+</div></div></section>
+<section id="adminDashboard" class="admin-dashboard-section">
+ <div class="admin-hero">
+  <div><div class="admin-kicker">TALKLESS TECH • CONTROL CENTRE</div><h2>Smart Admin Dashboard</h2><p>Manage your server shop, panels, store settings, and local records from one clean control room.</p></div>
+  <div class="admin-status"><span class="admin-status-dot"></span><span id="adminStateLabel">ADMIN LOCKED</span></div>
+ </div>
+ <div id="adminGate" class="admin-gate box">
+  <div class="admin-gate-mark">⚿</div><h3 id="adminGateTitle">Secure admin access</h3>
+  <p class="muted" id="adminGateDescription">Create a local admin passphrase on this device for the dashboard. This is a browser-level lock, not production server security.</p>
+  <form id="adminGateForm"><div class="field"><label for="adminPassInput">Admin passphrase</label><input id="adminPassInput" type="password" minlength="8" autocomplete="current-password" required placeholder="At least 8 characters"></div><button class="btn" type="submit" id="adminGateSubmit">Set admin passphrase</button></form>
+  <div class="notice">For secure multi-device admin access, the dashboard must be connected to a protected backend with role-based access.</div>
+ </div>
+ <div id="adminWorkspace" hidden>
+  <div class="admin-stat-grid">
+   <div class="admin-stat-card"><span>SERVER PLANS</span><strong id="adminStatPlans">0</strong><small>Available in your plan list</small></div>
+   <div class="admin-stat-card"><span>PANEL PRODUCTS</span><strong id="adminStatPanels">0</strong><small>Saved panel entries</small></div>
+   <div class="admin-stat-card"><span>LOCAL ORDERS</span><strong id="adminStatOrders">0</strong><small>Records on this device</small></div>
+   <div class="admin-stat-card"><span>LOCAL CUSTOMERS</span><strong id="adminStatCustomers">0</strong><small>Records on this device</small></div>
+  </div>
+  <div class="admin-console">
+   <nav class="admin-tabs" aria-label="Admin dashboard tabs">
+    <button class="admin-tab active" data-admin-tab="overview">◫ Overview</button><button class="admin-tab" data-admin-tab="servers">▦ Servers</button><button class="admin-tab" data-admin-tab="panels">▣ Panels</button><button class="admin-tab" data-admin-tab="orders">↗ Orders</button><button class="admin-tab" data-admin-tab="customers">♙ Customers</button><button class="admin-tab" data-admin-tab="wallet">◉ Wallet</button><button class="admin-tab" data-admin-tab="settings">⚙ Settings</button>
+   </nav>
+   <div class="admin-tab-panel active" data-admin-panel="overview">
+    <div class="admin-welcome"><div><div class="admin-kicker">SYSTEM OVERVIEW</div><h3>Welcome to your control room</h3><p>Use the tabs to edit your catalogue and maintain records. Server-plan edits are reflected in the public store on this browser.</p></div><div class="admin-overview-icon">🌐</div></div>
+    <div class="admin-shortcuts"><button class="admin-shortcut" data-admin-tab-go="servers">＋ Add server plan <b>→</b></button><button class="admin-shortcut" data-admin-tab-go="panels">＋ Add panel <b>→</b></button><button class="admin-shortcut" data-admin-tab-go="settings">✎ Edit store settings <b>→</b></button><button class="admin-shortcut" id="adminExportBtn">⇩ Download backup <b>→</b></button><button class="admin-shortcut" id="adminImportBtn">⇧ Restore backup <b>→</b></button><input id="adminImportFile" type="file" accept="application/json,.json" hidden></div>
+    <div class="admin-note">Local mode: records are saved in this browser's storage. Payments, customer accounts, and automatic server provisioning continue to depend on backend integrations.</div>
+   </div>
+   <div class="admin-tab-panel" data-admin-panel="servers">
+    <div class="admin-panel-head"><div><h3>Server plan catalogue</h3><p>These packages feed the customer-facing Server Store.</p></div><button class="btn" id="adminAddServer">＋ Add server</button></div>
+    <div class="admin-inline-form" id="adminServerFormWrap" hidden><form id="adminServerForm"><input type="hidden" id="adminServerEditIndex"><div class="field"><label>Plan name</label><input id="adminServerName" required maxlength="32" placeholder="e.g. 12GB"></div><div class="field"><label>Price (KSh / coins)</label><input id="adminServerPrice" type="number" min="1" step="1" required placeholder="e.g. 100"></div><div class="admin-form-actions"><button class="btn" type="submit">Save plan</button><button class="btn secondary" type="button" id="adminServerCancel">Cancel</button></div></form></div>
+    <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Plan</th><th>Price</th><th>Actions</th></tr></thead><tbody id="adminServerRows"></tbody></table></div>
+   </div>
+   <div class="admin-tab-panel" data-admin-panel="panels">
+    <div class="admin-panel-head"><div><h3>Panel catalogue</h3><p>Add panel products or service entries to organize your offerings.</p></div><button class="btn" id="adminAddPanel">＋ Add panel</button></div>
+    <div class="admin-inline-form" id="adminPanelFormWrap" hidden><form id="adminPanelForm"><input type="hidden" id="adminPanelEditIndex"><div class="field"><label>Panel / product name</label><input id="adminPanelName" required maxlength="60" placeholder="e.g. Pterodactyl Panel Setup"></div><div class="field"><label>Short description</label><input id="adminPanelDescription" maxlength="180" placeholder="What is included?"></div><div class="field"><label>Price (KSh / coins)</label><input id="adminPanelPrice" type="number" min="0" step="1" required placeholder="e.g. 250"></div><div class="admin-form-actions"><button class="btn" type="submit">Save panel</button><button class="btn secondary" type="button" id="adminPanelCancel">Cancel</button></div></form></div>
+    <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Panel / item</th><th>Description</th><th>Price</th><th>Actions</th></tr></thead><tbody id="adminPanelRows"></tbody></table></div>
+   </div>
+   <div class="admin-tab-panel" data-admin-panel="orders">
+    <div class="admin-panel-head"><div><h3>Order records</h3><p>Manual local tracking records. These are not fetched from a live payment/server backend.</p></div><button class="btn" id="adminAddOrder">＋ Record order</button></div>
+    <div class="admin-inline-form" id="adminOrderFormWrap" hidden><form id="adminOrderForm"><div class="field"><label>Customer / reference</label><input id="adminOrderCustomer" required placeholder="Customer name or order reference"></div><div class="field"><label>Plan ordered</label><input id="adminOrderPlan" required placeholder="e.g. 8GB Server"></div><div class="field"><label>Status</label><select id="adminOrderStatus"><option>Pending</option><option>Paid</option><option>Provisioning</option><option>Completed</option><option>Cancelled</option></select></div><div class="admin-form-actions"><button class="btn" type="submit">Save order record</button><button class="btn secondary" type="button" id="adminOrderCancel">Cancel</button></div></form></div>
+    <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Reference</th><th>Customer</th><th>Plan</th><th>Status</th><th>Actions</th></tr></thead><tbody id="adminOrderRows"></tbody></table></div>
+   </div>
+   <div class="admin-tab-panel" data-admin-panel="customers">
+    <div class="admin-panel-head"><div><h3>Customer records</h3><p>Local address book for admin notes. Not the live authenticated customer database.</p></div><button class="btn" id="adminAddCustomer">＋ Add customer</button></div>
+    <div class="admin-inline-form" id="adminCustomerFormWrap" hidden><form id="adminCustomerForm"><div class="field"><label>Customer name</label><input id="adminCustomerName" required placeholder="Name"></div><div class="field"><label>Email or contact</label><input id="adminCustomerContact" required placeholder="Email / phone"></div><div class="field"><label>Admin note</label><input id="adminCustomerNote" maxlength="180" placeholder="Optional note"></div><div class="admin-form-actions"><button class="btn" type="submit">Save customer</button><button class="btn secondary" type="button" id="adminCustomerCancel">Cancel</button></div></form></div>
+    <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Name</th><th>Contact</th><th>Note</th><th>Actions</th></tr></thead><tbody id="adminCustomerRows"></tbody></table></div>
+   </div>
+   <div class="admin-tab-panel" data-admin-panel="wallet">
+    <div class="admin-panel-head"><div><h3>Wallet / top-up ledger</h3><p>Track manual wallet entries locally. This does not move real funds or modify customer account balances.</p></div><button class="btn" id="adminAddWalletEntry">＋ Add ledger entry</button></div>
+    <div class="admin-inline-form" id="adminWalletFormWrap" hidden><form id="adminWalletForm"><div class="field"><label>Customer / reference</label><input id="adminWalletCustomer" required placeholder="Customer or reference"></div><div class="field"><label>Amount (KSh / coins)</label><input id="adminWalletAmount" type="number" min="1" step="1" required placeholder="Amount"></div><div class="field"><label>Entry type</label><select id="adminWalletType"><option>Top-up noted</option><option>Refund noted</option><option>Adjustment noted</option></select></div><div class="admin-form-actions"><button class="btn" type="submit">Save ledger entry</button><button class="btn secondary" type="button" id="adminWalletCancel">Cancel</button></div></form></div>
+    <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Date</th><th>Customer</th><th>Entry</th><th>Amount</th><th>Actions</th></tr></thead><tbody id="adminWalletRows"></tbody></table></div>
+   </div>
+   <div class="admin-tab-panel" data-admin-panel="settings">
+    <div class="admin-panel-head"><div><h3>Store settings</h3><p>Customize the store label and notice in this browser.</p></div></div>
+    <form id="adminSettingsForm" class="admin-settings-form"><div class="field"><label>Store title</label><input id="adminStoreTitle" maxlength="70" required></div><div class="field"><label>Store announcement</label><textarea id="adminStoreNotice" rows="3" maxlength="300" placeholder="Announcement for your customers"></textarea></div><div class="field"><label>Store contact (display text)</label><input id="adminStoreContact" maxlength="100" placeholder="WhatsApp / email contact"></div><button class="btn" type="submit">Save settings</button></form>
+    <div class="admin-danger-zone"><h4>Maintenance</h4><button class="btn secondary" id="adminResetLocal">Reset local dashboard records</button><button class="btn secondary" id="adminLockNow">Lock dashboard</button></div>
+   </div>
+  </div>
+ </div>
+</section>
+<section id="planManager" class="plan-manager-section" hidden>
+  <div class="section-head"><div><div class="eyebrow">STORE MANAGEMENT • QUICK EDITOR</div><h2>Manage Servers & Panels</h2><div class="muted">Add new packages, edit the plan name or price, or remove old packages. Your edits are saved in this browser.</div></div><span class="account-status">● PLAN EDITOR</span></div>
+  <div class="plan-manager-layout">
+    <form class="box plan-manager-form" id="planManagerForm">
+      <h3 id="planEditorTitle">＋ Add a server plan</h3>
+      <div class="field"><label for="managerPlanName">Server / panel plan name</label><input id="managerPlanName" required maxlength="32" placeholder="e.g. 12GB or PREMIUM PANEL"></div>
+      <div class="field"><label for="managerPlanPrice">Price (KSh / coins)</label><input id="managerPlanPrice" type="number" min="1" step="1" required placeholder="e.g. 100"></div>
+      <div class="manager-form-actions"><button class="btn" type="submit" id="managerSaveBtn">Save plan</button><button class="btn secondary" type="button" id="managerCancelBtn" hidden>Cancel edit</button></div>
+      <p class="notice">Important: this quick editor saves changes on this browser only. For shared admin access across devices and real server provisioning, connect it to a protected database/backend.</p>
+    </form>
+    <div class="box plan-manager-list"><div class="manager-list-heading"><h3>Current store packages</h3><span id="managerPlanCount">0 plans</span></div><div id="managerPlanRows"></div></div>
+  </div>
+</section>
+<section id="how"><div class="section-head"><div><div class="eyebrow">Simple process</div><h2>How it works</h2></div></div><div class="steps"><div class="step"><b>01 / SELECT</b><strong>Choose a server plan</strong><p>Choose the server plan with the RAM allocation that matches your needs.</p></div><div class="step"><b>02 / TOP UP</b><strong>Add wallet credits</strong><p>Pay using a supported payment provider and wait for verified confirmation.</p></div><div class="step"><b>03 / PROVISION</b><strong>Server is created</strong><p>Your backend checks the order and creates the server through the Pterodactyl API.</p></div></div></section>
+
+<section id="bot-links" class="bot-links-section">
+  <div class="section-head"><div><div class="eyebrow">TALKLESS PROJECTS • QUICK ACCESS</div><h2>Our Bots & Pairing Platforms</h2><div class="muted">Choose a project, then open its website or Telegram pairing button.</div></div></div>
+  <div class="project-box-grid">
+    <div class="project-box xmd-project-box">
+      <div class="project-box-head"><span class="project-mark">✦</span><div><strong>TALKLESS XMD</strong><small>BOT ACCESS & PAIRING</small></div></div>
+      <div class="project-box-actions">
+        <a class="bot-link-card" href="https://pair.talkless.co.ke" target="_blank" rel="noopener noreferrer"><span class="bot-link-icon">⌘</span><span class="bot-link-copy"><strong>Website Pairing</strong><small>OPEN XMD PAIRING WEBSITE</small></span><span class="bot-link-arrow">↗</span></a>
+        <a class="bot-link-card" href="https://t.me/Talkless_xmd_bot" target="_blank" rel="noopener noreferrer"><span class="bot-link-icon">➤</span><span class="bot-link-copy"><strong>Telegram Pairing</strong><small>OPEN XMD TELEGRAM BOT</small></span><span class="bot-link-arrow">↗</span></a>
+      </div>
+    </div>
+    <div class="project-box spar-project-box">
+      <div class="project-box-head"><span class="project-mark">✧</span><div><strong>TALK-SPAR TECH</strong><small>BOT ACCESS & PAIRING</small></div></div>
+      <div class="project-box-actions">
+        <a class="bot-link-card" href="https://talk-spar-pairing.zone.id" target="_blank" rel="noopener noreferrer"><span class="bot-link-icon">⌘</span><span class="bot-link-copy"><strong>Website Pairing</strong><small>OPEN TALK-SPAR WEBSITE</small></span><span class="bot-link-arrow">↗</span></a>
+        <a class="bot-link-card" href="https://t.me/Talk_spar_bot" target="_blank" rel="noopener noreferrer"><span class="bot-link-icon">➤</span><span class="bot-link-copy"><strong>Telegram Pairing</strong><small>OPEN TALK-SPAR TELEGRAM BOT</small></span><span class="bot-link-arrow">↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+<style id="talkless-bot-link-buttons">
+.bot-links-section{margin:64px 0 52px;position:relative;isolation:isolate}
+.project-box-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:stretch}
+.project-box{min-width:0;padding:20px;border:1px solid #438bc477;border-radius:22px;background:linear-gradient(145deg,#0c1d33ed,#101a2bee 60%,#111b30ee);box-shadow:0 18px 42px #02081788,inset 0 1px #ffffff14;position:relative;overflow:hidden}
+.project-box:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 20%,#43baff0b 50%,transparent 80%);pointer-events:none}
+.xmd-project-box{border-color:#47b9f477}.spar-project-box{border-color:#a47cff77}
+.project-box-head{display:flex;align-items:center;gap:13px;padding:2px 2px 18px;margin-bottom:16px;border-bottom:1px solid #9acfff25;position:relative}
+.project-mark{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;font-size:25px;color:#b6edff;background:linear-gradient(145deg,#1689d455,#263d6977);border:1px solid #70d7ff77;box-shadow:0 0 24px #168bff22}
+.spar-project-box .project-mark{color:#e0caff;border-color:#bd9aff77;background:linear-gradient(145deg,#8652d655,#3c2a6877)}
+.project-box-head div{display:flex;flex-direction:column;gap:6px;min-width:0}.project-box-head strong{font-size:16px;letter-spacing:.09em;color:#f5f8ff}.project-box-head small{font-size:10px;letter-spacing:.15em;color:#8dcdf5;font-weight:800}
+.project-box-actions{display:grid;gap:12px;position:relative}
+.bot-link-card{min-height:78px;display:flex;align-items:center;gap:13px;padding:14px 15px;border:1px solid #4d8dca70;border-radius:16px;text-decoration:none!important;color:#f5f8ff!important;background:linear-gradient(120deg,#102b48ee,#10192bee 58%,#111f37ee);box-shadow:0 9px 24px #02081766,inset 0 1px #ffffff12;position:relative;overflow:hidden;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.bot-link-card:before{content:"";position:absolute;inset:-80% -30%;background:linear-gradient(105deg,transparent 42%,#5bcaff18 49%,#78dcff55 50%,#5bcaff18 51%,transparent 58%);transform:translateX(-45%) rotate(-8deg);transition:transform .65s ease;pointer-events:none}
+.bot-link-card:hover{transform:translateY(-3px);border-color:#68cfffcc;box-shadow:0 14px 30px #087dd344,inset 0 1px #ffffff22}.bot-link-card:hover:before{transform:translateX(45%) rotate(-8deg)}
+.bot-link-icon{width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;border-radius:13px;font-size:21px;color:#9eeaff;background:linear-gradient(145deg,#147fc755,#173c6977);border:1px solid #66cfff66;box-shadow:inset 0 0 18px #41baff22,0 0 20px #168bff20}
+.bot-link-copy{display:flex;flex-direction:column;gap:5px;min-width:0}.bot-link-copy strong{font-size:13px;letter-spacing:.04em}.bot-link-copy small{font-size:9px;letter-spacing:.11em;color:#8dcdf5;font-weight:800}.bot-link-arrow{margin-left:auto;font-size:21px;color:#8bdfff;position:relative;z-index:1}
+@media(max-width:760px){.project-box-grid{grid-template-columns:1fr;gap:15px}.project-box{padding:16px}.bot-links-section{margin:46px 0 38px}}
+@media(prefers-reduced-motion:reduce){.bot-link-card,.bot-link-card:before{transition:none}}
+</style>
+
+</main>
+<footer><div class="wrap">© 2026 TALKLESS TECH. All rights reserved. <span style="float:right">Secure payments require verified provider integration.</span></div></footer>
+<div class="toast" id="toast"></div>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+<script>
+const defaultServerPlans=[["8GB",65],["10GB",75],["16GB",85],["20GB",95],["30GB",115],["UNLIMITED",150]];
+let serverPlans=(()=>{try{const saved=JSON.parse(localStorage.getItem("talkless_server_plans_v1"));return Array.isArray(saved)&&saved.length?saved:defaultServerPlans.map(x=>[...x]);}catch(e){return defaultServerPlans.map(x=>[...x]);}})();
+let selected=null, balance=0, method="M-Pesa STK Push";
+const products=document.getElementById("products");
+let customer=null, firebaseAuth=null, firebaseReady=false, authUser=null, customerDataUnavailable=false;
+let previewMode=false;
+function enterPreviewMode(){
+  previewMode=true;customer=null;authUser=null;balance=0;
+  lockSite(false);renderCustomer();
+  const banner=document.getElementById("previewBanner");if(banner)banner.hidden=false;
+  toast("Preview mode opened. No payment or server order will be processed.");
+  document.getElementById("home")?.scrollIntoView({behavior:"smooth"});
+}
+/* Firebase web config is public configuration, not a private API key. Replace every placeholder
+   with the values from Firebase Console > Project settings > Your apps. Enable Google and Email/Password providers. */
+const firebaseConfig={
+  apiKey:"YOUR_FIREBASE_WEB_API_KEY",
+  authDomain:"YOUR_PROJECT_ID.firebaseapp.com",
+  projectId:"YOUR_PROJECT_ID",
+  appId:"YOUR_FIREBASE_APP_ID"
+};
+const API_BASE="/api";
+function firebaseConfigured(){return firebaseConfig.apiKey!=="YOUR_FIREBASE_WEB_API_KEY"&&firebaseConfig.projectId!=="YOUR_PROJECT_ID"&&firebaseConfig.appId!=="YOUR_FIREBASE_APP_ID";}
+function setAuthError(message){const el=document.getElementById("authError");if(el)el.textContent=message||"";}
+async function apiRequest(path,options={}){
+  const token=authUser?await authUser.getIdToken():null;
+  const headers={"Content-Type":"application/json",...(options.headers||{})};
+  if(token)headers.Authorization="Bearer "+token;
+  const response=await fetch(API_BASE+path,{credentials:"include",headers,...options});
+  let data={};try{data=await response.json();}catch(e){}
+  if(!response.ok)throw new Error(data.message||data.error||"Request failed ("+response.status+")");
+  return data;
+}
+async function signInWithGoogle(){
+  if(!firebaseConfigured()){
+    const message="Google sign-in is ready to connect. Add your Firebase project configuration in firebaseConfig and enable Google sign-in first.";
+    setAuthError(message);toast("Firebase setup required before customers can sign in.");return;
+  }
+  try{
+    setAuthError("");
+    const provider=new firebase.auth.GoogleAuthProvider();
+    provider.setCustomParameters({prompt:"select_account"});
+    await firebaseAuth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+    await firebaseAuth.signInWithPopup(provider);
+  }catch(error){
+    if(error.code==="auth/popup-blocked"){
+      try{await firebaseAuth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());return;}catch(e){error=e;}
+    }
+    setAuthError(error.message||"Google sign-in could not be completed.");
+  }
+}
+let emailAuthMode="signin";
+function toggleEmailAuthMode(){
+  emailAuthMode=emailAuthMode==="signin"?"signup":"signin";
+  const create=emailAuthMode==="signup";
+  document.getElementById("emailAuthSubmit").textContent=create?"Create my account →":"Sign in to my account →";
+  document.getElementById("authModeHint").textContent=create?"Already have an account?":"New to TALKLESS TECH?";
+  document.getElementById("authModeToggle").textContent=create?"Sign in":"Create account";
+  document.getElementById("authPassword").setAttribute("autocomplete",create?"new-password":"current-password");
+  setAuthError("");
+}
+async function submitEmailAuth(event){
+  event.preventDefault();
+  if(!firebaseConfigured()||!firebaseAuth){setAuthError("The site owner must connect Firebase and enable Email/Password sign-in before accounts can be created.");return;}
+  const email=document.getElementById("authEmail").value.trim();
+  const password=document.getElementById("authPassword").value;
+  const submit=document.getElementById("emailAuthSubmit");
+  try{
+    setAuthError("");submit.disabled=true;submit.textContent=emailAuthMode==="signup"?"Creating account…":"Signing in…";
+    await firebaseAuth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+    if(emailAuthMode==="signup") await firebaseAuth.createUserWithEmailAndPassword(email,password);
+    else await firebaseAuth.signInWithEmailAndPassword(email,password);
+  }catch(error){
+    const messages={"auth/email-already-in-use":"That email already has an account. Please sign in.","auth/weak-password":"Choose a stronger password with at least 6 characters.","auth/invalid-credential":"Email or password is incorrect.","auth/user-not-found":"No account was found for that email. Create an account first.","auth/too-many-requests":"Too many attempts. Please wait and try again."};
+    setAuthError(messages[error.code]||error.message||"Email sign-in failed.");
+  }finally{submit.disabled=false;submit.textContent=emailAuthMode==="signup"?"Create my account →":"Sign in to my account →";}
+}
+async function resetEmailPassword(){
+  if(!firebaseConfigured()||!firebaseAuth){setAuthError("Email sign-in must be configured by the site owner first.");return;}
+  const email=document.getElementById("authEmail").value.trim();
+  if(!email){setAuthError("Enter your email address above, then tap Forgot password again.");return;}
+  try{await firebaseAuth.sendPasswordResetEmail(email);setAuthError("Password reset email sent. Check your inbox.");}
+  catch(error){setAuthError(error.message||"Could not send password reset email.");}
+}
+async function logoutCustomer(){
+  try{if(firebaseAuth)await firebaseAuth.signOut();}catch(error){toast("Could not sign out: "+error.message);}
+}
+function lockSite(locked){
+  document.body.classList.toggle("auth-locked",locked);
+  const gate=document.getElementById("authGate");if(gate)gate.hidden=!locked;
+}
+async function loadCustomerFromBackend(user){
+  try{
+    const data=await apiRequest("/account/me");
+    const profile=data.account||data.customer||data;
+    customer={uid:user.uid,name:profile.name||user.displayName||"TALKLESS Customer",email:profile.email||user.email,
+      balance:Number(profile.balance)||0,servers:Array.isArray(profile.servers)?profile.servers:[],activity:Array.isArray(profile.activity)?profile.activity:[]};
+    customerDataUnavailable=false;
+    renderCustomer();
+    document.getElementById("accountAuthNote").textContent="Signed in securely. Your account information is synced from TALKLESS TECH.";
+  }catch(error){
+    // Do not convert a failed database request into a false empty account or zero balance.
+    customer=null;customerDataUnavailable=true;
+    renderCustomer();
+    document.getElementById("accountAuthNote").textContent="You are signed in, but saved records could not be loaded. Balance and history are unavailable—not erased. Retry when the secure database is online.";
+    toast("Account records could not be loaded. No empty account was created.");
+  }
+}
+function renderCustomer(){
+  const active=!!customer||!!(authUser&&customerDataUnavailable);
+  const hasRecords=!!customer;
+  document.getElementById("accountStatus").textContent=customerDataUnavailable?"● RECORDS UNAVAILABLE":(active?"● ACCOUNT ACTIVE":"● SIGN IN REQUIRED");
+  document.getElementById("accountFormTitle").textContent=active?"Your secure TALKLESS ID":"Your secure TALKLESS ID";
+  document.getElementById("accountGoogleButton").hidden=active;
+  document.getElementById("accountLogout").hidden=!active;
+  document.getElementById("customerGreeting").textContent=hasRecords?"Welcome, "+customer.name:(customerDataUnavailable?"Your account is signed in":"Welcome to TALKLESS TECH");
+  document.getElementById("customerEmail").textContent=hasRecords?customer.email:(customerDataUnavailable?(authUser?.email||"Signed in"):"Sign in to view your account.");
+  document.getElementById("customerAvatar").textContent=hasRecords?customer.name.charAt(0).toUpperCase():"?";
+  document.getElementById("accountBalance").textContent=customerDataUnavailable?"Unavailable — records not loaded":(hasRecords?(Number(customer.balance)||0).toLocaleString():"0")+" coins";
+  const servers=hasRecords&&Array.isArray(customer.servers)?customer.servers:[];
+  const activity=hasRecords&&Array.isArray(customer.activity)?customer.activity:[];
+  document.getElementById("serverCount").textContent=customerDataUnavailable?"Unavailable":servers.length+" servers";
+  document.getElementById("orderCount").textContent=customerDataUnavailable?"Unavailable":activity.filter(x=>x.type==="order").length+" orders";
+  document.getElementById("myServers").innerHTML=customerDataUnavailable?"Records could not be loaded. Retry after database connection is restored.":servers.length?servers.map(x=>`<div class="server-row"><strong>${escapeHTML(x.name||"Server")}</strong><br><span class="muted">${escapeHTML(x.plan||"Plan pending")} • ${escapeHTML(x.status||"Provisioning")}</span>${x.panelUrl?`<br><a target="_blank" rel="noopener" href="${escapeHTML(x.panelUrl)}">Open panel ↗</a>`:""}</div>`).join(""):"Your purchased servers and access details will appear here after provisioning.";
+  document.getElementById("myActivity").innerHTML=customerDataUnavailable?"History unavailable until the secure account database responds.":activity.length?activity.slice(0,5).map(x=>`<div class="activity-row"><strong>${escapeHTML(x.title||"Account activity")}</strong><br><span class="muted">${escapeHTML(x.date||"")}</span></div>`).join(""):"Your verified deposits and orders will appear here.";
+  balance=active?Math.max(0,Math.floor(Number(customer.balance)||0)):0;refreshWallet();
+}
+function initializeAuthentication(){
+  if(!firebaseConfigured()||!window.firebase){
+    lockSite(true);
+    setAuthError("Site owner setup required: add Firebase web configuration and enable Google plus Email/Password sign-in providers.");
+    document.getElementById("accountAuthNote").textContent="Sign-in is not active yet. The site owner must configure Firebase Authentication before customer accounts can be used.";
+    return;
+  }
+  try{
+    if(!firebase.apps.length)firebase.initializeApp(firebaseConfig);
+    firebaseAuth=firebase.auth();firebaseReady=true;
+    firebaseAuth.getRedirectResult().catch(error=>setAuthError(error.message));
+    firebaseAuth.onAuthStateChanged(async user=>{
+      authUser=user;
+      if(user){lockSite(false);await loadCustomerFromBackend(user);}
+      else{customer=null;balance=0;renderCustomer();lockSite(true);}
+    });
+  }catch(error){lockSite(true);setAuthError("Authentication setup error: "+error.message);}
+}
+function escapeHTML(value){return String(value).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+
+function renderServerProducts(){
+  products.innerHTML="";
+  serverPlans.forEach(([ram,price],i)=>{
+  const c=document.createElement("article");
+  c.className="card";
+  const emblem="✦";
+  c.innerHTML=`${i===3?'<span class="popular">MOST CHOSEN</span>':''}<div class="plan-topline"><div class="plan-emblem" aria-hidden="true">${emblem}</div><span class="plan-index">PLAN ${String(i+1).padStart(2,"0")}</span></div><div class="tag">TALKLESS TECH • SERVER SERIES ${String(i+1).padStart(2,"0")}</div><div class="ram">${ram} SERVER</div><div class="price">KSh ${price}<small> / ${price} coins</small></div><p>${ram==="UNLIMITED"?"Unlimited allocation package. Confirm actual resource limits before purchase.":"Premium Pterodactyl hosting with "+ram+" RAM allocation."}</p><div class="plan-specs"><span>⚡ FAST SETUP</span><span>◈ PANEL ACCESS</span><span>✓ ACCOUNT LINKED</span></div><button class="btn ${i===3?"":"secondary"}" type="button">Tap to create →</button>`;
+  c.querySelector("button").onclick=()=>{
+    selected={ram,price};
+    document.querySelectorAll(".card").forEach(x=>x.classList.remove("selected"));
+    c.classList.add("selected");
+    document.getElementById("chosen").textContent=ram+" Server";
+    document.getElementById("cost").textContent="KSh "+price+" / "+price+" coins";
+    document.getElementById("needed").textContent=price+" coins";
+    const summary=document.querySelector(".order-panel-wrap");
+    /* The plan card is the checkout action; no extra confirmation panel is needed. */
+    if(previewMode){toast("Preview mode: sign in and connect the hosting backend to create a real server.");return;}
+    if(!customer){toast("Please sign in first. Your wallet and server history are saved to your account.");document.getElementById("authGate").hidden=false;return;}
+    if(balance<price){toast("You need "+price+" coins. Add coins to your wallet, then tap this plan again.");document.getElementById("wallet").scrollIntoView({behavior:"smooth"});return;}
+    const nameField=document.getElementById("serverName");
+    if(nameField&&!nameField.value.trim()) nameField.value=((customer.name||"talkless")+"-"+ram).toLowerCase().replace(/[^a-z0-9-]+/g,"-").replace(/^-|-$/g,"").slice(0,40);
+    toast("Enough coins detected. Sending your "+ram+" server order for automatic creation…");
+    placeOrder();
+  };
+  products.appendChild(c);
+});
+}
+renderServerProducts();
+const planManagerForm=document.getElementById("planManagerForm");
+let editingPlanIndex=null;
+function savePlansToBrowser(){try{localStorage.setItem("talkless_server_plans_v1",JSON.stringify(serverPlans));}catch(e){toast("Could not save plans in this browser.");}}
+function renderPlanManager(){
+ const rows=document.getElementById("managerPlanRows"),count=document.getElementById("managerPlanCount");
+ if(!rows||!count)return;
+ count.textContent=serverPlans.length+" plan"+(serverPlans.length===1?"":"s");
+ rows.innerHTML="";
+ serverPlans.forEach(([name,price],i)=>{
+  const row=document.createElement("div");row.className="manager-plan-row";
+  row.innerHTML=`<div class="manager-plan-info"><b>${escapeHTML(name)} SERVER</b><span>KSh ${Number(price).toLocaleString()} • ${Number(price).toLocaleString()} coins</span></div><div class="manager-row-actions"><button type="button" class="manager-edit">Edit</button><button type="button" class="manager-delete">Remove</button></div>`;
+  row.querySelector(".manager-edit").onclick=()=>{editingPlanIndex=i;document.getElementById("managerPlanName").value=name;document.getElementById("managerPlanPrice").value=price;document.getElementById("planEditorTitle").textContent="✎ Edit server plan";document.getElementById("managerSaveBtn").textContent="Update plan";document.getElementById("managerCancelBtn").hidden=false;planManagerForm.scrollIntoView({behavior:"smooth",block:"center"});};
+  row.querySelector(".manager-delete").onclick=()=>{if(!confirm("Remove "+name+" server plan from the store?"))return;serverPlans.splice(i,1);savePlansToBrowser();renderServerProducts();renderPlanManager();if(selected&&selected.ram===name)selected=null;toast("Plan removed from this browser's store.");};
+  rows.appendChild(row);
+ });
+}
+function resetPlanEditor(){editingPlanIndex=null;planManagerForm.reset();document.getElementById("planEditorTitle").textContent="＋ Add a server plan";document.getElementById("managerSaveBtn").textContent="Save plan";document.getElementById("managerCancelBtn").hidden=true;}
+planManagerForm?.addEventListener("submit",e=>{
+ e.preventDefault();const name=document.getElementById("managerPlanName").value.trim().toUpperCase();const price=Number(document.getElementById("managerPlanPrice").value);
+ if(!name||!Number.isFinite(price)||price<1||!Number.isInteger(price)){toast("Enter a plan name and a valid whole-number price.");return;}
+ const duplicate=serverPlans.findIndex((plan,i)=>plan[0].toUpperCase()===name&&i!==editingPlanIndex);
+ if(duplicate!==-1){toast("A plan with that name already exists.");return;}
+ if(editingPlanIndex===null)serverPlans.push([name,price]);else serverPlans[editingPlanIndex]=[name,price];
+ savePlansToBrowser();renderServerProducts();renderPlanManager();resetPlanEditor();toast("Server plan saved and store refreshed.");
+});
+document.getElementById("managerCancelBtn")?.addEventListener("click",resetPlanEditor);
+renderPlanManager();
+
+
+document.querySelectorAll(".payoption").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll(".payoption").forEach(x=>x.classList.remove("active"));
+  b.classList.add("active"); method=b.dataset.method;
+});
+
+function toast(t){
+  const el=document.getElementById("toast");
+  el.textContent=t; el.classList.add("show");
+  setTimeout(()=>el.classList.remove("show"),3200);
+}
+function updateTopupPreview(){
+  const amount=Number(document.getElementById("credits").value);
+  const preview=document.getElementById("topupPreview");
+  if(!Number.isFinite(amount)||amount<=0){preview.textContent="1 KSh = 1 TALKLESS coin. Enter an amount to preview the coins you will receive.";return;}
+  preview.textContent=`You will receive ${Math.floor(amount)} TALKLESS coins after a successful, verified payment.`;
+}
+function refreshWallet(){
+  const shown=customerDataUnavailable?"Unavailable":balance.toLocaleString();
+  document.getElementById("balance").innerHTML=customerDataUnavailable?"Unavailable":`${shown} <small style="font-size:13px">coins</small>`;
+  const topCoinBalance=document.getElementById("topCoinBalance");if(topCoinBalance)topCoinBalance.textContent=shown;
+  document.getElementById("walletline").textContent=customerDataUnavailable?"Account records unavailable":shown+" coins";
+  const accountBalance=document.getElementById("accountBalance");if(accountBalance)accountBalance.textContent=customerDataUnavailable?"Unavailable — records not loaded":shown+" coins";
+}
+
+/*
+  PAYMENT INTEGRATION:
+  Your backend must initiate the selected payment and verify the provider callback.
+  Only after verification should the server credit the customer's account at 1 KSh = 1 coin.
+  Never credit coins directly from browser input or an unverified STK response.
+*/
+function demoPayment(){
+  if(previewMode)return toast("Preview mode only: payments are disabled until the secure account and payment setup is complete.");
+  if(!customer)return toast("Open your customer account before making a deposit.");
+  const amount=Number(document.getElementById("credits").value);
+  const payer=document.getElementById("payer").value.trim();
+  if(!Number.isSafeInteger(amount)||amount<1)return toast("Enter a whole KSh amount greater than zero.");
+  if(!payer)return toast("Enter your phone number or payment email.");
+  toast("Payment setup required: connect "+method+" to your secure backend. No coins have been added yet.");
+}
+
+/* Call this pattern only from a trusted server-confirmed account response.
+   Example: renderWalletFromServer({balance: 500}); */
+function renderWalletFromServer(account){
+  if(!account || !Number.isFinite(Number(account.balance))) return;
+  balance=Math.max(0,Math.floor(Number(account.balance)));
+  refreshWallet();
+}
+
+async function placeOrder(){
+  if(previewMode)return toast("Preview mode only: server creation is disabled until sign-in and the hosting backend are configured.");
+  if(!customer)return toast("Open your customer account before placing an order.");
+  if(!selected)return toast("Select a server plan first.");
+  if(balance<selected.price)return toast("You need "+selected.price+" coins. Please top up your wallet.");
+  const serverName=document.getElementById("serverName").value.trim();
+  const email=customer.email;
+  if(!serverName)return toast("Enter a server name.");
+  const button=document.querySelector('.order-panel-wrap .box > button');
+  if(button){button.disabled=true;button.textContent="Creating your server…";}
+  try{
+    /* The backend must authenticate the session, atomically check/deduct coins,
+       create the Pterodactyl server, and return credentials only to this user. */
+    const result=await apiRequest("/servers",{method:"POST",body:JSON.stringify({
+      serverName,plan:selected.ram,customerName:customer.name,customerEmail:email
+    })});
+    if(!result.server || !result.server.id)throw new Error("The hosting service did not confirm server creation.");
+    if(Number.isFinite(Number(result.balance))){balance=Math.max(0,Math.floor(Number(result.balance)));customer.balance=balance;}
+    const details=result.server;
+    customer.servers=Array.isArray(customer.servers)?customer.servers:[];
+    customer.servers.unshift({id:details.id,name:details.name||serverName,plan:selected.ram,status:details.status||"Created",panelUrl:details.panelUrl||""});
+    customer.activity=Array.isArray(customer.activity)?customer.activity:[];
+    customer.activity.unshift({type:"order",title:selected.ram+" server created",date:new Date().toLocaleString()});
+    renderCustomer();
+    /* Credentials are deliberately not written to localStorage. The backend should
+       return a one-time secret over HTTPS, display it once, and let the user rotate it. */
+    const secret=[details.username?"Username: "+details.username:"",details.password?"Temporary password: "+details.password:"",details.panelUrl?"Panel: "+details.panelUrl:"",details.ip?"Server IP: "+details.ip:""].filter(Boolean).join("\n");
+    if(secret){const holder=document.getElementById("myServers");const credential=document.createElement("div");credential.className="credential-panel";credential.innerHTML="<strong>NEW SERVER ACCESS — "+escapeHTML(customer.name)+"</strong><br><code>"+escapeHTML(secret).replace(/\n/g,"<br>")+"</code>";holder.prepend(credential);}
+    toast("Server creation confirmed. Your server summary is in My Servers.");
+  }catch(error){
+    toast(error.message+" No local coin deduction was made.");
+  }finally{if(button){button.disabled=false;button.innerHTML='Create my server automatically <span aria-hidden="true">→</span>';}}
+}
+
+
+// Compact three-line navigation menu for server plans and website sections.
+(()=>{
+  const toggle=document.getElementById('siteMenuToggle');
+  const menu=document.getElementById('siteMenu');
+  if(!toggle||!menu)return;
+  const close=()=>{menu.hidden=true;toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open website menu');};
+  toggle.addEventListener('click',()=>{const opening=menu.hidden;menu.hidden=!opening;toggle.setAttribute('aria-expanded',String(opening));toggle.setAttribute('aria-label',opening?'Close website menu':'Open website menu');});
+  menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',close));
+  document.addEventListener('click',event=>{if(!menu.hidden&&!event.target.closest('.nav-menu-wrap'))close();});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape')close();});
+})();
+
+/* Three-second opening animation. */
+window.addEventListener("load",()=>{
+  setTimeout(()=>{
+    document.body.classList.add("ready");
+    const intro=document.getElementById("introScreen");
+    if(intro) intro.setAttribute("aria-hidden","true");
+  },3000);
+});
+refreshWallet();
+initializeAuthentication();
+</script>
+
+<style id="talkless-bold-orbit-lines">
+/* Larger, brighter geometric linework inside the orbit rings */
+.corner-orbit{overflow:visible;border-width:3px!important;opacity:.82!important;box-shadow:0 0 34px #238dff55,inset 0 0 42px #238dff2b!important;will-change:transform}
+.corner-orbit:before{inset:8%!important;border:2px solid #f0cc795e!important;background:repeating-linear-gradient(0deg,transparent 0 34px,#e9c97966 35px 37px,transparent 38px 70px),repeating-linear-gradient(90deg,transparent 0 34px,#78dfff66 35px 37px,transparent 38px 70px);mask-image:radial-gradient(ellipse,transparent 0 38%,#000 40% 100%);transform-origin:center;animation:innerLineSpin 24s linear infinite}
+.corner-orbit:after{inset:17%!important;border:2px solid #7ceaff99!important;background:repeating-linear-gradient(45deg,transparent 0 25px,#65dfff80 26px 28px,transparent 29px 52px),repeating-linear-gradient(-45deg,transparent 0 25px,#d8b65f70 26px 28px,transparent 29px 52px);mask-image:radial-gradient(ellipse,transparent 0 34%,#000 37% 100%);transform-origin:center;animation:innerLineSpin 31s linear infinite reverse}
+.corner-orbit b{inset:27%!important;display:block;border:2px solid #b7a4ff99!important;background:repeating-linear-gradient(0deg,transparent 0 18px,#b29cff70 19px 21px,transparent 22px 40px),repeating-linear-gradient(90deg,transparent 0 18px,#e7c97966 19px 21px,transparent 22px 40px);mask-image:radial-gradient(ellipse,transparent 0 30%,#000 33% 100%);transform-origin:center;animation:innerLineSpin 19s linear infinite}
+.orbit-a{animation:cornerSpinA 38s linear infinite!important}.orbit-b{animation:cornerSpinB 46s linear infinite reverse!important}.orbit-c{animation:cornerSpinA 52s linear infinite reverse!important}
+@keyframes innerLineSpin{from{rotate:0deg}to{rotate:360deg}}
+@media(max-width:700px){.corner-orbit{opacity:.58!important}.corner-orbit:before{background-size:auto}.corner-orbit:after{opacity:.9}}
+@media(prefers-reduced-motion:reduce){.corner-orbit,.corner-orbit:before,.corner-orbit:after,.corner-orbit b{animation:none!important}}
+</style>
+
+
+<style id="talkless-gold-motion-and-app-plans">
+/* Premium gold motion system: layered rings, metallic linework and smooth rotation */
+.motion-backdrop{background:radial-gradient(ellipse at 12% 16%,#d5a84330,transparent 38%),radial-gradient(ellipse at 86% 76%,#b9872b25,transparent 42%),radial-gradient(ellipse at 52% 48%,#2b75a522,transparent 48%),linear-gradient(135deg,#070b14 0%,#111b2b 48%,#090d17 100%)!important}
+.motion-backdrop:before{inset:-100%!important;opacity:.7!important;background-image:repeating-linear-gradient(0deg,transparent 0 54px,#e6c16b55 55px,#f6df9a66 56px,transparent 57px 110px),repeating-linear-gradient(90deg,transparent 0 54px,#c99c4350 55px,#f0d58b66 56px,transparent 57px 110px),repeating-linear-gradient(45deg,transparent 0 100px,#e5c36a22 101px 102px,transparent 103px 200px)!important;background-size:110px 110px,110px 110px,200px 200px!important;mask-image:radial-gradient(ellipse at center,#000 0%,#000d 48%,transparent 82%)!important;animation:talklessGridSpin 58s linear infinite!important}
+.motion-backdrop:after{opacity:.44!important;background:repeating-linear-gradient(125deg,transparent 0 56px,#e9c66d42 57px,#fff0bd55 58px,transparent 59px 112px),linear-gradient(110deg,transparent 20%,#d8aa4b12 44%,#f3d88c38 50%,#4baeff18 55%,transparent 78%)!important;background-size:auto,220% 100%!important;animation:talklessGlitch 11s steps(10,end) infinite!important}
+.gold-halo{position:absolute;z-index:1;display:block;pointer-events:none;border-radius:50%;border:2px solid #e7c36f99;box-shadow:0 0 24px #d6a74444,inset 0 0 35px #d6a74422;background:repeating-conic-gradient(from 0deg,transparent 0deg 8deg,#f1d58a88 8.3deg 8.8deg,transparent 9deg 17deg);-webkit-mask:radial-gradient(circle,transparent 0 58%,#000 60% 63%,transparent 65% 100%);mask:radial-gradient(circle,transparent 0 58%,#000 60% 63%,transparent 65% 100%);will-change:transform}
+.halo-one{width:min(54vw,650px);height:min(54vw,650px);min-width:280px;min-height:280px;left:-15%;top:8%;animation:goldHaloSpin 34s linear infinite}
+.halo-two{width:min(67vw,790px);height:min(67vw,790px);min-width:320px;min-height:320px;right:-23%;top:20%;border-color:#f1d995aa;animation:goldHaloSpin 46s linear infinite reverse}
+.halo-three{width:min(43vw,520px);height:min(43vw,520px);min-width:240px;min-height:240px;left:30%;bottom:-25%;border-color:#c99a42aa;animation:goldHaloSpin 27s linear infinite}
+@keyframes goldHaloSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.gold-streak{position:absolute;z-index:2;left:-35%;width:170%;height:2px;pointer-events:none;background:linear-gradient(90deg,transparent,#a97c2b55 20%,#f8dfa0 50%,#b98935aa 80%,transparent);box-shadow:0 0 12px #e6bd5b99,0 0 30px #c8953c66;opacity:.42;transform-origin:center}
+.streak-one{top:34%;animation:goldStreakMove 16s ease-in-out infinite alternate}.streak-two{top:69%;height:1px;opacity:.3;animation:goldStreakMove 22s ease-in-out infinite alternate-reverse}
+@keyframes goldStreakMove{0%{transform:translateX(-13%) rotate(-8deg)}50%{transform:translateX(9%) rotate(4deg)}100%{transform:translateX(-4%) rotate(-3deg)}}
+/* App-like, tap-ready server plan tiles */
+#planDashboard .dashboard-plan-grid{gap:13px}
+#planDashboard .dashboard-plan{min-height:126px;padding:17px 15px;border-radius:17px;border:1px solid #d8b45f99!important;background:linear-gradient(145deg,#17263aee 0%,#263348f2 48%,#18283bee 100%)!important;box-shadow:inset 0 1px #fff2,0 12px 28px #0005,0 0 16px #d6a74412!important;overflow:hidden;position:relative;transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease}
+#planDashboard .dashboard-plan:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.42;background:linear-gradient(125deg,transparent 20%,#f5d98b22 48%,transparent 66%);transform:translateX(-110%);transition:transform .6s ease}
+#planDashboard .dashboard-plan:hover:before{transform:translateX(110%)}
+#planDashboard .dashboard-plan:hover,#planDashboard .dashboard-plan:focus-visible{transform:translateY(-5px);border-color:#ffe4a0!important;box-shadow:inset 0 1px #fff4,0 16px 34px #0007,0 0 25px #d6a74444!important}
+#planDashboard .dashboard-plan span{font-size:10px;letter-spacing:1.2px;color:#f4d78d!important}#planDashboard .dashboard-plan strong{font-size:clamp(21px,2.3vw,27px);color:#fff8e8!important}#planDashboard .dashboard-plan small{color:#8ce8e8!important}#planDashboard .dashboard-plan:after{content:"TAP TO VIEW  ↗";font-size:8px;letter-spacing:1.4px;color:#f1d58a;opacity:.9}
+#products{gap:16px}#products .card{border:1px solid #d8b45f77;background:linear-gradient(150deg,#17263aef,#101b2cef 58%,#1b2739ef);border-radius:19px;box-shadow:0 13px 30px #0004,inset 0 1px #fff2;min-width:0;transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease}
+#products .card:hover,#products .card.selected{transform:translateY(-4px);border-color:#f1d58a;box-shadow:0 17px 36px #0006,0 0 25px #d5a74430,inset 0 1px #fff3}
+#products .plan-emblem{border:1px solid #e4c47599;color:#f3d68b;background:linear-gradient(145deg,#4a3920,#17263a)}#products .price{color:#f4d78e}#products .card>.btn{width:100%;min-height:46px;border:1px solid #e4c47599;background:linear-gradient(110deg,#9d742d,#d6ad54 52%,#94702d);color:#101827;font-weight:900}
+@media(max-width:850px){#planDashboard .dashboard-plan-grid{grid-template-columns:repeat(3,minmax(0,1fr))}#products{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){#planDashboard .dashboard-plan-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#planDashboard .dashboard-plan{min-height:112px;padding:14px 12px}#products{grid-template-columns:1fr}.gold-halo{opacity:.48}.halo-three{display:none}.gold-streak{opacity:.22}}
+@media(prefers-reduced-motion:reduce){.gold-halo,.gold-streak,#planDashboard .dashboard-plan:before{animation:none!important;transition:none!important}}
+</style>
+
+
+<style id="talkless-final-polish">
+/* Slow side-to-side colour ribbons with a rotating colour spectrum */
+.motion-backdrop .color-flow{
+  position:absolute;left:-75%;width:250%;height:clamp(3px,.55vw,7px);z-index:4;
+  pointer-events:none;opacity:.68;mix-blend-mode:screen;filter:blur(.3px);
+  border-radius:100%;will-change:transform,filter;
+  background:linear-gradient(90deg,transparent 0%,#167bff00 12%,#167bff88 27%,#65dfff 43%,#fff3c2 50%,#d9a94f 57%,#a68bff 73%,transparent 90%);
+  box-shadow:0 0 14px #4cbaff88,0 0 32px #d9b45c55,0 0 58px #8a7dff33;
+  animation:colourRibbonTravel 18s cubic-bezier(.45,0,.55,1) infinite alternate,colourRibbonHue 14s linear infinite;
+}
+.motion-backdrop .color-flow:before,.motion-backdrop .color-flow:after{
+  content:"";position:absolute;left:7%;right:7%;height:1px;border-radius:50%;
+  background:linear-gradient(90deg,transparent,#bceeff,#ffe3a0,#8dbaff,transparent);
+  box-shadow:0 0 14px #6fdcff;
+}
+.motion-backdrop .color-flow:before{top:-7px}.motion-backdrop .color-flow:after{top:8px;opacity:.6}
+.flow-blue{top:17%;animation-duration:17s,13s!important;animation-delay:-6s,-3s!important}
+.flow-gold{top:49%;height:5px!important;opacity:.58!important;animation-duration:23s,19s!important;animation-delay:-13s,-8s!important}
+.flow-violet{top:81%;height:2px!important;opacity:.48!important;animation-duration:20s,16s!important;animation-delay:-4s,-11s!important}
+@keyframes colourRibbonTravel{0%{transform:translateX(-15%) rotate(-5deg) skewX(-10deg)}50%{transform:translateX(2%) rotate(2deg) skewX(5deg)}100%{transform:translateX(15%) rotate(-3deg) skewX(9deg)}}
+@keyframes colourRibbonHue{0%{filter:hue-rotate(0deg) brightness(.9)}50%{filter:hue-rotate(38deg) brightness(1.3)}100%{filter:hue-rotate(80deg) brightness(1)}}
+
+/* Three-line menu and top actions: bright, legible, touch-friendly */
+header{position:sticky;top:0;z-index:100;backdrop-filter:blur(18px);background:linear-gradient(100deg,#071323ed,#101c2ded 52%,#071323ed);border-bottom:1px solid #d9b45b55;box-shadow:0 8px 28px #0005}
+header nav{min-height:76px}
+.nav-actions{gap:12px}
+.menu-toggle{
+ width:49px;height:47px;border:1px solid #f0cb75!important;border-radius:14px!important;
+ background:linear-gradient(145deg,#234f78,#102039 58%,#4a3820)!important;
+ box-shadow:0 0 0 3px #e5bd5a16,0 0 24px #2b9fff44,inset 0 1px 12px #fff3!important
+}
+.menu-toggle span{width:23px;height:2.5px;background:linear-gradient(90deg,#6feaff,#f5d27b,#fff)!important;box-shadow:0 0 10px #65dfff!important}
+.menu-toggle[aria-expanded=true]{background:linear-gradient(145deg,#9c742e,#1c4b72)!important}
+.site-menu{
+ width:min(360px,calc(100vw - 24px));padding:15px;border:1px solid #e5c474aa!important;
+ background:linear-gradient(145deg,#101f36f7,#081321fa 65%,#2b2418f5)!important;
+ box-shadow:0 25px 75px #000d,0 0 35px #d7a94b25!important;
+}
+.site-menu-title{color:#f4d68b!important}
+.site-menu>a{
+ min-height:58px;border:1px solid #4c83a755!important;
+ background:linear-gradient(100deg,#17345299,#101b2b99)!important;
+}
+.site-menu>a:hover{border-color:#f0d17c!important;background:linear-gradient(100deg,#1e5278,#44351d)!important}
+.site-menu>a>span{background:linear-gradient(145deg,#2b80ae,#8c682c)!important;color:#fff!important}
+.site-menu>a i{color:#f4d68b!important}
+.nav-actions>.btn{
+ min-height:45px;display:inline-flex;align-items:center;justify-content:center;
+ padding:0 17px;border:1px solid #f1d080!important;border-radius:13px!important;
+ color:#101b2b!important;font-weight:950!important;
+ background:linear-gradient(105deg,#b98734,#f4d98d 48%,#c28f37)!important;
+ box-shadow:0 0 22px #d7ad5544,inset 0 1px #fff8!important
+}
+.nav-actions>.btn:hover{filter:brightness(1.12);transform:translateY(-2px)}
+.navlinks a{transition:color .2s,text-shadow .2s}
+.navlinks a:hover{color:#f5d98d;text-shadow:0 0 14px #e4bb5e88}
+
+/* Premium opening: keep the three-second entrance, add a clear countdown pulse */
+.intro-screen{
+ background:
+ radial-gradient(circle at 18% 20%,#b8873440,transparent 38%),
+ radial-gradient(circle at 82% 72%,#168edb35,transparent 42%),
+ radial-gradient(circle at 50% 50%,#8b78ff1c,transparent 60%),
+ linear-gradient(145deg,#050a13,#101e31 52%,#080d17)!important;
+}
+.intro-screen:before,.intro-screen:after{border-color:#e4c47766!important;box-shadow:0 0 55px #d7ae5540,inset 0 0 50px #3aaeff16!important}
+.intro-emblem{animation:emblemFloat 3.4s ease-in-out infinite!important}
+.intro-name{letter-spacing:clamp(2px,.8vw,5px)!important;text-shadow:0 0 28px #55cfff25,0 4px 24px #0008!important}
+.intro-name b{background:linear-gradient(90deg,#ffe6a3,#f2c56d 38%,#75eaff 75%,#b7a5ff)!important;background-clip:text!important;-webkit-background-clip:text!important;color:transparent!important}
+.intro-countdown{
+ margin:13px auto 0;width:30px;height:30px;border:1px solid #e8c87888;border-radius:50%;
+ display:grid;place-items:center;color:#f5d98d;font:800 12px Orbitron,sans-serif;
+ box-shadow:0 0 18px #d5a74444;animation:countPulse 1s ease-in-out infinite
+}
+@keyframes countPulse{50%{transform:scale(1.13);box-shadow:0 0 28px #e4bd5c88}}
+/* Brand heading gets a restrained metallic shimmer */
+.brand>span:last-child,.hero h1,.section-head h2,.dashboard-top h2{
+ background-image:linear-gradient(100deg,#fff 0%,#d7eaff 28%,#f3d58b 52%,#8deaff 76%,#fff 100%);
+ background-size:220% auto;background-clip:text;-webkit-background-clip:text;
+ animation:headingShimmer 12s linear infinite;
+}
+@keyframes headingShimmer{to{background-position:220% center}}
+/* App-like destination sections and plan selection */
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+#planDashboard,#panels,#wallet,#how,#bot-links{scroll-margin-top:92px}
+#planDashboard{padding-top:clamp(32px,5vw,62px);padding-bottom:clamp(32px,5vw,62px)}
+#planDashboard .dashboard-top{align-items:center;gap:20px}
+#planDashboard .dashboard-plan-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+#planDashboard .dashboard-plan{
+ min-height:145px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:9px;
+ padding:20px;border-radius:20px!important;border:1px solid #d9b65f!important;
+ background:linear-gradient(145deg,#162b43f5 0%,#1c2d43f5 48%,#32291bf2 100%)!important;
+ box-shadow:0 13px 30px #0006,inset 0 1px #fff3,0 0 18px #d7a94b18!important;
+}
+#planDashboard .dashboard-plan:nth-child(3n+2){background:linear-gradient(145deg,#172b45f5,#1c3142f5 55%,#172d37f2)!important}
+#planDashboard .dashboard-plan:nth-child(3n){background:linear-gradient(145deg,#29213b,#17283c 55%,#3a2d1c)!important}
+#planDashboard .dashboard-plan span{font-size:11px;letter-spacing:1.5px;color:#f3d58b!important}
+#planDashboard .dashboard-plan strong{font-size:clamp(23px,2.8vw,32px);font-family:Orbitron,sans-serif;color:#fff!important}
+#planDashboard .dashboard-plan small{font-size:11px;color:#9beaff!important}
+#planDashboard .dashboard-plan:after{margin-top:4px;padding:7px 10px;border-radius:8px;background:#e4bd5b20;color:#f4d78d;font-weight:900}
+#panels .section-head{align-items:center}
+#panels .grid{align-items:stretch}
+#products .card{border-radius:20px!important}
+#products .card>.btn{border-radius:12px!important;background:linear-gradient(105deg,#b98734,#f4d98d 48%,#c28f37)!important;color:#101b2b!important;border:1px solid #f5dda0!important;box-shadow:0 7px 18px #c3933b30!important}
+#products .card>.btn:hover{filter:brightness(1.1);transform:translateY(-2px)}
+@media(max-width:850px){
+ #planDashboard .dashboard-plan-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .navlinks{display:none}
+}
+@media(max-width:560px){
+ header nav{min-height:66px}
+ .nav-actions{gap:7px}
+ .menu-toggle{width:43px;height:42px}
+ .nav-actions>.btn{min-height:42px;padding:0 11px;font-size:10px}
+ #planDashboard .dashboard-plan-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ #planDashboard .dashboard-plan{min-height:125px;padding:14px}
+ .motion-backdrop .color-flow{opacity:.36}
+ .intro-content{padding:28px 16px}
+}
+@media(prefers-reduced-motion:reduce){
+ .motion-backdrop .color-flow,.intro-countdown,.brand>span:last-child,.hero h1,.section-head h2,.dashboard-top h2{animation:none!important}
+ html{scroll-behavior:auto}
+}
+</style>
+<script id="talkless-final-navigation-polish">
+(()=>{
+  const menu=document.getElementById('siteMenu');
+  const toggle=document.getElementById('siteMenuToggle');
+  if(menu&&toggle){
+    const close=()=>{
+      menu.hidden=true;
+      toggle.setAttribute('aria-expanded','false');
+      toggle.setAttribute('aria-label','Open website menu');
+    };
+    menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+      close();
+      const target=document.querySelector(a.getAttribute('href'));
+      if(target){
+        target.classList.remove('nav-arrival');
+        requestAnimationFrame(()=>target.classList.add('nav-arrival'));
+        setTimeout(()=>target.classList.remove('nav-arrival'),950);
+      }
+    }));
+  }
+  const countdown=document.getElementById('introCountdown');
+  if(countdown){
+    const start=Date.now();
+    const tick=()=>{
+      const left=Math.max(0,3-Math.floor((Date.now()-start)/1000));
+      countdown.textContent=left||'GO';
+      if(left>0) requestAnimationFrame(tick);
+    };
+    tick();
+  }
+  document.querySelectorAll('.dashboard-plan').forEach(card=>{
+    card.addEventListener('click',()=>{
+      const target=document.getElementById('panels');
+      if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+})();
+</script>
+<style>
+.nav-arrival{animation:navArrival .9s ease-out}
+@keyframes navArrival{0%{filter:brightness(1)}35%{filter:brightness(1.35);box-shadow:0 0 0 2px #eacb7a55,0 0 35px #42cfff44}100%{filter:brightness(1)}}
+</style>
+
+
+<style id="talkless-worldwide-premium-upgrade">
+/* A rotating world sphere: decorative background layer, never blocks taps. */
+.world-globe{
+  position:fixed;z-index:-1;pointer-events:none;right:-clamp(115px,12vw,190px);
+  top:clamp(170px,28vh,310px);width:clamp(300px,43vw,610px);aspect-ratio:1;
+  opacity:.26;filter:drop-shadow(0 0 34px #49c9ff35);isolation:isolate;
+}
+.globe-aura{position:absolute;inset:8%;border-radius:50%;
+  background:radial-gradient(circle,#d6ad5330 0%,#3da9e72a 43%,transparent 72%);
+  filter:blur(20px);animation:globeAura 9s ease-in-out infinite alternate}
+.globe-sphere{
+  position:absolute;inset:12%;border-radius:50%;overflow:hidden;
+  border:1px solid #e7c879aa;
+  background:
+    radial-gradient(ellipse at 31% 23%,#f6e5b75a 0%,transparent 23%),
+    radial-gradient(ellipse at 68% 75%,#36c8e84a 0%,transparent 42%),
+    radial-gradient(circle at 38% 35%,#1d5a83 0%,#102d4b 53%,#071421 100%);
+  box-shadow:inset -35px -12px 60px #020812cc,inset 14px 8px 36px #fff2,
+    0 0 0 7px #d8b45d12,0 0 45px #3ebff055;
+  animation:globeSpin 32s linear infinite;
+}
+.globe-sphere:before,.globe-sphere:after{
+  content:"";position:absolute;inset:-8%;border-radius:50%;pointer-events:none;
+}
+.globe-sphere:before{
+  background:repeating-linear-gradient(0deg,transparent 0 27px,#bceeff55 28px,#bceeff55 29px,transparent 30px 55px);
+  transform:scaleX(.94);opacity:.62;
+}
+.globe-sphere:after{
+  background:repeating-linear-gradient(90deg,transparent 0 29px,#f3d58b66 30px,#f3d58b66 31px,transparent 32px 59px);
+  border-radius:50%;transform:scaleX(.58);opacity:.65;
+}
+.globe-land{
+  position:absolute;inset:7% 2%;border-radius:50%;
+  opacity:.7;filter:drop-shadow(0 0 5px #62e5ff66);
+  background:
+   radial-gradient(ellipse 13% 8% at 27% 29%,#82d9c8 0 60%,transparent 64%),
+   radial-gradient(ellipse 8% 18% at 36% 48%,#72c9b5 0 58%,transparent 63%),
+   radial-gradient(ellipse 16% 10% at 58% 30%,#9bd8b8 0 57%,transparent 63%),
+   radial-gradient(ellipse 10% 17% at 62% 52%,#72c7b5 0 56%,transparent 63%),
+   radial-gradient(ellipse 7% 12% at 76% 65%,#80d8c4 0 55%,transparent 62%),
+   radial-gradient(ellipse 6% 5% at 18% 66%,#8adbc8 0 55%,transparent 63%);
+  animation:landDrift 22s linear infinite;
+}
+.globe-latitudes,.globe-longitudes{position:absolute;inset:0;border-radius:50%;pointer-events:none}
+.globe-latitudes{border-top:1px solid #fff6;border-bottom:1px solid #fff5;transform:scaleY(.42);box-shadow:0 0 14px #76eaff33}
+.globe-longitudes{border-left:1px solid #f5d98b88;border-right:1px solid #f5d98b88;transform:scaleX(.38)}
+.globe-highlight{position:absolute;inset:0;border-radius:50%;background:linear-gradient(110deg,transparent 26%,#e6f8ff28 43%,transparent 56%);mix-blend-mode:screen}
+.globe-orbit{position:absolute;inset:4%;border:1px solid #e7c87988;border-radius:50%;transform:rotate(-24deg) scaleY(.31);box-shadow:0 0 15px #d9b45b2c}
+.globe-orbit-two{inset:-1%;border-color:#75dff477;transform:rotate(28deg) scaleY(.43);animation:orbitRing 18s linear infinite}
+@keyframes globeSpin{to{transform:rotate(360deg)}}
+@keyframes landDrift{to{transform:translateX(-5%) rotate(-360deg)}}
+@keyframes globeAura{to{transform:scale(1.12);opacity:.55}}
+@keyframes orbitRing{to{transform:rotate(388deg) scaleY(.43)}}
+
+/* Refined navigation: clear touch targets, aligned menu, strong contrast. */
+header nav{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.nav-actions{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex:0 0 auto}
+.menu-toggle{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+  cursor:pointer;transition:transform .22s ease,box-shadow .22s ease,filter .22s ease}
+.menu-toggle span{display:block!important;height:3px!important;width:22px!important;border-radius:9px;transition:transform .22s ease,opacity .22s ease}
+.menu-toggle[aria-expanded="true"] span:first-child{transform:translateY(7.5px) rotate(45deg)}
+.menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-toggle[aria-expanded="true"] span:last-child{transform:translateY(-7.5px) rotate(-45deg)}
+.nav-menu-wrap{position:relative;display:flex;align-items:center}
+.site-menu{
+  position:absolute;right:0;top:calc(100% + 14px);z-index:150;display:flex;flex-direction:column;gap:9px;
+  border-radius:20px;max-height:min(75vh,620px);overflow:auto;animation:menuDrop .22s ease-out;
+}
+.site-menu[hidden]{display:none!important}
+.site-menu-title{padding:4px 7px 8px;font:900 11px Orbitron,sans-serif;letter-spacing:1.7px}
+.site-menu>a{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:13px;text-decoration:none;transition:transform .18s,border-color .18s}
+.site-menu>a>span{width:34px;height:34px;flex:0 0 34px;display:grid;place-items:center;border-radius:10px;font:900 12px Orbitron,sans-serif}
+.site-menu>a div{display:flex;flex-direction:column;gap:3px;flex:1}
+.site-menu>a b{font-size:12px;color:#f5f8ff}
+.site-menu>a small{font-size:10px;color:#afc0d2}
+.site-menu>a i{font-style:normal;font-size:17px}
+.site-menu>a:hover{transform:translateX(-3px)}
+@keyframes menuDrop{from{opacity:0;transform:translateY(-8px) scale(.98)}to{opacity:1;transform:none}}
+.nav-actions>.btn{white-space:nowrap;min-height:46px;padding-inline:17px}
+.btn,.menu-toggle,.dashboard-plan,.bot-link-card{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.btn:active,.menu-toggle:active,.dashboard-plan:active{transform:scale(.97)}
+/* A confident countrywide service badge under the hero introduction. */
+.countrywide-note{
+ display:flex;align-items:center;gap:12px;width:fit-content;max-width:100%;
+ margin:20px 0 0;padding:11px 15px;border-radius:15px;
+ border:1px solid #dfbd6a77;
+ background:linear-gradient(105deg,#2c2518dd,#13283add 65%,#102333dd);
+ box-shadow:0 9px 28px #0004,inset 0 1px #fff2;
+}
+.countrywide-icon{width:34px;height:34px;flex:0 0 34px;display:grid;place-items:center;border-radius:11px;
+ background:linear-gradient(145deg,#c3943c,#f1d88f);color:#111b29;font-size:23px;font-weight:900}
+.countrywide-note strong{display:block;color:#f3d58b;font:900 10px Orbitron,sans-serif;letter-spacing:1.2px}
+.countrywide-note small{display:block;margin-top:3px;color:#c2d0de;font-size:10px}
+.countrywide-note>i{margin-left:5px;color:#8beaff;font-style:normal}
+.hero{position:relative}
+.hero h1{max-width:760px}
+.hero>div:first-child>.btn{min-height:51px;padding:0 22px;margin-top:18px;border:1px solid #ffe6a2!important;
+ background:linear-gradient(105deg,#9b7029,#f3d58b 52%,#b88937)!important;color:#111b29!important;
+ box-shadow:0 10px 28px #c79a4540,inset 0 1px #fff8!important}
+.hero>div:first-child>.btn:hover{filter:brightness(1.1);transform:translateY(-3px)}
+/* Make all section navigation and action controls consistent. */
+.navlinks a{font-weight:800}
+#planDashboard .dashboard-plan{cursor:pointer}
+#products .card .btn{min-height:49px;display:flex;align-items:center;justify-content:center}
+@media(max-width:760px){
+ .world-globe{right:-185px;top:30vh;width:390px;opacity:.19}
+ header nav{gap:8px}
+ .nav-actions{gap:7px}
+ .nav-actions>.btn{padding-inline:12px;font-size:10px}
+ .site-menu{right:-4px}
+}
+@media(max-width:480px){
+ .world-globe{right:-205px;top:34vh;width:350px;opacity:.16}
+ .countrywide-note{padding:10px 11px}
+ .countrywide-note strong{font-size:9px;letter-spacing:.8px}
+ .countrywide-note small{font-size:9px}
+ .nav-actions>.btn{font-size:9px;padding-inline:9px}
+}
+@media(prefers-reduced-motion:reduce){
+ .globe-sphere,.globe-land,.globe-orbit-two,.globe-aura,.site-menu{animation:none!important}
+}
+
+/* WORLDWIDE premium navigation and atmospheric motion refinement */
+.quick-action-bar{position:relative;z-index:8;padding:13px 0 5px}
+.quick-action-inner{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:11px}
+.quick-action{min-height:68px;display:flex;align-items:center;gap:10px;padding:11px 13px;
+  border:1px solid #52749a88;border-radius:15px;text-decoration:none;color:#edf7ff;
+  background:linear-gradient(135deg,#142b49ed,#10182beF 58%,#1b2140ed);
+  box-shadow:inset 0 1px #ffffff14,0 10px 28px #0005;transition:transform .22s,border-color .22s,box-shadow .22s;
+  position:relative;overflow:hidden}
+.quick-action:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.55;
+  background:linear-gradient(110deg,transparent 18%,#5bdfff18 42%,#e9c36a18 54%,transparent 78%);
+  transform:translateX(-110%);animation:quickShimmer 7s ease-in-out infinite}
+.quick-action:hover{transform:translateY(-3px);border-color:#75dcff;box-shadow:0 12px 34px #168dff35,inset 0 1px #fff2}
+.quick-action.primary{border-color:#d8b45d;background:linear-gradient(125deg,#284c70,#182b49 50%,#4b3b24)}
+.quick-action .qa-icon{width:36px;height:36px;flex:0 0 36px;border-radius:11px;display:grid;place-items:center;
+  color:#ffe4a0;font-size:21px;background:linear-gradient(145deg,#3979a9,#242b51);box-shadow:inset 0 1px #fff4,0 0 17px #3caeff35}
+.quick-action.primary .qa-icon{color:#fff0bf;background:linear-gradient(145deg,#c89b43,#66502c)}
+.quick-action b,.quick-action small{display:block;position:relative}
+.quick-action b{font-size:12px;letter-spacing:.2px}
+.quick-action small{font-size:10px;color:#a9bfd8;margin-top:4px;white-space:nowrap}
+.quick-action>i{font-style:normal;margin-left:auto;color:#71ddff;font-size:16px;position:relative}
+@keyframes quickShimmer{0%,55%{transform:translateX(-110%)}85%,100%{transform:translateX(110%)}}
+
+/* Make the rotating Earth and its orbital layers clearly visible without obscuring content. */
+.world-globe{width:clamp(360px,51vw,720px);right:clamp(-145px,-7vw,-55px);top:clamp(145px,22vh,265px);
+  opacity:.39;filter:drop-shadow(0 0 48px #49c9ff55) drop-shadow(0 0 85px #d8ad4a22)}
+.globe-sphere{border-width:2px;box-shadow:inset -42px -18px 72px #020812dd,inset 18px 10px 42px #fff3,
+  0 0 0 10px #d8b45d20,0 0 0 22px #55cfff0d,0 0 58px #3ebff077}
+.globe-orbit{border-width:2px;filter:drop-shadow(0 0 9px #e9c36a88)}
+.globe-aura{opacity:1;filter:blur(25px)}
+.motion-backdrop .gold-halo{opacity:.8}
+.motion-backdrop .color-flow{opacity:.82}
+.motion-backdrop .side-blue-layer{opacity:.78}
+@media(max-width:900px){.quick-action-inner{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){
+ .quick-action-bar{padding:10px 0 2px}
+ .quick-action-inner{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .quick-action{min-height:61px;padding:9px}
+ .quick-action .qa-icon{width:32px;height:32px;flex-basis:32px}
+ .quick-action b{font-size:11px}.quick-action small{font-size:9px}
+ .quick-action:last-child{grid-column:1/-1}
+ .world-globe{width:clamp(310px,92vw,460px);right:-155px;top:210px;opacity:.30}
+}
+@media(prefers-reduced-motion:reduce){.quick-action:before{animation:none}}
+</style>
+
+
+
+
+<script>
+(()=> {
+ const $=id=>document.getElementById(id);
+ const keys={hash:"tt_admin_hash_v1",panels:"tt_admin_panels_v1",orders:"tt_admin_orders_v1",customers:"tt_admin_customers_v1",wallet:"tt_admin_wallet_v1",settings:"tt_admin_settings_v1"};
+ const load=(k,fb=[])=>{try{const v=JSON.parse(localStorage.getItem(k));return v??fb}catch(e){return fb}};
+ const save=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){alert("Unable to save in this browser storage.");return false}};
+ const safe=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+ const sha=async s=>{const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")};
+ let unlocked=false;
+ const readPlans=()=>serverPlans;
+ const writePlans=plans=>{serverPlans=plans;save("talkless_server_plans_v1",plans);if(typeof renderServerProducts==="function")renderServerProducts();if(typeof renderPlanManager==="function")renderPlanManager();renderStats();renderServers()};
+ const OWNER_PASSWORD_HASH="d7434a3966e73bc1d744df7dcb106b2bd0dd9a46899d48349abf40035def7191";
+ function showGate(){ $("adminGate").hidden=false;$("adminWorkspace").hidden=true;$("planManager").hidden=true;$("adminStateLabel").textContent="ADMIN LOCKED";$("adminGateTitle").textContent="Owner-only admin sign in";$("adminGateDescription").textContent="Enter the owner's passphrase to open the TALKLESS TECH control room.";$("adminGateSubmit").textContent="Unlock dashboard";$("adminPassInput").value="";}
+ $("adminGateForm").addEventListener("submit",async e=>{e.preventDefault();const pass=$("adminPassInput").value;const hash=await sha(pass);if(hash!==OWNER_PASSWORD_HASH){alert("Incorrect owner passphrase. Access denied.");$("adminPassInput").value="";return}unlocked=true;$("adminGate").hidden=true;$("adminWorkspace").hidden=false;$("planManager").hidden=false;$("adminStateLabel").textContent="ADMIN UNLOCKED";renderAll();});
+ document.querySelectorAll("[data-admin-tab]").forEach(b=>b.addEventListener("click",()=>setTab(b.dataset.adminTab)));
+ document.querySelectorAll("[data-admin-tab-go]").forEach(b=>b.addEventListener("click",()=>setTab(b.dataset.adminTabGo)));
+ function setTab(name){document.querySelectorAll(".admin-tab").forEach(b=>b.classList.toggle("active",b.dataset.adminTab===name));document.querySelectorAll(".admin-tab-panel").forEach(p=>p.classList.toggle("active",p.dataset.adminPanel===name));}
+ function renderStats(){$("adminStatPlans").textContent=readPlans().length;$("adminStatPanels").textContent=load(keys.panels).length;$("adminStatOrders").textContent=load(keys.orders).length;$("adminStatCustomers").textContent=load(keys.customers).length;}
+ function actions(edit,del){return `<button type="button" class="admin-row-edit">${edit}</button><button type="button" class="admin-row-delete">${del}</button>`}
+ function renderServers(){const tb=$("adminServerRows");if(!tb)return;const plans=readPlans();tb.innerHTML=plans.map((p,i)=>`<tr><td>${safe(p[0])}</td><td>KSh ${Number(p[1]).toLocaleString()}</td><td>${actions("Edit","Remove")}</td></tr>`).join("");tb.querySelectorAll(".admin-row-edit").forEach((b,i)=>b.onclick=()=>{$("adminServerEditIndex").value=i;$("adminServerName").value=plans[i][0];$("adminServerPrice").value=plans[i][1];$("adminServerFormWrap").hidden=false;});tb.querySelectorAll(".admin-row-delete").forEach((b,i)=>b.onclick=()=>{if(confirm("Remove "+plans[i][0]+" plan?")){const next=plans.slice();next.splice(i,1);writePlans(next)}});}
+ $("adminAddServer").onclick=()=>{$("adminServerForm").reset();$("adminServerEditIndex").value="";$("adminServerFormWrap").hidden=false};
+ $("adminServerCancel").onclick=()=>$("adminServerFormWrap").hidden=true;
+ $("adminServerForm").onsubmit=e=>{e.preventDefault();const name=$("adminServerName").value.trim().toUpperCase(),price=Number($("adminServerPrice").value),index=$("adminServerEditIndex").value;if(!name||!Number.isInteger(price)||price<1){alert("Enter plan name and a valid whole number price.");return}const next=readPlans().map(p=>[...p]);if(index===""){if(next.some(p=>p[0].toUpperCase()===name)){alert("That plan name already exists.");return}next.push([name,price])}else next[Number(index)]=[name,price];writePlans(next);$("adminServerFormWrap").hidden=true;$("adminServerForm").reset()};
+ function renderPanels(){const items=load(keys.panels),tb=$("adminPanelRows");tb.innerHTML=items.map((p,i)=>`<tr><td>${safe(p.name)}</td><td>${safe(p.description)}</td><td>KSh ${Number(p.price).toLocaleString()}</td><td>${actions("Edit","Remove")}</td></tr>`).join("");tb.querySelectorAll(".admin-row-edit").forEach((b,i)=>b.onclick=()=>{$("adminPanelEditIndex").value=i;$("adminPanelName").value=items[i].name;$("adminPanelDescription").value=items[i].description;$("adminPanelPrice").value=items[i].price;$("adminPanelFormWrap").hidden=false});tb.querySelectorAll(".admin-row-delete").forEach((b,i)=>b.onclick=()=>{if(confirm("Remove this panel entry?")){items.splice(i,1);save(keys.panels,items);renderPanels();renderStats()}})}
+ $("adminAddPanel").onclick=()=>{$("adminPanelForm").reset();$("adminPanelEditIndex").value="";$("adminPanelFormWrap").hidden=false};$("adminPanelCancel").onclick=()=>$("adminPanelFormWrap").hidden=true;
+ $("adminPanelForm").onsubmit=e=>{e.preventDefault();const item={name:$("adminPanelName").value.trim(),description:$("adminPanelDescription").value.trim(),price:Number($("adminPanelPrice").value)},idx=$("adminPanelEditIndex").value;if(!item.name||!Number.isInteger(item.price)||item.price<0){alert("Check panel name and price.");return}const arr=load(keys.panels);if(idx==="")arr.push(item);else arr[Number(idx)]=item;save(keys.panels,arr);renderPanels();renderStats();$("adminPanelFormWrap").hidden=true;$("adminPanelForm").reset()};
+ function renderOrders(){const arr=load(keys.orders),tb=$("adminOrderRows");tb.innerHTML=arr.map((o,i)=>`<tr><td>${safe(o.ref)}</td><td>${safe(o.customer)}</td><td>${safe(o.plan)}</td><td>${safe(o.status)}</td><td>${actions("Edit status","Remove")}</td></tr>`).join("");tb.querySelectorAll(".admin-row-edit").forEach((b,i)=>b.onclick=()=>{const st=prompt("Update order status:",arr[i].status);if(st!==null){arr[i].status=st.trim()||arr[i].status;save(keys.orders,arr);renderOrders()}});tb.querySelectorAll(".admin-row-delete").forEach((b,i)=>b.onclick=()=>{if(confirm("Remove order record?")){arr.splice(i,1);save(keys.orders,arr);renderOrders();renderStats()}})}
+ $("adminAddOrder").onclick=()=>$("adminOrderFormWrap").hidden=false;$("adminOrderCancel").onclick=()=>$("adminOrderFormWrap").hidden=true;
+ $("adminOrderForm").onsubmit=e=>{e.preventDefault();const arr=load(keys.orders);arr.unshift({ref:"TT-"+Date.now().toString().slice(-8),customer:$("adminOrderCustomer").value.trim(),plan:$("adminOrderPlan").value.trim(),status:$("adminOrderStatus").value,date:new Date().toISOString()});save(keys.orders,arr);renderOrders();renderStats();$("adminOrderFormWrap").hidden=true;$("adminOrderForm").reset()};
+ function renderCustomers(){const arr=load(keys.customers),tb=$("adminCustomerRows");tb.innerHTML=arr.map((c,i)=>`<tr><td>${safe(c.name)}</td><td>${safe(c.contact)}</td><td>${safe(c.note)}</td><td>${actions("Edit","Remove")}</td></tr>`).join("");tb.querySelectorAll(".admin-row-edit").forEach((b,i)=>b.onclick=()=>{const note=prompt("Edit admin note:",arr[i].note);if(note!==null){arr[i].note=note;save(keys.customers,arr);renderCustomers()}});tb.querySelectorAll(".admin-row-delete").forEach((b,i)=>b.onclick=()=>{if(confirm("Remove customer record?")){arr.splice(i,1);save(keys.customers,arr);renderCustomers();renderStats()}})}
+ $("adminAddCustomer").onclick=()=>$("adminCustomerFormWrap").hidden=false;$("adminCustomerCancel").onclick=()=>$("adminCustomerFormWrap").hidden=true;
+ $("adminCustomerForm").onsubmit=e=>{e.preventDefault();const arr=load(keys.customers);arr.push({name:$("adminCustomerName").value.trim(),contact:$("adminCustomerContact").value.trim(),note:$("adminCustomerNote").value.trim()});save(keys.customers,arr);renderCustomers();renderStats();$("adminCustomerFormWrap").hidden=true;$("adminCustomerForm").reset()};
+ function renderWallet(){const arr=load(keys.wallet),tb=$("adminWalletRows");tb.innerHTML=arr.map((w,i)=>`<tr><td>${new Date(w.date).toLocaleDateString()}</td><td>${safe(w.customer)}</td><td>${safe(w.type)}</td><td>${Number(w.amount).toLocaleString()} coins</td><td>${actions("Edit","Remove")}</td></tr>`).join("");tb.querySelectorAll(".admin-row-edit").forEach((b,i)=>b.onclick=()=>{const amount=prompt("Edit entry amount:",arr[i].amount);if(amount!==null&&Number.isInteger(Number(amount))&&Number(amount)>0){arr[i].amount=Number(amount);save(keys.wallet,arr);renderWallet()}});tb.querySelectorAll(".admin-row-delete").forEach((b,i)=>b.onclick=()=>{if(confirm("Remove ledger entry?")){arr.splice(i,1);save(keys.wallet,arr);renderWallet()}})}
+ $("adminAddWalletEntry").onclick=()=>$("adminWalletFormWrap").hidden=false;$("adminWalletCancel").onclick=()=>$("adminWalletFormWrap").hidden=true;
+ $("adminWalletForm").onsubmit=e=>{e.preventDefault();const amount=Number($("adminWalletAmount").value);if(!Number.isInteger(amount)||amount<1){alert("Enter a positive whole number.");return}const arr=load(keys.wallet);arr.unshift({customer:$("adminWalletCustomer").value.trim(),amount,type:$("adminWalletType").value,date:new Date().toISOString()});save(keys.wallet,arr);renderWallet();$("adminWalletFormWrap").hidden=true;$("adminWalletForm").reset()};
+ const defaults={title:"TALKLESS TECH SERVER SHOP",notice:"",contact:""};
+ function loadSettings(){const s={...defaults,...load(keys.settings,{})};$("adminStoreTitle").value=s.title;$("adminStoreNotice").value=s.notice;$("adminStoreContact").value=s.contact}
+ $("adminSettingsForm").onsubmit=e=>{e.preventDefault();save(keys.settings,{title:$("adminStoreTitle").value.trim(),notice:$("adminStoreNotice").value.trim(),contact:$("adminStoreContact").value.trim()});alert("Settings saved in this browser.")};
+ $("adminExportBtn").onclick=()=>{const payload={format:"talkless-tech-backup",version:1,exportedAt:new Date().toISOString(),plans:readPlans(),panels:load(keys.panels),orders:load(keys.orders),customers:load(keys.customers),walletLedger:load(keys.wallet),settings:load(keys.settings,{})};const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="talkless-tech-backup-"+new Date().toISOString().slice(0,10)+".json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+ $("adminImportBtn").onclick=()=>$("adminImportFile").click();
+ $("adminImportFile").onchange=async e=>{const file=e.target.files?.[0];if(!file)return;try{const data=JSON.parse(await file.text());if(data.format!=="talkless-tech-backup"||data.version!==1)throw new Error("Unsupported TALKLESS TECH backup.");if(!confirm("Restore this backup? Existing local records will be replaced."))return;const arrays=[data.plans,data.panels,data.orders,data.customers,data.walletLedger];if(!arrays.every(Array.isArray)||!data.settings||typeof data.settings!=="object")throw new Error("Backup file is incomplete or damaged.");const entries=[["talkless_server_plans_v1",data.plans],[keys.panels,data.panels],[keys.orders,data.orders],[keys.customers,data.customers],[keys.wallet,data.walletLedger],[keys.settings,data.settings]];for(const [k,v] of entries){if(!save(k,v))throw new Error("Browser storage could not save the full backup.");}serverPlans=data.plans;renderAll();if(typeof renderServerProducts==="function")renderServerProducts();alert("Backup restored on this browser. Keep a separate copy somewhere safe.");}catch(err){alert("Could not restore backup: "+err.message)}finally{e.target.value=""}};
+ $("adminResetLocal").onclick=()=>{if(!confirm("Reset locally stored panel, order, customer, wallet, and settings records? Server plans are preserved."))return;[keys.panels,keys.orders,keys.customers,keys.wallet,keys.settings].forEach(k=>localStorage.removeItem(k));renderAll();loadSettings()};
+ $("adminLockNow").onclick=()=>{unlocked=false;showGate()};
+ function renderAll(){renderStats();renderServers();renderPanels();renderOrders();renderCustomers();renderWallet();loadSettings();}
+ showGate();
+})();
+</script>
+
+
+
+
+<style>
+/* Requested blue-focused layout: server catalogue follows the main introduction */
+main.wrap{display:flex!important;flex-direction:column!important}
+main.wrap>.hero{order:1}
+main.wrap>.flow-overview{order:2}
+main.wrap>#planDashboard{order:3;margin-top:22px}
+main.wrap>#panels{order:4}
+main.wrap>#account{order:5}
+main.wrap>#wallet{order:6}
+main.wrap>#how{order:7}
+main.wrap>#bot-links{order:8}
+main.wrap>section:not(#account):not(#wallet):not(#planDashboard):not(#panels):not(#how):not(#bot-links){order:9}
+.top-coin-bar{position:sticky;top:72px;z-index:6;background:linear-gradient(90deg,#07172cF2,#0b2d55F2,#07172cF2);border-bottom:1px solid #2e8dff66;box-shadow:0 8px 28px #00132e55;backdrop-filter:blur(15px)}
+.top-coin-inner{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:9px;padding-bottom:9px}
+.top-coin-brand{display:flex;align-items:center;gap:10px;color:#e8f5ff}
+.top-coin-brand b{display:block;font-size:11px;letter-spacing:1.5px}
+.top-coin-brand small{display:block;color:#91bce9;font-size:10px;margin-top:2px}
+.top-coin-icon{width:37px;height:37px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,#167cff,#39d9ff);color:#06152a;font-size:22px;font-weight:900;box-shadow:0 0 22px #168dff55}
+.top-coin-value{display:flex;align-items:baseline;gap:7px;margin-left:auto;color:#f5fbff}
+.top-coin-value strong{font-size:clamp(20px,3vw,29px);font-weight:950;text-shadow:0 0 20px #168dff66}
+.top-coin-value span{font-size:9px;letter-spacing:1.3px;color:#72caff;font-weight:900}
+.top-coin-action{white-space:nowrap;text-decoration:none;padding:10px 13px;border-radius:11px;background:linear-gradient(100deg,#126bff,#20baff);color:white;font-size:10px;font-weight:900;letter-spacing:.6px;border:1px solid #7bd8ff44;box-shadow:0 5px 18px #087bff33}
+.top-coin-server{background:linear-gradient(100deg,#0e2d56,#154b86);border-color:#338fff55}
+.top-coin-action:hover{filter:brightness(1.16);transform:translateY(-1px)}
+/* Blue-only world-tech atmosphere */
+.motion-backdrop{background:radial-gradient(ellipse at 12% 18%,#0757c955,transparent 42%),radial-gradient(ellipse at 86% 70%,#008dff33,transparent 43%),radial-gradient(ellipse at 52% 45%,#253dff22,transparent 50%),linear-gradient(135deg,#030813,#071a32 48%,#030a16)!important}
+.motion-backdrop:before{background-image:repeating-linear-gradient(0deg,transparent 0 60px,#2b9cff44 61px,transparent 62px 122px),repeating-linear-gradient(90deg,transparent 0 60px,#48caff33 61px,transparent 62px 122px)!important;mask-image:radial-gradient(ellipse at center,#000 0%,#000d 48%,transparent 82%)!important}
+.motion-backdrop:after{background:repeating-linear-gradient(125deg,transparent 0 54px,#188dff33 55px,#56cfff44 56px,transparent 57px 112px),linear-gradient(110deg,transparent 20%,#168dff12 44%,#36c8ff30 50%,#4b73ff18 55%,transparent 78%)!important}
+.motion-backdrop i{border-color:#258dff!important;box-shadow:0 0 65px #168dff44,inset 0 0 55px #168dff22!important}
+.motion-backdrop i:nth-child(2){border-color:#38d5ff!important;box-shadow:0 0 65px #29bfe944,inset 0 0 55px #29bfe922!important}
+.motion-backdrop i:nth-child(3){border-color:#718cff!important;box-shadow:0 0 65px #506eff44,inset 0 0 55px #506eff22!important}
+.world-globe{animation:globeSideSway 16s ease-in-out infinite alternate!important;filter:drop-shadow(0 0 30px #147dff33)!important}
+.globe-sphere{border-color:#45baffaa!important;box-shadow:inset -42px -18px 72px #020812dd,inset 18px 10px 42px #48baff18,0 0 48px #168dff22!important}
+.globe-land{filter:brightness(1.2) saturate(1.35)!important;opacity:.8!important}
+.globe-latitudes,.globe-longitudes,.globe-orbit{border-color:#36aaff66!important}
+.globe-aura{background:radial-gradient(circle,#168dff20,transparent 68%)!important}
+@keyframes globeSideSway{0%{transform:translate3d(-5vw,0,0) rotate(-8deg)}50%{transform:translate3d(0,1.5vh,0) rotate(0deg)}100%{transform:translate3d(5vw,-1vh,0) rotate(8deg)}}
+@media(max-width:600px){.top-coin-inner{gap:7px;min-height:59px}.top-coin-brand small{display:none}.top-coin-brand b{font-size:9px;letter-spacing:.7px}.top-coin-icon{width:31px;height:31px}.top-coin-action{padding:9px 8px;font-size:9px}.top-coin-server{display:none}.top-coin-bar{top:62px}}
+@media(prefers-reduced-motion:reduce){.world-globe{animation:none!important}}
+</style>
+
+
+<style>
+/* Header wallet shortcut and premium server-store card arrangement */
+.top-coin-wallet{background:linear-gradient(115deg,#061a36,#0b3e78,#086fc4)!important;border-color:#55baff77!important}
+#planDashboard .dashboard-plan-grid{grid-template-columns:repeat(auto-fit,minmax(145px,1fr))!important;gap:15px!important;margin-top:20px}
+#planDashboard .dashboard-plan{position:relative;isolation:isolate;overflow:hidden;min-height:112px;padding:17px 15px!important;border-radius:17px!important;background:linear-gradient(145deg,#071b35,#0b2d55 55%,#061326)!important;border:1px solid #228cff66!important;box-shadow:0 8px 24px #001b3d66,inset 0 1px 0 #8ddaff18!important;color:#e9f6ff!important;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease!important}
+#planDashboard .dashboard-plan:before{content:"";position:absolute;inset:-1px;z-index:-1;border-radius:inherit;background:conic-gradient(from 0deg,transparent 0 65%,#24bfff 76%,#3b6cff 84%,transparent 95%);opacity:.4;animation:planBoxOrbit 7s linear infinite}
+#planDashboard .dashboard-plan:after{content:"";position:absolute;inset:1px;z-index:-1;border-radius:15px;background:linear-gradient(145deg,#071b35,#0b2d55 55%,#061326)}
+#planDashboard .dashboard-plan span{color:#9adfff!important;font-size:10px!important;letter-spacing:1.1px!important}
+#planDashboard .dashboard-plan strong{color:#fff!important;font-size:clamp(20px,2vw,26px)!important;text-shadow:0 0 18px #168dff55}
+#planDashboard .dashboard-plan small{color:#65bfff!important;font-size:11px!important}
+#planDashboard .dashboard-plan:hover{transform:translateY(-5px) scale(1.015)!important;border-color:#48caff!important;box-shadow:0 14px 32px #007bff33,0 0 22px #18aaff22!important}
+#panels .grid{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))!important;gap:18px!important}
+#panels .card{position:relative;isolation:isolate;min-width:0;border-radius:20px!important;padding:23px!important;background:linear-gradient(145deg,#071b35,#0c2b50 52%,#061326)!important;border:1px solid #258cff66!important;box-shadow:0 9px 26px #00152f66,inset 0 1px 0 #8bdcff16!important;overflow:hidden;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease!important}
+#panels .card:before{content:"";position:absolute;z-index:-1;inset:-2px;border-radius:inherit;background:conic-gradient(from 0deg,transparent 0 70%,#25c7ff 80%,#376cff 87%,transparent 97%);opacity:.33;animation:planBoxOrbit 9s linear infinite}
+#panels .card:after{content:"";position:absolute;z-index:-1;inset:1px;border-radius:18px;background:linear-gradient(145deg,#071b35,#0c2b50 52%,#061326)}
+#panels .card:hover{transform:translateY(-5px)!important;border-color:#42caff!important;box-shadow:0 16px 36px #007bff33,0 0 24px #18aaff22!important}
+#panels .card.selected{border-color:#4ce0ff!important;box-shadow:0 0 0 1px #36d5ef66,0 14px 36px #007bff33!important}
+@keyframes planBoxOrbit{to{transform:rotate(360deg)}}
+/* Smooth, richer background motion; globe floats and turns subtly side to side */
+.motion-backdrop{background-size:220% 220%!important;animation:blueWorldFlow 24s ease-in-out infinite alternate!important}
+@keyframes blueWorldFlow{0%{background-position:0% 15%;filter:hue-rotate(-8deg)}50%{background-position:100% 70%;filter:hue-rotate(5deg)}100%{background-position:25% 100%;filter:hue-rotate(12deg)}}
+.world-globe{animation:globeSideSway 18s ease-in-out infinite alternate,globeSoftTurn 32s linear infinite!important;transform-origin:center!important}
+@keyframes globeSoftTurn{0%{rotate:-4deg}50%{rotate:4deg}100%{rotate:-4deg}}
+@media(max-width:700px){#planDashboard .dashboard-plan-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}#panels .grid{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))!important}.top-coin-wallet{display:none}}
+@media(max-width:420px){#panels .grid{grid-template-columns:1fr!important}.top-coin-inner{flex-wrap:wrap}.top-coin-value{margin-left:0}}
+@media(prefers-reduced-motion:reduce){.motion-backdrop,.world-globe,#planDashboard .dashboard-plan:before,#panels .card:before{animation:none!important}}
+</style>
+
+<style>
+main.wrap>#planManager{order:5;margin-top:26px}
+.plan-manager-section{scroll-margin-top:145px}
+.plan-manager-layout{display:grid;grid-template-columns:minmax(250px,.8fr) minmax(300px,1.2fr);gap:18px;margin-top:18px}
+.plan-manager-form,.plan-manager-list{background:linear-gradient(145deg,#071b35,#0b2d55 55%,#061326)!important;border:1px solid #278cff66!important;border-radius:20px!important;box-shadow:0 10px 28px #001b3d66!important;color:#eaf6ff}
+.plan-manager-form h3,.plan-manager-list h3{color:#eaf6ff;margin-top:0}
+.plan-manager-form label{color:#a8dfff}
+.plan-manager-form input{background:#031226!important;border:1px solid #247dce88!important;color:#fff!important}
+.manager-form-actions{display:flex;gap:10px;flex-wrap:wrap}
+.manager-list-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+.manager-list-heading span{color:#75caff;font-size:11px;font-weight:800}
+.manager-plan-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #238bff2a}
+.manager-plan-row:last-child{border-bottom:0}
+.manager-plan-info b{display:block;color:#dff4ff;font-size:12px;letter-spacing:.6px}
+.manager-plan-info span{display:block;color:#78caff;font-size:11px;margin-top:4px}
+.manager-row-actions{display:flex;gap:6px;flex-shrink:0}
+.manager-row-actions button{border:1px solid #3a9cff66;border-radius:9px;padding:7px 10px;background:#0c3b70;color:#eaf6ff;font-weight:800;font-size:10px;cursor:pointer}
+.manager-row-actions .manager-delete{background:#351b35;border-color:#c16aff55;color:#e9c8ff}
+.manager-row-actions button:hover{filter:brightness(1.2)}
+@media(max-width:720px){.plan-manager-layout{grid-template-columns:1fr}.plan-manager-section{scroll-margin-top:125px}}
+</style>
+
+<style>
+main.wrap>#adminDashboard{order:4;margin-top:26px}
+.admin-dashboard-section{scroll-margin-top:135px}
+.admin-hero{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:25px 28px;border:1px solid #258dff66;border-radius:22px;background:linear-gradient(120deg,#071a34,#0d3768 52%,#061326);box-shadow:0 12px 34px #001b3d55;margin-bottom:18px}
+.admin-kicker{font-size:10px;letter-spacing:2px;font-weight:950;color:#66caff}
+.admin-hero h2{margin:8px 0;color:#f1f9ff;font-size:clamp(24px,4vw,34px)}
+.admin-hero p{margin:0;color:#9bc8ed;max-width:650px;font-size:13px;line-height:1.6}
+.admin-status{white-space:nowrap;display:flex;align-items:center;gap:8px;border:1px solid #2e94ff55;background:#03172b88;border-radius:30px;padding:10px 13px;color:#9bd8ff;font-size:10px;font-weight:900;letter-spacing:1px}
+.admin-status-dot{width:8px;height:8px;border-radius:50%;background:#ffb44d;box-shadow:0 0 12px #ffb44d}
+.admin-gate{max-width:560px;margin:0 auto 24px;text-align:center;background:linear-gradient(145deg,#071b35,#0b2d55 55%,#061326)!important;border:1px solid #278cff66!important;border-radius:20px!important}
+.admin-gate-mark{width:54px;height:54px;display:grid;place-items:center;border-radius:16px;margin:0 auto 12px;background:linear-gradient(140deg,#168dff,#2ad4ff);color:#06152a;font-size:25px;font-weight:900}
+.admin-gate h3{color:#effaff;margin:8px}
+.admin-gate .field{text-align:left}
+.admin-gate input{background:#031226!important;border:1px solid #247dce88!important;color:white!important}
+.admin-gate .notice{margin-top:14px;text-align:left}
+.admin-stat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0}
+.admin-stat-card{padding:16px;border:1px solid #268cff55;border-radius:16px;background:linear-gradient(145deg,#071b35,#0a2850);box-shadow:0 7px 22px #00152f44}
+.admin-stat-card span{display:block;color:#85d2ff;font-size:9px;font-weight:900;letter-spacing:1.2px}
+.admin-stat-card strong{display:block;color:#f2fbff;font-size:28px;margin:7px 0}
+.admin-stat-card small{color:#80aeda;font-size:10px}
+.admin-console{border:1px solid #258dff66;border-radius:20px;background:#040e1beF;overflow:hidden;box-shadow:0 12px 34px #00152f66}
+.admin-tabs{display:flex;gap:5px;overflow-x:auto;padding:12px;border-bottom:1px solid #238bff33;background:#06172b}
+.admin-tab{flex:0 0 auto;border:1px solid transparent;border-radius:10px;background:transparent;color:#8abbe7;padding:10px 13px;font-size:11px;font-weight:900;cursor:pointer}
+.admin-tab.active{background:linear-gradient(110deg,#126bff,#139de9);color:#fff;border-color:#68caff55;box-shadow:0 5px 16px #007bff22}
+.admin-tab-panel{display:none;padding:20px}
+.admin-tab-panel.active{display:block}
+.admin-welcome{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:10px 0 20px}
+.admin-welcome h3{color:#effaff;margin:8px 0}
+.admin-welcome p,.admin-panel-head p{color:#90bce2;font-size:12px;line-height:1.6;margin:0}
+.admin-overview-icon{font-size:48px;filter:drop-shadow(0 0 15px #128dff66)}
+.admin-shortcuts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.admin-shortcut{display:flex;justify-content:space-between;gap:10px;align-items:center;text-align:left;padding:15px;border:1px solid #248bff44;border-radius:13px;background:linear-gradient(140deg,#071c36,#0b2d54);color:#dff4ff;font-weight:800;font-size:12px;cursor:pointer}
+.admin-shortcut b{color:#5ecaff;font-size:17px}
+.admin-note{margin-top:16px;padding:13px;border:1px solid #298fff33;border-radius:12px;background:#061a31;color:#8cb9df;font-size:11px;line-height:1.65}
+.admin-panel-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:16px}
+.admin-panel-head h3{margin:0 0 6px;color:#effaff}
+.admin-inline-form{padding:16px;margin:14px 0;border:1px solid #258cff44;border-radius:14px;background:#06172b}
+.admin-inline-form form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.admin-inline-form .field{margin:0}
+.admin-inline-form label,.admin-settings-form label{color:#9dd8ff}
+.admin-inline-form input,.admin-inline-form select,.admin-settings-form input,.admin-settings-form textarea{background:#031226!important;border:1px solid #247dce88!important;color:#f3faff!important}
+.admin-form-actions{grid-column:1/-1;display:flex;gap:10px;flex-wrap:wrap}
+.admin-table-wrap{width:100%;overflow-x:auto;border:1px solid #228bff33;border-radius:13px}
+.admin-table{width:100%;border-collapse:collapse;min-width:520px}
+.admin-table th{padding:12px;text-align:left;background:#0a2442;color:#78caff;font-size:10px;letter-spacing:.8px}
+.admin-table td{padding:12px;border-top:1px solid #1c5b9433;color:#d5eaff;font-size:11px}
+.admin-row-edit,.admin-row-delete{margin:2px;border:1px solid #3a9cff66;border-radius:8px;padding:7px 9px;background:#0c3b70;color:#eaf6ff;font-weight:800;font-size:10px;cursor:pointer}
+.admin-row-delete{background:#351b35;border-color:#c16aff55;color:#e9c8ff}
+.admin-settings-form{max-width:650px;display:grid;gap:13px}
+.admin-danger-zone{margin-top:22px;padding:16px;border:1px solid #b65bff33;border-radius:14px;background:#160f24;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.admin-danger-zone h4{width:100%;color:#e8caff;margin:0 0 5px}
+.top-coin-admin{background:linear-gradient(110deg,#0c2c54,#40277a)!important;border-color:#8b8bff55!important}
+@media(max-width:760px){.admin-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-hero{align-items:flex-start;flex-direction:column;padding:20px}.admin-inline-form form{grid-template-columns:1fr}.admin-panel-head{align-items:flex-start;flex-direction:column}.admin-shortcuts{grid-template-columns:1fr}.admin-tab-panel{padding:14px}}
+
+/* TALKLESS TECH layout refinement: clearer hierarchy, spacing and responsive alignment */
+:root{scroll-behavior:smooth;scroll-padding-top:92px}
+body{line-height:1.55}
+.wrap{width:min(1160px,calc(100% - 36px));margin-inline:auto}
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(18px);background:rgba(3,12,25,.88);border-bottom:1px solid rgba(77,169,255,.16)}
+header nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.brand{flex-shrink:0}
+.navlinks{display:flex;align-items:center;justify-content:center;gap:clamp(12px,2vw,26px);flex-wrap:wrap}
+.nav-actions{display:flex;align-items:center;gap:10px}
+section:not(.hero):not(.trusted-strip){width:min(1160px,calc(100% - 36px));margin:clamp(34px,5vw,68px) auto;padding:clamp(20px,3vw,34px);border:1px solid rgba(76,155,235,.12);border-radius:24px;background:linear-gradient(145deg,rgba(7,23,43,.66),rgba(4,14,29,.42));box-shadow:0 18px 48px rgba(0,0,0,.16)}
+section.hero,section.trusted-strip{width:100%;margin-inline:0}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:22px}
+.section-head h2,.admin-hero h2{margin:5px 0 8px;line-height:1.12;letter-spacing:-.035em}
+.section-head .muted{max-width:680px;line-height:1.65}
+.grid{gap:16px}
+.box,.card{border-radius:18px}
+#account{scroll-margin-top:100px}
+#customerDashboard{max-width:100%;margin-inline:auto}
+.customer-heading{align-items:center;gap:20px;flex-wrap:wrap}
+#adminDashboard{position:relative;overflow:hidden;border-color:rgba(65,154,255,.3);background:radial-gradient(ellipse at 5% 0%,rgba(25,111,220,.16),transparent 42%),linear-gradient(145deg,rgba(5,19,37,.96),rgba(3,11,23,.94))}
+.admin-hero{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(18px,3vw,30px);margin-bottom:20px;border:1px solid rgba(73,165,255,.22);border-radius:20px;background:linear-gradient(115deg,rgba(10,45,82,.82),rgba(12,27,55,.68))}
+.admin-hero p{max-width:650px;color:#9fc4e8;line-height:1.7}
+.admin-gate{width:min(100%,560px);margin:26px auto;padding:clamp(22px,4vw,34px);text-align:center;border:1px solid rgba(71,169,255,.32);background:linear-gradient(145deg,#0a2340,#07162a);box-shadow:0 18px 46px rgba(0,0,0,.28)}
+.admin-gate form{max-width:420px;margin:20px auto 0;text-align:left}
+.admin-gate form .btn{width:100%;margin-top:12px}
+.admin-stat-grid{gap:14px;margin:22px 0}
+.admin-stat-card{min-height:126px;display:flex;flex-direction:column;justify-content:center}
+.admin-console{border-radius:18px}
+.admin-tabs{position:sticky;top:72px;z-index:5;flex-wrap:nowrap;scrollbar-width:thin}
+.admin-tab-panel{padding:clamp(16px,2.5vw,28px)}
+.admin-shortcuts{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.admin-shortcut{min-height:62px;transition:transform .18s ease,border-color .18s ease}
+.admin-shortcut:hover{transform:translateY(-2px);border-color:#48baffaa}
+.admin-table-wrap{margin-top:16px}
+.admin-panel-head{padding-bottom:14px;border-bottom:1px solid rgba(68,151,225,.16)}
+.admin-inline-form{padding:clamp(14px,2vw,22px)}
+#planManager{border-color:rgba(128,112,255,.25);background:linear-gradient(145deg,rgba(20,20,52,.8),rgba(4,14,29,.75))}
+.plan-manager-layout{display:grid;grid-template-columns:minmax(260px,.85fr) minmax(0,1.4fr);gap:18px;align-items:start}
+.plan-manager-form,.plan-manager-list{padding:clamp(18px,2.5vw,26px)}
+.manager-list-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.steps{gap:14px}
+footer{padding:24px 0;margin-top:50px;border-top:1px solid rgba(70,145,220,.16);color:#91b8dc}
+[hidden]{display:none!important}
+@media(max-width:850px){.navlinks{display:none}.admin-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr))}.plan-manager-layout{grid-template-columns:1fr}}
+@media(max-width:600px){
+ .wrap{width:min(100% - 24px,1160px)}
+ header nav{min-height:62px}
+ section:not(.hero):not(.trusted-strip){width:calc(100% - 20px);margin:24px auto;padding:16px;border-radius:18px}
+ .section-head{align-items:flex-start;flex-direction:column}
+ .admin-hero{padding:18px}
+ .admin-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .admin-stat-card{padding:13px;min-height:108px}
+ .admin-stat-card strong{font-size:24px}
+ .admin-tabs{top:62px;padding:9px}
+ .admin-tab{padding:9px 11px}
+ .admin-shortcuts{grid-template-columns:1fr}
+ .admin-panel-head{gap:10px}
+ .admin-panel-head .btn{width:100%}
+ .admin-table{min-width:560px}
+ .top-coin-inner{flex-wrap:wrap;gap:10px}
+ footer .wrap{display:flex;flex-direction:column;gap:8px}
+ footer .wrap span{float:none!important}
+}
+@media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}.admin-shortcut{transition:none}.admin-shortcut:hover{transform:none}}
+</style>
+</body>
+</html>
